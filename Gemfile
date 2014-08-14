@@ -13,6 +13,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'valid_email'
 # using psql both locally and production
 gem 'pg'
+gem 'turbolinks'
 
 group :development do
   # Spring speeds up development by keeping your application running in the
