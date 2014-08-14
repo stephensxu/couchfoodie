@@ -13,7 +13,7 @@ User
 - nick_name
 has_one Restaurant
 
-Restaurant
+Kitchen
 - id
 - name
 - description
