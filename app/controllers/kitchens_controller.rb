@@ -30,15 +30,12 @@ class KitchensController < ApplicationController
   # POST /kitchens.json
   def create
     @kitchen = Kitchen.new(kitchen_params)
+    @kitchen.user = current_user
 
-    respond_to do |format|
-      if @kitchen.save
-        format.html { redirect_to @kitchen, notice: 'Kitchen was successfully created.' }
-        format.json { render :show, status: :created, location: @kitchen }
-      else
-        format.html { render :new }
-        format.json { render json: @kitchen.errors, status: :unprocessable_entity }
-      end
+    if @kitchen.save
+      redirect_to root_url, notice: 'Kitchen was successfully created.'
+    else
+      render :new
     end
   end
 
