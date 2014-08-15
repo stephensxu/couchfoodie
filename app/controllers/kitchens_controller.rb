@@ -64,13 +64,14 @@ class KitchensController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_kitchen
-      @kitchen = Kitchen.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_kitchen
+    @kitchen = Kitchen.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def kitchen_params
-      params[:kitchen]
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def kitchen_params
+    params.require(:kitchen).permit(:name, :description, :street_address, :city,
+                   :state, :zipcode)
+  end
 end
