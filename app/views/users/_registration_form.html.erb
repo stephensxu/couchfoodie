@@ -1,0 +1,38 @@
+<div class="registration">
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %>. Oops, please check your input and try again!</h2>
+
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <h4><%= f.label :email %></h4>
+    <%= f.text_field :email, :placeholder => "Email", :class => "input_box" %>
+  </div>
+
+  <div class="field">
+    <h4><%= f.label :nickname %></h4>
+    <%= f.text_field :nickname, :placeholder => "Nickname", :class => "input_box" %>
+  </div>
+
+  <div class="field">
+    <h4><%= f.label :password  %></h4>
+    <%= f.password_field :password, :placeholder => "password", :class => "input_box" %>
+  </div>
+
+  <div class="field">
+    <h4><%= f.label :password_confirmation %></h4>
+    <%= f.password_field :password_confirmation, :placeholder => "password", :class => "input_box" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Create Account", :class => "button" %>
+  </div>
+<% end %>
+</div>

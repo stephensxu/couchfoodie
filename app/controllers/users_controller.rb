@@ -2,8 +2,8 @@ class UsersController < ApplicationController
 
   def index
     current_user
-    @link = Link.new
-    @links = Link.order('created_at DESC')
+    @kitchen = Kitchen.new
+    @kitchens = Kitchen.order('created_at DESC')
     render :index
   end
 
@@ -27,6 +27,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:email, :nickname, :password, :password_confirmation)
   end
 end
