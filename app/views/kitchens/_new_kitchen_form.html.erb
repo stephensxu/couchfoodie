@@ -1,6 +1,42 @@
-<div class="registration">
-  Create my own kitchen<br>
+<%= form_for kitchen do |f| %>
 
+  <% if kitchen.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(kitchen.errors.count, "error") %>. Oops, please check your input and try again!</h2>
 
-  <%= link_to 'Home', root_url %>
-</div>
+      <ul>
+        <% kitchen.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table class="create_kitchen_table", cellspaceing="30">
+    <tr>
+      <td align="left"><span class="login_table_content">Name</span></td> 
+      <td><%= f.text_field :name, :class => "input_box" %></td>
+    </tr>
+    <tr>
+      <td align="left"><span class="login_table_content">Description</span></td> 
+      <td><%= f.text_area :description, :class => "text_box" %></td>
+    </tr>
+    <tr>
+      <td align="left"><span class="login_table_content">Street address</span></td>
+      <td><%= f.text_field :street_address, :class => "input_box" %></td>
+    </tr>
+    <tr>
+      <td align="left"><span class="login_table_content">City</span></td> 
+      <td><%= f.text_field :city, :class => "input_box" %></td>
+    </tr>
+    <tr>
+      <td align="left"><span class="login_table_content">State</span></td> 
+      <td><%= f.text_field :state, :class => "input_box" %></td>
+    </tr>
+    <tr>
+      <td align="left"><span class="login_table_content">Zipcode</span></td> 
+      <td><%= f.text_field :zipcode, :class => "input_box" %></td>
+    </tr>
+  </table><br>
+      <%= f.submit "Create kitchen", :class => "button" %>
+<% end %>
