@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20140815063227) do
     t.string   "status",       default: "pending", null: false
     t.date     "reserve_date",                     null: false
     t.time     "reserve_time",                     null: false
-    t.string   "message"
+    t.string   "message",                          null: false
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.integer  "user_id"

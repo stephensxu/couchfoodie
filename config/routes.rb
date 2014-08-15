@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :users, :except => :destroy
 
+  resources :reservations
+
   controller :sessions do
     post '/login',          :action => 'create',        :as => 'login'
     get  '/session',        :action => 'show'
