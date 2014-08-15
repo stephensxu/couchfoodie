@@ -4,8 +4,12 @@ class KitchensController < ApplicationController
   # GET /kitchens
   # GET /kitchens.json
   def index
-    @kitchens = Kitchen.all
-    render :index
+    @kitchens = Kitchen.order('created_at DESC')
+    if logged_in?
+      redirect_to users_path
+    else
+      render :index
+    end
   end
 
   # GET /kitchens/1
