@@ -14,6 +14,7 @@ gem 'valid_email'
 # using psql both locally and production
 gem 'pg'
 gem 'turbolinks'
+gem 'simple_form'
 
 group :development do
   # Spring speeds up development by keeping your application running in the
