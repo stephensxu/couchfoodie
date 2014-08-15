@@ -1,0 +1,12 @@
+<h1 class="header"><%= render partial: "shared/header" %></h1>
+<br>
+
+<p id="sign_in_benefits">You are signed in.</p>
+
+<div class="notice">
+  <% if flash[:notice] %>
+    <strong><%= flash[:notice] %></strong>
+  <% end %>
+</div>
+
+<%= render partial: "shared/footer" %>
