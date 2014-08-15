@@ -11,4 +11,13 @@
 
 <%= link_to 'Create Kitchen', new_kitchen_path %>
 
+<% @kitchens.each do |kitchen| %>
+<hr>
+  <h3><%= kitchen.name %></h3><br>
+  <strong>Kitchen owner: </strong> <%= kitchen.user.nickname %><br>
+  <strong>Description: </strong><%= kitchen.description %><br>
+  <strong>Location: </strong> <%= kitchen.city %>, <%= kitchen.state %>, <%= kitchen.zipcode %><br>
+<hr>
+<% end %>
+
 <%= render partial: "shared/footer" %>
