@@ -12,4 +12,5 @@ class Kitchen < ActiveRecord::Base
   validates :user_id, :presence => true, :numericality => true
 
   belongs_to :user
+  has_many :reservations
 end

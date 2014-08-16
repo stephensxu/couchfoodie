@@ -24,18 +24,14 @@ class ReservationsController < ApplicationController
   # POST /reservations
   # POST /reservations.json
   def create
-    @reservation = Reservation.new(reservation_params)
+    @kitchen = Kitchen.find(params[:kitchen_id])
+    @reservation = @kitchen.reservations.build(reservation_params)
     @reservation.user = current_user
-    @reservation.kitchen
 
-    respond_to do |format|
-      if @reservation.save
-        format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
-        format.json { render :show, status: :created, location: @reservation }
-      else
-        format.html { render :new }
-        format.json { render json: @reservation.errors, status: :unprocessable_entity }
-      end
+    if @reservation.save
+      redirect_to root_url, notice: 'Reservation was successfully sent.'
+    else
+      render :new
     end
   end
 
@@ -71,6 +67,6 @@ class ReservationsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def reservation_params
-    params.require(:reservation).permit(:message, :reserve_date, :reserve_time)
+    params.require(:reservation).permit(:message, :reserve_date, :reserve_time, :kitchen_id)
   end
 end

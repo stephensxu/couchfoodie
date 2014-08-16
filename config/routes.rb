@@ -2,11 +2,11 @@ Rails.application.routes.draw do
 
   root :to => 'kitchens#index'
 
-  resources :kitchens, :except => :index
+  resources :kitchens, :except => :index do
+    resources :reservations
+  end
 
   resources :users, :except => :destroy
-
-  resources :reservations
 
   controller :sessions do
     post '/login',          :action => 'create',        :as => 'login'

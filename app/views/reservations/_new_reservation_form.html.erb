@@ -1,4 +1,4 @@
-<%= form_for(reservation) do |f| %>
+<%= form_for([kitchen, reservation]) do |f| %>
   <% if reservation.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(reservation.errors.count, "error") %>. Oops, need a valid URL and nickname</h2>

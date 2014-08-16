@@ -17,7 +17,7 @@
   <strong>Kitchen owner: </strong> <%= kitchen.user.nickname %><br>
   <strong>Description: </strong><%= kitchen.description %><br>
   <strong>Location: </strong> <%= kitchen.city %>, <%= kitchen.state %>, <%= kitchen.zipcode %><br><br>
-  <%= render partial: "reservations/new_reservation_form", :locals => { :reservation => @reservation } %>
+  <%= render partial: "reservations/new_reservation_form", :locals => { :reservation => @reservation, :kitchen => kitchen } %>
 <hr>
 <% end %>
 
