@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root :to => 'kitchens#index'
 
-  resources :kitchens
+  resources :kitchens, :except => :index
 
   resources :users, :except => :destroy
 
