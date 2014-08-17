@@ -57,10 +57,11 @@ class KitchensController < ApplicationController
   # DELETE /kitchens/1
   # DELETE /kitchens/1.json
   def destroy
-    @kitchen.destroy
-    respond_to do |format|
-      format.html { redirect_to kitchens_url, notice: 'Kitchen was successfully destroyed.' }
-      format.json { head :no_content }
+    if @kitchen.editable_by?(current_user)
+      @kitchen.destroy
+      redirect_to kitchens_users_path, notice: 'Kitchen was successfully destroyed.'
+    else
+      redirect_to kitchens_users_path, notce: "you are not authroized to delete this kitchen!"
     end
   end
 
