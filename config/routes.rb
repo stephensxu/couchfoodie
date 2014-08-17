@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   end
 
   resources :users, :except => :destroy do
-    resources :kitchens, :only => [:index, :show, :edit]
+    collection do
+      get 'kitchens'
+    end
   end
 
   controller :sessions do

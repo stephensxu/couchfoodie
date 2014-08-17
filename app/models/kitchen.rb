@@ -1,4 +1,6 @@
 class Kitchen < ActiveRecord::Base
+  scope :for_user, lambda { |user| where(:user => user) }
+
   validates :name, :presence => true, :uniqueness => true, :length => { :minimum => 6 }
   validates :description, :presence => true, :length => { :minimum => 10, :maximum => 500 }
   validates :street_address, :presence => true, :uniqueness => true, :length => { :minimum => 6 }

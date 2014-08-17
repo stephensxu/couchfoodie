@@ -7,6 +7,15 @@ class UsersController < ApplicationController
     render :index
   end
 
+  def kitchens
+    if logged_in?
+      @kitchens = Kitchen.for_user(current_user)
+      render :user_created_kitchen
+    else
+      redirect_to root_url
+    end
+  end
+
   def show
   end
 

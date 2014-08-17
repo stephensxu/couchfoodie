@@ -1,0 +1,17 @@
+<h1 class="header"><%= render partial: "shared/header" %></h1>
+<br>
+
+<div class="notice">
+  <% if flash[:notice] %>
+    <strong><%= flash[:notice] %></strong>
+  <% end %>
+</div>
+
+<% @kitchens.each do |kitchen| %>
+<hr>
+  <h3><%= kitchen.name %></h3><br>
+  <strong>Kitchen owner: </strong> <%= kitchen.user.nickname %><br>
+  <strong>Description: </strong><%= kitchen.description %><br>
+  <strong>Location: </strong> <%= kitchen.city %>, <%= kitchen.state %>, <%= kitchen.zipcode %><br><br>
+<hr>
+<% end %>
