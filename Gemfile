@@ -15,6 +15,7 @@ gem 'valid_email'
 gem 'pg'
 gem 'turbolinks'
 gem 'simple_form'
+gem 'annotate', '~> 2.6.5'
 
 group :development do
   # Spring speeds up development by keeping your application running in the
