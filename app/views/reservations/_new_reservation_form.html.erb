@@ -26,6 +26,11 @@
     <%= f.time_field :reserve_time, :class => "url_box" %>
   </div>
 
+  <div class="field">
+    <%= f.label "Number of people" %><br>
+    <%= f.number_field :guest_number, :class => "url_box" %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Request reservation!", :class => "button" %>
   </div>

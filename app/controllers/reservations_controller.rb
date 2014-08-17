@@ -29,7 +29,7 @@ class ReservationsController < ApplicationController
     @reservation.user = current_user
 
     if @reservation.save
-      redirect_to reservations_users_path, notice: 'Reservation was successfully sent.'
+      redirect_to reservations_pending_users_path, notice: 'Reservation was successfully sent.'
     else
       render :new
     end
@@ -38,25 +38,11 @@ class ReservationsController < ApplicationController
   # PATCH/PUT /reservations/1
   # PATCH/PUT /reservations/1.json
   def update
-    respond_to do |format|
-      if @reservation.update(reservation_params)
-        format.html { redirect_to @reservation, notice: 'Reservation was successfully updated.' }
-        format.json { render :show, status: :ok, location: @reservation }
-      else
-        format.html { render :edit }
-        format.json { render json: @reservation.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # DELETE /reservations/1
   # DELETE /reservations/1.json
   def destroy
-    @reservation.destroy
-    respond_to do |format|
-      format.html { redirect_to reservations_url, notice: 'Reservation was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private
@@ -67,6 +53,6 @@ class ReservationsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def reservation_params
-    params.require(:reservation).permit(:message, :reserve_date, :reserve_time, :kitchen_id)
+    params.require(:reservation).permit(:message, :reserve_date, :reserve_time, :kitchen_id, :guest_number)
   end
 end

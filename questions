@@ -1,2 +1,5 @@
 1. Between user and kitchen, should I use one-to-one or one-to-many?
 If I use one-to-one; how can I prevent the data from being destroyed when use has to create new kitchen? 
+
+2. How can I do validation for address input?
+Street, City, State, Zipcode etc.

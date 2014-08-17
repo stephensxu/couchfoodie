@@ -31,6 +31,8 @@ class Reservation < ActiveRecord::Base
   validates :message, :presence => true, :length => { :minimum => 10 }
   validates :user_id, :presence => true
   validates :kitchen_id, :presence => true
+  validates :guest_number, :presence => true, 
+            :numericality => { :only_integer => true, :greater_than => 0, :less_than => 10 }
 
   def self.current_date
     Time.now
