@@ -1,2 +1,8 @@
 Hello there, <strong><%= @current_user.nickname %></strong>!
 <%= link_to('Logout', logout_path) %>
+
+<div class="kitchen_nav_bar">
+  <%= link_to 'My Kitchens', new_kitchen_path %><br>
+
+  <%= link_to 'Create Kitchen', new_kitchen_path %>
+</div>

@@ -3,5 +3,10 @@
   They will automatically be included in application.css.
 */
 .notice {
+  float: left;
 	color: green;
+}
+
+.kitchen_nav_bar {
+  float: right;
 }

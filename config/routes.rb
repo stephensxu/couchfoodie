@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     resources :reservations
   end
 
-  resources :users, :except => :destroy
+  resources :users, :except => :destroy do
+    resources :kitchens, :only => [:index, :show, :edit]
+  end
 
   controller :sessions do
     post '/login',          :action => 'create',        :as => 'login'

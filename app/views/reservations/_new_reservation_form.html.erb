@@ -1,7 +1,7 @@
 <%= form_for([kitchen, reservation]) do |f| %>
   <% if reservation.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(reservation.errors.count, "error") %>. Oops, need a valid URL and nickname</h2>
+      <h2><%= pluralize(reservation.errors.count, "error") %>. Oops, please check input and try again</h2>
 
       <ul>
       <% reservation.errors.full_messages.each do |message| %>
@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label "Reservation message" %><br>
-    <%= f.text_field :message, :class => "text_box" %>
+    <%= f.text_area :message, :class => "text_box" %>
   </div>
 
   <div class="field">

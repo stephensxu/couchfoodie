@@ -11,6 +11,10 @@ class Kitchen < ActiveRecord::Base
 
   validates :user_id, :presence => true, :numericality => true
 
+  def editable_by?(user)
+    user.present? && self.user == user
+  end
+
   belongs_to :user
   has_many :reservations
 end
