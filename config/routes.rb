@@ -42,6 +42,9 @@ Rails.application.routes.draw do
     collection do
       get 'kitchens'
     end
+    collection do
+      get 'reservations'
+    end
   end
 
   controller :sessions do

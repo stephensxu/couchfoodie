@@ -1,5 +1,6 @@
+<div class="header">
 <h1 class="header"><%= render partial: "shared/header_logged_in" %></h1>
-<br>
+</div>
 
 <div class="notice">
   <% if flash[:notice] %>
@@ -10,7 +11,7 @@
 <% @kitchens.each do |kitchen| %>
 <hr>
   <h3><%= kitchen.name %></h3><br>
-  <strong>Kitchen owner: </strong> <%= kitchen.user.nickname %><br>
+  <strong>Kitchen owner: </strong><%= kitchen.user.nickname %><br>
   <strong>Description: </strong><%= kitchen.description %><br>
   <strong>Location: </strong> <%= kitchen.city %>, <%= kitchen.state %>, <%= kitchen.zipcode %><br>
   <%= button_to("Edit", edit_kitchen_path(kitchen), :method => :get, :class => "post_button")%><br>

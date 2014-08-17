@@ -7,6 +7,10 @@
 	color: green;
 }
 
-.kitchen_nav_bar {
+.nav_bar {
   float: right;
+}
+
+.header {
+  margin-bottom: 3em;
 }

@@ -10,7 +10,16 @@ class UsersController < ApplicationController
   def kitchens
     if logged_in?
       @kitchens = Kitchen.for_user(current_user)
-      render :user_created_kitchen
+      render :user_created_kitchens
+    else
+      redirect_to root_url
+    end
+  end
+
+  def reservations
+    if logged_in?
+      @reservations = Reservation.for_user(current_user)
+      render :user_created_reservations
     else
       redirect_to root_url
     end
