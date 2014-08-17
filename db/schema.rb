@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140817082920) do
+ActiveRecord::Schema.define(version: 20140817232842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20140817082920) do
     t.datetime "updated_at",                       null: false
     t.integer  "user_id"
     t.integer  "kitchen_id"
+    t.integer  "guest_number", default: 1,         null: false
   end
 
   add_index "reservations", ["kitchen_id"], name: "index_reservations_on_kitchen_id", using: :btree
