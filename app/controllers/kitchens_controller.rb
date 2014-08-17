@@ -54,11 +54,6 @@ class KitchensController < ApplicationController
   # DELETE /kitchens/1
   # DELETE /kitchens/1.json
   def destroy
-    if @kitchen.destroy
-      redirect_to kitchens_users_path, notice: 'Kitchen was successfully destroyed.'
-    else
-      redirect_to kitchens_users_path, notce: "you are not authroized to delete this kitchen!"
-    end
   end
 
   private
@@ -75,6 +70,6 @@ class KitchensController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def kitchen_params
     params.require(:kitchen).permit(:name, :description, :street_address, :city,
-                   :state, :zipcode)
+                   :state, :zipcode, :data_status)
   end
 end
