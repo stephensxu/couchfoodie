@@ -19,3 +19,19 @@ This is the golden opportunity to cure starvation, longingness and socialize wit
 3. As a Host, I am willing to cook for guest in my spare time, I can create a Restaurant
 4. In the Listing, specify which meal on which date I am willing to welcome additonal guest.
 5. As a Guest looking for a place to have dinner; I can create a DinningRequest for a specific Restaurant on a particular date and time.
+<hr>
+[V1.0]
+
+1. Visitor may register as a User
+2. Visitor may log in
+3. User may create a Kitchen
+4. User may see a list of available Kitchens
+5. User may create a pending Reservation for a Kitchen
+6. Kitchen owner may see pending Reservation
+7. Guest may see pending Reservation
+8. Kitchen owner may deny Reservation for their Kitchen
+9. Kitchen owner may approve Reservation for their Kitchen
+10. Guest may see denied Reservation
+11. Guest may see allowed Reservation
+12. Guest may include a message in the reservation
+13. Guest may include date and time for their reservation
