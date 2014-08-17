@@ -1,5 +1,6 @@
 class KitchensController < ApplicationController
   before_action :set_kitchen, only: [:show, :edit, :update, :destroy]
+  before_action :require_authorization!, only: [:edit, :update, :destroy]
   before_action :current_user
 
   # GET /kitchens
@@ -34,7 +35,7 @@ class KitchensController < ApplicationController
     @kitchen.user = current_user
 
     if @kitchen.save
-      redirect_to root_url, notice: 'Kitchen was successfully created.'
+      redirect_to kitchens_users_path, notice: 'Kitchen was successfully created.'
     else
       render :new
     end
@@ -43,22 +44,17 @@ class KitchensController < ApplicationController
   # PATCH/PUT /kitchens/1
   # PATCH/PUT /kitchens/1.json
   def update
-    respond_to do |format|
-      if @kitchen.update(kitchen_params)
-        format.html { redirect_to @kitchen, notice: 'Kitchen was successfully updated.' }
-        format.json { render :show, status: :ok, location: @kitchen }
-      else
-        format.html { render :edit }
-        format.json { render json: @kitchen.errors, status: :unprocessable_entity }
-      end
+    if @kitchen.update(kitchen_params)
+      redirect_to kitchens_users_path, notice: 'Kitchen was succesfully updated'
+    else
+      render :edit
     end
   end
 
   # DELETE /kitchens/1
   # DELETE /kitchens/1.json
   def destroy
-    if @kitchen.editable_by?(current_user)
-      @kitchen.destroy
+    if @kitchen.destroy
       redirect_to kitchens_users_path, notice: 'Kitchen was successfully destroyed.'
     else
       redirect_to kitchens_users_path, notce: "you are not authroized to delete this kitchen!"
@@ -66,6 +62,11 @@ class KitchensController < ApplicationController
   end
 
   private
+
+  def require_authorization!
+    head(:forbidden) unless @kitchen.editable_by?(current_user)
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_kitchen
     @kitchen = Kitchen.find(params[:id])

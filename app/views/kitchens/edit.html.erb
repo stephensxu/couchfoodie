@@ -1,0 +1,8 @@
+<h1 class="header"><%= render partial: "shared/header_logged_in" %></h1>
+<br>
+<div class="new_kitchen">
+  <h2>Edit my own kitchen</h2>
+
+  <%= render partial: "new_kitchen_form", locals: { :kitchen => @kitchen } %>
+
+</div>
