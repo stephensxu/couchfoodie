@@ -1,5 +1,6 @@
 class KitchensController < ApplicationController
   before_action :set_kitchen, only: [:show, :edit, :update, :destroy]
+  before_action :current_user
 
   # GET /kitchens
   # GET /kitchens.json
