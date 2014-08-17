@@ -14,6 +14,11 @@
 #  created_at     :datetime
 #  updated_at     :datetime
 #  user_id        :integer
+#  data_status    :string(255)      default("active"), not null
+#
+# Indexes
+#
+#  index_kitchens_on_user_id  (user_id)
 #
 
 class Kitchen < ActiveRecord::Base

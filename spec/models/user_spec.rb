@@ -9,6 +9,10 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
+# Indexes
+#
+#  index_users_on_email  (email) UNIQUE
+#
 
 require 'rails_helper'
 

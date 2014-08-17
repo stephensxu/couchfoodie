@@ -12,6 +12,11 @@
 #  user_id      :integer
 #  kitchen_id   :integer
 #
+# Indexes
+#
+#  index_reservations_on_kitchen_id  (kitchen_id)
+#  index_reservations_on_user_id     (user_id)
+#
 
 require 'rails_helper'
 
