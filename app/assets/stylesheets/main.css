@@ -2,6 +2,11 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+html *{
+  font-family: 'Signika', sans-serif !important;
+}
+
 .notice {
   float: left;
 	color: green;
@@ -13,4 +18,11 @@
 
 .header {
   margin-bottom: 3em;
+  font-size: 20px;
+}
+
+.user_reservations_all {
+  margin-top: 5em;
+	text-align: center;
+  font-size: 30px;
 }

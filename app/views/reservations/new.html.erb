@@ -1,3 +1,7 @@
+<div class="header">
+<h1 class="header"><%= render partial: "shared/header_logged_in" %></h1>
+<div>
+
 <div class="reservation_new">
 
   <h2>Make a reservation</h2>
@@ -5,5 +9,4 @@
   <%= render partial: "reservations/new_reservation_form", 
   :locals => { :reservation => @reservation, :kitchen => Kitchen.find(params[:kitchen_id]) } %>
 
-  <%= link_to 'Home', root_url %>
 </div>

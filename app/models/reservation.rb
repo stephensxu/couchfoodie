@@ -22,6 +22,7 @@ require 'date'
 
 class Reservation < ActiveRecord::Base
   scope :for_user, lambda { |user| where(:user => user) }
+  scope :for_status, lambda { |status| where(:status => status) }
 
   validates :status, :presence => true
   validates :reserve_date, :presence => true

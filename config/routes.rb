@@ -43,7 +43,10 @@ Rails.application.routes.draw do
       get 'kitchens'
     end
     collection do
-      get 'reservations'
+      get 'reservations_all'
+      get 'reservations_pending'
+      get 'reservations_approved'
+      get 'reservations_denied'
     end
   end
 

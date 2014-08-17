@@ -16,9 +16,36 @@ class UsersController < ApplicationController
     end
   end
 
-  def reservations
+  def reservations_all
     if logged_in?
       @reservations = Reservation.for_user(current_user)
+      render :user_reservations_all
+    else
+      redirect_to root_url
+    end
+  end
+
+  def reservations_pending
+    if logged_in?
+      @reservations = Reservation.for_user(current_user).for_status("pending")
+      render :user_created_reservations
+    else
+      redirect_to root_url
+    end
+  end
+
+  def reservations_approved
+    if logged_in?
+      @reservations = Reservation.for_user(current_user).for_status("approved")
+      render :user_created_reservations
+    else
+      redirect_to root_url
+    end
+  end
+
+  def reservations_denied
+    if logged_in?
+      @reservations = Reservation.for_user(current_user).for_status("denied")
       render :user_created_reservations
     else
       redirect_to root_url

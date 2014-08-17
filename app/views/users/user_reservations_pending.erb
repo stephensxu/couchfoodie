@@ -10,8 +10,10 @@
   </div>
 
   <% if @reservations.count == 0 %>
-    There is nothing here.
+    <%= There is nothing here %>
   <% end %>
+
+  <%= fuck %>
 
   <% @reservations.each do |reservation| %>
   <hr>

@@ -1,0 +1,15 @@
+<div class="header">
+<h1 class="header"><%= render partial: "shared/header_logged_in" %></h1>
+</div>
+
+<div class="user_reservations_all">
+  <div class="notice">
+    <% if flash[:notice] %>
+      <strong><%= flash[:notice] %></strong>
+    <% end %>
+  </div>
+
+  <%= link_to 'Pending reservations', reservations_pending_users_path %><br>
+  <%= link_to 'Approved reservations', reservations_approved_users_path %><br>
+  <%= link_to 'Denied reservations', reservations_denied_users_path %>
+</div>

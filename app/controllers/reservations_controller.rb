@@ -29,7 +29,7 @@ class ReservationsController < ApplicationController
     @reservation.user = current_user
 
     if @reservation.save
-      redirect_to root_url, notice: 'Reservation was successfully sent.'
+      redirect_to reservations_users_path, notice: 'Reservation was successfully sent.'
     else
       render :new
     end
