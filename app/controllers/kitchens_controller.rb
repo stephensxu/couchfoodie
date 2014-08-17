@@ -6,7 +6,6 @@ class KitchensController < ApplicationController
   # GET /kitchens
   # GET /kitchens.json
   def index
-    @kitchens = Kitchen.order('created_at DESC')
     if logged_in?
       redirect_to users_path
     else

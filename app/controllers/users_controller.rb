@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     current_user
     @kitchen = Kitchen.new
     @reservation = Reservation.new
-    @kitchens = Kitchen.order('created_at DESC')
+    @kitchens = Kitchen.order("created_at DESC")
     render :index
   end
 

@@ -22,6 +22,6 @@ class User < ActiveRecord::Base
   validates :nickname, :presence => true, :length => { :minimum => 6 }, :uniqueness => true,
             :format => { :with => /[\w\s]+/, message: "nickname can only be letters and numbers"}
 
-  has_many :kitchens
+  has_one :kitchen
   has_many :reservations
 end
