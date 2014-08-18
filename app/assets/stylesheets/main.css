@@ -7,13 +7,13 @@ html *{
   font-family: 'Signika', sans-serif !important;
 }
 
+nav {
+  float: right;
+}
+
 .notice {
   float: left;
   color: green;
-}
-
-.nav_bar {
-  float: right;
 }
 
 .header {
