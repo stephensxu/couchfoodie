@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
   def reservations_pending
     @reservations = current_user.reservations.pending
-    render :user_created_reservations
+    render :user_reservations_pending
   end
 
   def reservations_approved
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
 
   def reservations_denied
     @reservations = current_user.reservations.denied
-    render :user_created_reservations
+    render :user_reservations_denied
   end
 
   def show

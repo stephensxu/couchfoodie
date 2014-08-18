@@ -1,4 +1,4 @@
-<div class="main_body">
+<div class="kitchen_list">
 
   <div class="notice">
     <% if flash[:notice] %>
@@ -9,7 +9,7 @@
   <% @kitchens.each do |kitchen| %>
     <% next if kitchen.data_status != "active" %>
   <hr>
-  <div class="kitchen_list">
+  <div class="individule_reservation">
     <h3><%= kitchen.name %></h3><br>
     <strong>Kitchen owner: </strong><%= kitchen.user.nickname %><br>
     <strong>Description: </strong><%= kitchen.description %><br>

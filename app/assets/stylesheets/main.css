@@ -5,6 +5,7 @@
 
 html *{
   font-family: 'Signika', sans-serif !important;
+  color: #3B3F7D;
 }
 
 nav {
@@ -35,8 +36,9 @@ nav {
   margin-top: 3em;
 }
 
-.kitchen_list {
+.individule_kitchen {
   text-align: left;
+  line-height: 1em;
   padding-left: 10em;
   padding-top: 1em;
   padding-bottom: 2em;
