@@ -1,17 +1,13 @@
-<h1 class="welcome"> Welcome to Couchfoodie, everyone is a chef and foodie! </h1>
-<br>
-
 <div class="user_login">
   <h2>Please login to see more</h2>
-  <br>
+  
   <%= render partial: "shared/login_form" %>
-  <br>
+
   <div class="notice">
     <% if flash[:notice] %>
-      <strong><%= flash[:notice] %></strong>
+      <%= flash[:notice] %>
     <% end %>
   </div>
 
   <h2>Or <%= link_to("Sign up", new_user_path) %></h2>
 </div>
-<br>

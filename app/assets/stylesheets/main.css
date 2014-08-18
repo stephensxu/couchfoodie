@@ -1,0 +1,37 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+html *{
+  font-family: 'Signika', sans-serif !important;
+}
+
+nav {
+  float: right;
+}
+
+.notice {
+  float: left;
+  color: green;
+  font-weight: bold;
+}
+
+.header {
+  margin-bottom: 3em;
+  font-size: 20px;
+}
+
+.user_reservations_all {
+  margin-top: 3em;
+	text-align: center;
+  font-size: 30px;
+  line-height: 3em;
+}
+
+.kitchen_list {
+  text-align: left;
+  padding-left: 10em;
+  padding-top: 1em;
+  padding-bottom: 2em;
+}

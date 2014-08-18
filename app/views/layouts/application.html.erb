@@ -6,6 +6,9 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+<header>
+  <h1 class="header"><%= render partial: "shared/header_logged_in" %></h1>
+</header>
 <body>
 
 <%= yield %>

@@ -13,9 +13,18 @@ I get...someone who appreciate my cooking and a new friend!
 
 This is the golden opportunity to cure starvation, longingness and socialize with your neighbors!
 
-
-1. Users can create an account
-2. Users can search for relevant Restaurants
-3. As a Host, I am willing to cook for guest in my spare time, I can create a Restaurant
-4. In the Listing, specify which meal on which date I am willing to welcome additonal guest.
-5. As a Guest looking for a place to have dinner; I can create a DinningRequest for a specific Restaurant on a particular date and time.
+[V1.0]
+* Visitor can create an account
+* As a Host, I am willing to cook for guest in my spare time, I can create a Kitchen
+* In my kitchen, specify which meal on which date I am willing to welcome additonal guest.
+* As a Guest looking for a place to have dinner; I can create a pending reservation for a specific kitchen on a particular date and time.
+* User may see a list of available Kitchens
+* Kitchen owner may see pending Reservation
+* Guest may see pending Reservation
+* Kitchen owner may deny Reservation for their Kitchen
+* Kitchen owner may approve Reservation for their Kitchen
+* Guest may see denied Reservation
+* Guest may see allowed Reservation
+* Guest may include a message in the reservation
+* Guest may include date and time for their reservation
+* Exact address and email address will only be exchanged between host and guest AFTER approval of reservation

@@ -11,26 +11,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140814050650) do
+ActiveRecord::Schema.define(version: 20140818065611) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "kitchens", force: true do |t|
-    t.string   "name",           null: false
-    t.string   "description",    null: false
-    t.string   "street_address", null: false
-    t.string   "city",           null: false
-    t.string   "state",          null: false
-    t.string   "zipcode",        null: false
+    t.string   "name",                              null: false
+    t.string   "description",                       null: false
+    t.string   "street_address",                    null: false
+    t.string   "city",                              null: false
+    t.string   "state",                             null: false
+    t.string   "zipcode",                           null: false
     t.float    "latitude"
     t.float    "longtitude"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.integer  "user_id",                           null: false
+    t.string   "data_status",    default: "active", null: false
   end
 
   add_index "kitchens", ["user_id"], name: "index_kitchens_on_user_id", using: :btree
+
+  create_table "reservations", force: true do |t|
+    t.string   "status",       default: "pending", null: false
+    t.date     "reserve_date",                     null: false
+    t.time     "reserve_time",                     null: false
+    t.string   "message",                          null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.integer  "user_id",                          null: false
+    t.integer  "kitchen_id",                       null: false
+    t.integer  "guest_number", default: 1,         null: false
+  end
+
+  add_index "reservations", ["kitchen_id"], name: "index_reservations_on_kitchen_id", using: :btree
+  add_index "reservations", ["user_id"], name: "index_reservations_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",           null: false

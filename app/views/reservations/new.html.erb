@@ -1,0 +1,8 @@
+<div class="reservation_new">
+
+  <h2>Make a reservation</h2>
+
+  <%= render partial: "reservations/new_reservation_form", 
+  :locals => { :reservation => @reservation, :kitchen => Kitchen.find(params[:kitchen_id]) } %>
+
+</div>
