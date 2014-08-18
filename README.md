@@ -27,3 +27,4 @@ This is the golden opportunity to cure starvation, longingness and socialize wit
 * Guest may see allowed Reservation
 * Guest may include a message in the reservation
 * Guest may include date and time for their reservation
+* Exact address and email address will only be exchanged between host and guest AFTER approval of reservation
