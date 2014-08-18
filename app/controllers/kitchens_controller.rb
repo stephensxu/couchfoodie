@@ -1,6 +1,6 @@
 class KitchensController < ApplicationController
-  before_action :set_kitchen, only: [:show, :edit, :update, :destroy]
-  before_action :require_authorization!, only: [:edit, :update, :destroy]
+  before_action :set_kitchen, :only => [:show, :edit, :update, :destroy]
+  before_action :require_authorization!, :only => [:edit, :update, :destroy]
   before_action :current_user
 
   # GET /kitchens
@@ -11,6 +11,27 @@ class KitchensController < ApplicationController
     else
       render :index
     end
+  end
+
+  def reservations_all
+  end
+
+  def reservations_pending
+    @kitchen = Kitchen.find(params[:id])
+    @reservations = @kitchen.reservations.for_status("pending")
+    render :kitchen_reservations
+  end
+
+  def reservations_approved
+    @kitchen = Kitchen.find(params[:id])
+    @reservations = @kitchen.reservations.for_status("approved")
+    render :kitchen_reservations
+  end
+
+  def reservations_denied
+    @kitchen = Kitchen.find(params[:id])
+    @reservations = @kitchen.reservations.for_status("denied")
+    render :kitchen_reservations
   end
 
   # GET /kitchens/1
@@ -70,5 +91,9 @@ class KitchensController < ApplicationController
   def kitchen_params
     params.require(:kitchen).permit(:name, :description, :street_address, :city,
                    :state, :zipcode, :data_status)
+  end
+
+  def kitchen_selection
+    params.permit(:id)
   end
 end

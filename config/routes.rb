@@ -34,6 +34,15 @@ Rails.application.routes.draw do
 
   root :to => 'kitchens#index'
 
+  resources :kitchens do
+    member do
+      get 'reservations_all'
+      get 'reservations_pending'
+      get 'reservations_approved'
+      get 'reservations_denied'
+    end
+  end
+
   resources :kitchens, :except => :index do
     resources :reservations
   end

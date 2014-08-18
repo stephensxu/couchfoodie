@@ -2,21 +2,44 @@
 <h1 class="header"><%= render partial: "shared/header_logged_in" %></h1>
 </div>
 
-<div class="notice">
-  <% if flash[:notice] %>
-    <strong><%= flash[:notice] %></strong>
+<div class="main_body">
+
+  <div class="notice">
+    <% if flash[:notice] %>
+      <strong><%= flash[:notice] %></strong>
+    <% end %>
+  </div>
+
+  <% @kitchens.each do |kitchen| %>
+    <% next if kitchen.data_status != "active" %>
+  <hr>
+  <div class="kitchen_list">
+    <h3><%= kitchen.name %></h3><br>
+    <strong>Kitchen owner: </strong><%= kitchen.user.nickname %><br>
+    <strong>Description: </strong><%= kitchen.description %><br>
+    <strong>Location: </strong> <%= kitchen.city %>, <%= kitchen.state %>, <%= kitchen.zipcode %><br>
+    <%= button_to("Edit", edit_kitchen_path(kitchen), :method => :get, :class => "post_button")%><br>
+    <%= button_to("Delete", kitchen_path(kitchen), :method => :patch, 
+                  :params => { "kitchen[data_status]" => "archive" }, :class => "post_button")%><br>
+
+
+    <div class="kitchen_reservations">
+
+      <% reservations_pending = kitchen.reservations.select { |reservation| reservation.status == "pending" } %>
+      <% reservations_approved = kitchen.reservations.select { |reservation| reservation.status == "approved" } %>
+      <% reservations_denied = kitchen.reservations.select { |reservation| reservation.status == "denied" } %>
+
+      <%= link_to "Pending reservations (#{reservations_pending.count})", reservations_pending_kitchen_path(kitchen) %><br>
+      <%= link_to "Approved reservations (#{reservations_approved.count})", reservations_approved_kitchen_path(kitchen) %><br>
+      <%= link_to "Denied reservations (#{reservations_denied.count})", reservations_denied_kitchen_path(kitchen)%>
+
+    </div>
+  </div> 
+  <hr>
   <% end %>
+
 </div>
 
-<% @kitchens.each do |kitchen| %>
-  <% next if kitchen.data_status != "active" %>
-<hr>
-  <h3><%= kitchen.name %></h3><br>
-  <strong>Kitchen owner: </strong><%= kitchen.user.nickname %><br>
-  <strong>Description: </strong><%= kitchen.description %><br>
-  <strong>Location: </strong> <%= kitchen.city %>, <%= kitchen.state %>, <%= kitchen.zipcode %><br>
-  <%= button_to("Edit", edit_kitchen_path(kitchen), :method => :get, :class => "post_button")%><br>
-  <%= button_to("Delete", kitchen_path(kitchen), :method => :patch, 
-                :params => { "kitchen[data_status]" => "archive" }, :class => "post_button")%><br>
-<hr>
-<% end %>
+<div class="footer">
+  <%= render partial: "shared/footer" %>
+</div>

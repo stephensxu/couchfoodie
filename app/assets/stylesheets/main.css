@@ -22,7 +22,15 @@ html *{
 }
 
 .user_reservations_all {
-  margin-top: 5em;
+  margin-top: 3em;
 	text-align: center;
   font-size: 30px;
+  line-height: 3em;
+}
+
+.kitchen_list {
+  text-align: left;
+  padding-left: 10em;
+  padding-top: 1em;
+  padding-bottom: 2em;
 }
