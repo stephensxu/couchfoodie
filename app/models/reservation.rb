@@ -27,7 +27,7 @@ class Reservation < ActiveRecord::Base
   scope :approved, lambda { where(:status => 'approved') }
   scope :denied, lambda { where(:status => 'denied') }
 
-  validates :status, :presence => true, :inclusion => { :in => %w(pending, approved, denied) }
+  validates :status, :presence => true, :inclusion => { :in => ["pending", "denied", "approved"] }
   validates :reserve_date, :presence => true,
             :timeliness => { :after => lambda { Date.current }, 
             :type => :date, :after_message => "reservation has to be in the future"}

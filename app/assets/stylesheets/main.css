@@ -29,6 +29,10 @@ nav {
   line-height: 3em;
 }
 
+.reservation_all {
+  margin-top: 3em;
+}
+
 .kitchen_list {
   text-align: left;
   padding-left: 10em;

@@ -29,7 +29,7 @@ class ReservationsController < ApplicationController
     @reservation.user = current_user
 
     if @reservation.save
-      redirect_to reservations_pending_users_path, notice: 'Reservation was successfully sent.'
+      redirect_to reservations_all_users_path, notice: 'Reservation was successfully sent.'
     else
       render :new
     end
@@ -39,7 +39,7 @@ class ReservationsController < ApplicationController
   # PATCH/PUT /reservations/1.json
   def update
     if @reservation.update(reservation_params)
-      redirect_to reservations_pending_kitchen_path, notice: 'Reservation was succesfully updated'
+      redirect_to kitchens_users_path, notice: 'Reservation was succesfully updated'
     else
       render :edit
     end
