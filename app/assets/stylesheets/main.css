@@ -14,6 +14,7 @@ nav {
 .notice {
   float: left;
   color: green;
+  font-weight: bold;
 }
 
 .header {
