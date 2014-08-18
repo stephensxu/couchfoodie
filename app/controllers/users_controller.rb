@@ -19,6 +19,9 @@ class UsersController < ApplicationController
   def reservations_all
     if logged_in?
       @reservations = Reservation.for_user(current_user)
+      @reservations_pending = @reservations.select { |reservation| reservation.status == "pending" }
+      @reservations_approved = @reservations.select { |reservation| reservation.status == "approved" }
+      @reservations_denied = @reservations.select { |reservation| reservation.status == "denied" }
       render :user_reservations_all
     else
       redirect_to root_url
