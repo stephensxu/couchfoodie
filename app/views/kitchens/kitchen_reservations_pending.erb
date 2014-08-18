@@ -20,6 +20,10 @@
       <strong>Location: </strong> <%= reservation.kitchen.city %>, <%= reservation.kitchen.state %>, 
       							  <%= reservation.kitchen.zipcode %><br>
       <strong>Message to host: </strong> <%= reservation.message %><br>
+      <%= button_to("Approve", reservation_path(reservation), :method => :patch,
+      :params => { "reservation[status]" => "approved" }, :class => "post_button")%>
+      <%= button_to("Deny",    reservation_path(reservation), :method => :patch,
+      :params => { "reservation[status]" => "denied" }, :class => "post_button")%>
     <hr>
     </li>
   <% end %>

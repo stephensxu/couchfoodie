@@ -6,7 +6,7 @@
   </div>
 
   <% if @reservations.count.empty? %>
-    <%= There is nothing here %>
+    There is nothing here
   <% end %>
 
   <% @reservations.each do |reservation| %>
@@ -16,7 +16,7 @@
     <strong>Reserve on: </strong> <%= reservation.reserve_date %>, <%= reservation.reserve_time.strftime("%A %l:%M %p") %><br>
     <strong>Location: </strong> <%= reservation.kitchen.city %>, <%= reservation.kitchen.state %>, 
     							  <%= reservation.kitchen.zipcode %><br>
-    <strong>Message to owner: </strong> <%= reservation.message %><br>
+    <strong>Message to host: </strong> <%= reservation.message %><br>
   <hr>
   <% end %>
 </div>

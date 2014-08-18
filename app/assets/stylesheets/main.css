@@ -15,6 +15,8 @@ nav {
   float: left;
   color: green;
   font-weight: bold;
+  margin-bottom: 3em;
+  float: center;
 }
 
 .header {

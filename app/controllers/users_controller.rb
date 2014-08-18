@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 
   def reservations_approved
     @reservations = current_user.reservations.approved
-    render :user_created_reservations
+    render :user_reservations_approved
   end
 
   def reservations_denied
