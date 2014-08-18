@@ -11,9 +11,9 @@
 #  zipcode        :string(255)      not null
 #  latitude       :float
 #  longtitude     :float
-#  created_at     :datetime
-#  updated_at     :datetime
-#  user_id        :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  user_id        :integer          not null
 #  data_status    :string(255)      default("active"), not null
 #
 # Indexes

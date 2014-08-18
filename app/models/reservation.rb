@@ -9,8 +9,8 @@
 #  message      :string(255)      not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  user_id      :integer
-#  kitchen_id   :integer
+#  user_id      :integer          not null
+#  kitchen_id   :integer          not null
 #  guest_number :integer          default(1), not null
 #
 # Indexes
