@@ -5,7 +5,7 @@
     <% end %>
   </div>
 
-  <% if @reservations.count == 0 %>
+  <% if @reservations.count.empty? %>
     There is nothing here.
   <% end %>
 
