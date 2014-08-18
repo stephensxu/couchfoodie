@@ -36,8 +36,8 @@ class Reservation < ActiveRecord::Base
   validates :guest_number, :presence => true, 
             :numericality => { :only_integer => true, :greater_than => 0, :less_than => 10 }
 
-  def self.current_date
-    Time.now
+  def editable_by?(user)
+    user.present? && self.user == user
   end
 
   belongs_to :user
