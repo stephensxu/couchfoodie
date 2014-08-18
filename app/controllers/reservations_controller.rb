@@ -38,6 +38,11 @@ class ReservationsController < ApplicationController
   # PATCH/PUT /reservations/1
   # PATCH/PUT /reservations/1.json
   def update
+    if @reservation.update(reservation_params)
+      redirect_to reservations_pending_kitchen_path, notice: 'Reservation was succesfully updated'
+    else
+      render :edit
+    end
   end
 
   # DELETE /reservations/1
@@ -53,6 +58,7 @@ class ReservationsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def reservation_params
-    params.require(:reservation).permit(:message, :reserve_date, :reserve_time, :kitchen_id, :guest_number)
+    params.require(:reservation).permit(:message, :reserve_date, :reserve_time, 
+    :kitchen_id, :guest_number, :status)
   end
 end

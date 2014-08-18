@@ -16,7 +16,7 @@ class KitchensController < ApplicationController
   def reservations_pending
     @kitchen = Kitchen.find(params[:id])
     @reservations = @kitchen.reservations.pending
-    render :kitchen_reservations
+    render :pending_kitchen_reservations
   end
 
   def reservations_approved
