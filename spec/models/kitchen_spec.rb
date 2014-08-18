@@ -21,6 +21,7 @@
 #  index_kitchens_on_user_id  (user_id)
 #
 
+
 require 'rails_helper'
 
 RSpec.describe Kitchen, :type => :model do
