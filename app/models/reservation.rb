@@ -25,7 +25,7 @@ class Reservation < ActiveRecord::Base
   scope :for_user, lambda { |user| where(:user => user) }
   scope :for_status, lambda { |status| where(:status => status) }
 
-  validates :status, :presence => true
+  validates :status, :presence => true, :inclusion => { :in => %w(pending, approved, denied) }
   validates :reserve_date, :presence => true,
             :timeliness => { :after => lambda { Date.current }, 
             :type => :date, :after_message => "reservation has to be in the future"}
