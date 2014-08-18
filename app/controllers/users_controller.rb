@@ -21,24 +21,24 @@ class UsersController < ApplicationController
 
   def reservations_all
     @reservations = Reservation.for_user(current_user)
-    @reservations_pending = @reservations.select { |reservation| reservation.status == "pending" }
-    @reservations_approved = @reservations.select { |reservation| reservation.status == "approved" }
-    @reservations_denied = @reservations.select { |reservation| reservation.status == "denied" }
+    @reservations_pending = current_user.reservations.pending
+    @reservations_approved = current_user.reservations.approved
+    @reservations_denied = current_user.reservations.denied
     render :user_reservations_all
   end
 
   def reservations_pending
-    @reservations = Reservation.for_user(current_user).for_status("pending")
+    @reservations = current_user.reservations.pending
     render :user_created_reservations
   end
 
   def reservations_approved
-    @reservations = Reservation.for_user(current_user).for_status("approved")
+    @reservations = current_user.reservations.approved
     render :user_created_reservations
   end
 
   def reservations_denied
-    @reservations = Reservation.for_user(current_user).for_status("denied")
+    @reservations = current_user.reservations.denied
     render :user_created_reservations
   end
 

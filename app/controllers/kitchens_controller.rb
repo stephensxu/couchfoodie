@@ -13,24 +13,21 @@ class KitchensController < ApplicationController
     end
   end
 
-  def reservations_all
-  end
-
   def reservations_pending
     @kitchen = Kitchen.find(params[:id])
-    @reservations = @kitchen.reservations.for_status("pending")
+    @reservations = @kitchen.reservations.pending
     render :kitchen_reservations
   end
 
   def reservations_approved
     @kitchen = Kitchen.find(params[:id])
-    @reservations = @kitchen.reservations.for_status("approved")
+    @reservations = @kitchen.reservations.approved
     render :kitchen_reservations
   end
 
   def reservations_denied
     @kitchen = Kitchen.find(params[:id])
-    @reservations = @kitchen.reservations.for_status("denied")
+    @reservations = @kitchen.reservations.denied
     render :kitchen_reservations
   end
 

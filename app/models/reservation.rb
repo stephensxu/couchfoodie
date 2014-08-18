@@ -23,7 +23,9 @@ require 'date'
 
 class Reservation < ActiveRecord::Base
   scope :for_user, lambda { |user| where(:user => user) }
-  scope :for_status, lambda { |status| where(:status => status) }
+  scope :pending, lambda { where(:status => 'pending') }
+  scope :approved, lambda { where(:status => 'approved') }
+  scope :denied, lambda { where(:status => 'denied') }
 
   validates :status, :presence => true, :inclusion => { :in => %w(pending, approved, denied) }
   validates :reserve_date, :presence => true,
