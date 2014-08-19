@@ -21,7 +21,7 @@
       <strong>Location: </strong> <%= reservation.kitchen.city %>, <%= reservation.kitchen.state %>, 
       							  <%= reservation.kitchen.zipcode %><br>
       <strong>Message from Guest: </strong> <%= reservation.message_from_guest %><br>
-      <strong>Message to Guest: </strong><br>
+      <strong>Message to Guest: </strong> <%= reservation.message_from_host %><br>
     <hr>
     </li>
   <% end %>

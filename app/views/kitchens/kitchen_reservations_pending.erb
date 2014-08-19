@@ -21,10 +21,11 @@
       <strong>Location: </strong> <%= reservation.kitchen.city %>, <%= reservation.kitchen.state %>, 
       							  <%= reservation.kitchen.zipcode %><br>
       <strong>Message from Guest: </strong> <%= reservation.message_from_guest %><br>
-      <%= button_to("Approve", reservation_path(reservation), :method => :patch,
-      :params => { "reservation[status]" => "approved" }, :class => "post_button")%>
-      <%= button_to("Deny",    reservation_path(reservation), :method => :patch,
-      :params => { "reservation[status]" => "denied" }, :class => "post_button")%>
+
+      <%= render partial: "approve_reservation_form", :locals => { :reservation => reservation } %>
+
+      <%= render partial: "deny_reservation_form", :locals => { :reservation => reservation } %>
+
     <hr>
     </li>
   <% end %>
