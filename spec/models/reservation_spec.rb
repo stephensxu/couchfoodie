@@ -12,6 +12,7 @@
 #  user_id            :integer          not null
 #  kitchen_id         :integer          not null
 #  guest_number       :integer          default(1), not null
+#  message_from_host  :string(255)
 #
 # Indexes
 #
