@@ -17,7 +17,12 @@ nav {
   color: green;
   font-weight: bold;
   margin-bottom: 3em;
-  float: center;
+}
+
+.new_kitchen {
+  margin-left: auto;
+  margin-right: auto;
+  width: 25em
 }
 
 .header {
@@ -37,12 +42,16 @@ nav {
 }
 
 .individule_kitchen {
-  text-align: left;
-  line-height: 1em;
-  padding-left: 10em;
-  padding-top: 1em;
-  padding-bottom: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40em;
+  line-height: 1.8em;
 }
+
+.kitchen_reservations_in_kitchen_block {
+  line-height: 1.8em;
+}
+
 .reservation_approval_form {
   margin-top: 1em;
 }

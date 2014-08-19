@@ -9,7 +9,7 @@
   <% @kitchens.each do |kitchen| %>
     <% next if kitchen.data_status != "active" %>
   <hr>
-  <div class="individule_reservation">
+  <div class="individule_kitchen">
     <h3><%= kitchen.name %></h3><br>
     <strong>Kitchen owner: </strong><%= kitchen.user.nickname %><br>
     <strong>Description: </strong><%= kitchen.description %><br>
@@ -19,7 +19,7 @@
                   :params => { "kitchen[data_status]" => "archive" }, :class => "post_button")%><br>
 
 
-    <div class="kitchen_reservations">
+    <div class="kitchen_reservations_in_kitchen_block">
 
       <% reservations_pending = kitchen.reservations.select { |reservation| reservation.status == "pending" } %>
       <% reservations_approved = kitchen.reservations.select { |reservation| reservation.status == "approved" } %>
