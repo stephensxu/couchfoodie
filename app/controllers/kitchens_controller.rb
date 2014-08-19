@@ -2,6 +2,7 @@ class KitchensController < ApplicationController
   before_action :set_kitchen, :only => [:show, :edit, :update, :destroy]
   before_action :require_authorization!, :only => [:edit, :update, :destroy]
   before_action :current_user
+  before_action :total_pending_reservations
 
   # GET /kitchens
   # GET /kitchens.json
@@ -16,19 +17,19 @@ class KitchensController < ApplicationController
   def reservations_pending
     @kitchen = Kitchen.find(params[:id])
     @reservations = @kitchen.reservations.pending
-    render :kitchen_reservations
+    render :kitchen_reservations_pending
   end
 
   def reservations_approved
     @kitchen = Kitchen.find(params[:id])
     @reservations = @kitchen.reservations.approved
-    render :kitchen_reservations
+    render :kitchen_reservations_approved
   end
 
   def reservations_denied
     @kitchen = Kitchen.find(params[:id])
     @reservations = @kitchen.reservations.denied
-    render :kitchen_reservations
+    render :kitchen_reservations_denied
   end
 
   # GET /kitchens/1

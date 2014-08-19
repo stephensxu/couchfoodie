@@ -13,7 +13,7 @@ I get...someone who appreciate my cooking and a new friend!
 
 This is the golden opportunity to cure starvation, longingness and socialize with your neighbors!
 
-[V1.0]
+### [V1.0] ###
 * Visitor can create an account
 * As a Host, I am willing to cook for guest in my spare time, I can create a Kitchen
 * In my kitchen, specify which meal on which date I am willing to welcome additonal guest.
@@ -28,3 +28,9 @@ This is the golden opportunity to cure starvation, longingness and socialize wit
 * Guest may include a message in the reservation
 * Guest may include date and time for their reservation
 * Exact address and email address will only be exchanged between host and guest AFTER approval of reservation
+
+### Additional features ###
+
+* User may search for Kitchens by location(Use graticule maybe)
+* User gets email notification when receiving a new reservation or message
+* User may register and login via facebook

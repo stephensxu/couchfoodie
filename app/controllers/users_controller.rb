@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_authorization!, :only => [:reservations_all, :reservations_pending, :reservations_approved,
                 :reservations_denied]
+  before_action :total_pending_reservations, :except => [:new, :create]
 
   def index
     current_user
@@ -29,17 +30,17 @@ class UsersController < ApplicationController
 
   def reservations_pending
     @reservations = current_user.reservations.pending
-    render :user_created_reservations
+    render :user_reservations_pending
   end
 
   def reservations_approved
     @reservations = current_user.reservations.approved
-    render :user_created_reservations
+    render :user_reservations_approved
   end
 
   def reservations_denied
     @reservations = current_user.reservations.denied
-    render :user_created_reservations
+    render :user_reservations_denied
   end
 
   def show

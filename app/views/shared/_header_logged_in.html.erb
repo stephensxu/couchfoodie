@@ -5,9 +5,9 @@
 
   <nav>
 
-    <%= link_to 'Create Kitchen', new_kitchen_path %><br>
-    <%= link_to 'My Kitchens', kitchens_users_path %><br>
-    <%= link_to 'My reservations', reservations_all_users_path %>
+    <%= link_to "Create Kitchen", new_kitchen_path %><br>
+    <%= link_to "My Kitchens (#{@total_pending_reservations} pending messages)", kitchens_users_path %><br>
+    <%= link_to "My reservations (#{@current_user.reservations.approved.count} approved reservations)", reservations_all_users_path %>
   </nav>
   
 <% else %>

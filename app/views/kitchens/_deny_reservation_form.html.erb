@@ -1,0 +1,26 @@
+<%= form_for reservation do |f| %>
+  <% if reservation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reservation.errors.count, "error") %>. Oops, please check input and try again</h2>
+
+      <ul>
+      <% reservation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Maybe you can't accomodate, how about a brief explaination?" %><br>
+    <%= f.text_area :message_from_host, :class => "url_box" %>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :status, :value => "denied" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Deny", :class => "button" %>
+  </div>
+<% end %>

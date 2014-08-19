@@ -21,6 +21,7 @@
 #  index_kitchens_on_user_id  (user_id)
 #
 
+
 class Kitchen < ActiveRecord::Base
   scope :for_user, lambda { |user| where(:user => user) }
 

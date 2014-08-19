@@ -14,6 +14,7 @@
 #  index_users_on_email  (email) UNIQUE
 #
 
+
 class User < ActiveRecord::Base
   has_secure_password
 
@@ -22,6 +23,6 @@ class User < ActiveRecord::Base
   validates :nickname, :presence => true, :length => { :minimum => 6 }, :uniqueness => true,
             :format => { :with => /[\w\s]+/, message: "nickname can only be letters and numbers"}
 
-  has_many :kitchen
+  has_many :kitchens
   has_many :reservations
 end

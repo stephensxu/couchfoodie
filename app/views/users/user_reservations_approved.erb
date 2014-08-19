@@ -16,11 +16,14 @@
       <hr>
         <strong>Status: </strong> <%= reservation.status %><br>
         <strong>Reservation for: </strong> <%= reservation.kitchen.name %><br>
+        <strong>Host's nickname: </strong> <%= reservation.kitchen.user.nickname %><br>
+        <strong>Host's email: </strong> <%= reservation.kitchen.user.email %><br>
         <strong>Number of people: </strong> <%= reservation.guest_number %><br>
         <strong>Reserve on: </strong> <%= reservation.reserve_date %>, <%= show_reservation_time(reservation) %><br>
-        <strong>Location: </strong> <%= reservation.kitchen.city %>, <%= reservation.kitchen.state %>, 
+        <strong>Location: </strong> <%= reservation.kitchen.street_address %>, <%= reservation.kitchen.city %>, <%= reservation.kitchen.state %>, 
         <%= reservation.kitchen.zipcode %><br>
-        <strong>My reservatoin message: </strong> <%= reservation.message_from_guest %><br>
+        <strong>My reservation message: </strong> <%= reservation.message_from_guest %><br>
+        <strong>Message from <%= reservation.kitchen.name %>: </strong> <%= reservation.message_from_host %><br>
       <hr>
       </li>
     </div>

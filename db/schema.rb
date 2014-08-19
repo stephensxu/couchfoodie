@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140818065611) do
+ActiveRecord::Schema.define(version: 20140819000929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,15 +34,16 @@ ActiveRecord::Schema.define(version: 20140818065611) do
   add_index "kitchens", ["user_id"], name: "index_kitchens_on_user_id", using: :btree
 
   create_table "reservations", force: true do |t|
-    t.string   "status",       default: "pending", null: false
-    t.date     "reserve_date",                     null: false
-    t.time     "reserve_time",                     null: false
-    t.string   "message",                          null: false
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.integer  "user_id",                          null: false
-    t.integer  "kitchen_id",                       null: false
-    t.integer  "guest_number", default: 1,         null: false
+    t.string   "status",             default: "pending", null: false
+    t.date     "reserve_date",                           null: false
+    t.time     "reserve_time",                           null: false
+    t.string   "message_from_guest",                     null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.integer  "user_id",                                null: false
+    t.integer  "kitchen_id",                             null: false
+    t.integer  "guest_number",       default: 1,         null: false
+    t.string   "message_from_host"
   end
 
   add_index "reservations", ["kitchen_id"], name: "index_reservations_on_kitchen_id", using: :btree

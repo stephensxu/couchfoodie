@@ -8,7 +8,7 @@
   <% @kitchens.each do |kitchen| %>
     <% next if kitchen.data_status != "active" %>
   <hr>
-  <div class="kitchen_list">
+  <div class="individual_kitchen">
     <h3><%= kitchen.name %></h3><br>
     <strong>Kitchen owner: </strong> <%= kitchen.user.nickname %><br>
     <strong>Description: </strong><%= kitchen.description %><br>

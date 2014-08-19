@@ -4,8 +4,10 @@
       <%= flash[:notice] %>
     <% end %>
   </div>
-
-  <%= link_to "Pending reservations (#{@reservations_pending.count})", reservations_pending_users_path %><br>
-  <%= link_to "Approved reservations (#{@reservations_approved.count})", reservations_approved_users_path %><br>
-  <%= link_to "Denied reservations (#{@reservations_denied.count})", reservations_denied_users_path %>
+  
+  <div class="reservation_all">
+    <%= link_to "Pending host decision (#{@reservations_pending.count})", reservations_pending_users_path %><br>
+    <%= link_to "Approved by host (#{@reservations_approved.count})", reservations_approved_users_path %><br>
+    <%= link_to "Denied by host (#{@reservations_denied.count})", reservations_denied_users_path %>
+  </div>
 </div>
