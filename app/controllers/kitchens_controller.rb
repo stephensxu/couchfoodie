@@ -28,7 +28,7 @@ class KitchensController < ApplicationController
   def reservations_denied
     @kitchen = Kitchen.find(params[:id])
     @reservations = @kitchen.reservations.denied
-    render :kitchen_reservations
+    render :kitchen_reservations_denied
   end
 
   # GET /kitchens/1

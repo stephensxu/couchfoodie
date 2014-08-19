@@ -33,7 +33,7 @@ class Reservation < ActiveRecord::Base
             :timeliness => { :after => lambda { Date.current }, 
             :type => :date, :after_message => "reservation has to be in the future"}
   validates :reserve_time, :presence => true
-  validates :message, :presence => true, :length => { :minimum => 10 }
+  validates :message_from_guest, :presence => true, :length => { :minimum => 10 }
   validates :user_id, :presence => true
   validates :kitchen_id, :presence => true
   validates :guest_number, :presence => true, 
