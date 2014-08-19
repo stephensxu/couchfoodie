@@ -2,6 +2,7 @@ class KitchensController < ApplicationController
   before_action :set_kitchen, :only => [:show, :edit, :update, :destroy]
   before_action :require_authorization!, :only => [:edit, :update, :destroy]
   before_action :current_user
+  before_action :total_pending_reservations
 
   # GET /kitchens
   # GET /kitchens.json

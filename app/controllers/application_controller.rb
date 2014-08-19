@@ -28,4 +28,12 @@ class ApplicationController < ActionController::Base
       redirect_to(url)
     end
   end
+
+  def total_pending_reservations
+    @current_user ||= User.find_by_id(session[:user_id])
+    if @current_user
+      pending_reservations_each_kitchen = @current_user.kitchens.map { |kitchen| kitchen.reservations.pending.count }
+      @total_pending_reservations = pending_reservations_each_kitchen.inject(:+)
+    end
+  end
 end
