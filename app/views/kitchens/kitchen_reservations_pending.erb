@@ -22,9 +22,11 @@
       							  <%= reservation.kitchen.zipcode %><br>
       <strong>Message from Guest: </strong> <%= reservation.message_from_guest %><br>
 
-      <%= render partial: "approve_reservation_form", :locals => { :reservation => reservation } %>
+      <div class="reservation_approval_form">
+        <%= render partial: "approve_reservation_form", :locals => { :reservation => reservation } %>
 
-      <%= render partial: "deny_reservation_form", :locals => { :reservation => reservation } %>
+        <%= render partial: "deny_reservation_form", :locals => { :reservation => reservation } %>
+      </div>
 
     <hr>
     </li>
