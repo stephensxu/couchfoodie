@@ -33,7 +33,7 @@ class Kitchen < ActiveRecord::Base
   validates :state, :presence => true, :length => { :minimum => 2, :maximum => 2 },
             :format => { :with => /[[:alpha:]]{2}/, message: "can only be 2 character abbrivation"}
   validates :zipcode, :presence => true,
-            :format => { :with => /[[:digit:]]{5}/, message: "can only be 5 digit numbers"}
+            :format => { :with => /\d{5}(-\d{4})/, message: "can only be 5 digit numbers"}
 
   validates :user_id, :presence => true, :numericality => true
 
