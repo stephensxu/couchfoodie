@@ -28,3 +28,8 @@ This is the golden opportunity to cure starvation, longingness and socialize wit
 * Guest may include a message in the reservation
 * Guest may include date and time for their reservation
 * Exact address and email address will only be exchanged between host and guest AFTER approval of reservation
+
+### Additional features ###
+
+* User may search for Kitchens by location(Use graticule maybe)
+* User gets email notification when receiving a new reservation or message
