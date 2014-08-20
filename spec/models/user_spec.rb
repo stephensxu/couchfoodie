@@ -26,10 +26,10 @@ RSpec.describe User, :type => :model do
     it { should validate_presence_of(:email) }
     it { should validate_presence_of(:password) }
     it { should validate_presence_of(:nickname) }
-    it { should validate_presence_of(:created_at) }
     it { should ensure_length_of(:nickname).is_at_least(6) }
     it { should allow_value("I am King", "abcde123", "915823fb").for(:nickname) }
-    it { should_not allow_value(1, true, false, "#@**#", "195&%$fjg", "@$$%^").for(:nickname) }
+    it { should_not allow_value("@$$%^").for(:nickname) }
+    it { should_not allow_value("195&%$fjg").for(:nickname) }
     it { should ensure_length_of(:email).is_at_least(6) }
     it { should ensure_length_of(:password).is_at_least(6) }
     it { should allow_value("waffle@gmail.com", "foo+bar@gmail.io").for(:email) }
@@ -37,5 +37,12 @@ RSpec.describe User, :type => :model do
     it { should allow_value("123456", "abcdefg123", "abcdefgibme", "isigjsdflsj").for(:password) }
     it { should_not allow_value("1", "123", "12345", "abcde").for(:password) }
     it { should validate_confirmation_of(:password) }
+  end
+
+  describe "user" do
+    describe "validations" do
+      subject { FactoryGirl.create(:user) }
+      it { should validate_uniqueness_of(:nickname) }
+    end
   end
 end

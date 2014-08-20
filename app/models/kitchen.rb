@@ -25,6 +25,7 @@
 
 class Kitchen < ActiveRecord::Base
   validates :name, :presence => true, :uniqueness => true, :length => { :minimum => 6 , :maximum => 50 }
+  validates :name, :presence => true, :uniqueness => true, :length => { :minimum => 6 , :maximum => 50 }
   validates :description, :presence => true, :length => { :minimum => 10, :maximum => 250 }
   validates :street_address, :presence => true, :length => { :minimum => 6 }
   validates :city, :presence => true, :length => { :minimum => 3 }
