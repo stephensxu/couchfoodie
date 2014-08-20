@@ -5,7 +5,8 @@ FactoryGirl.define do
     k.street_address "2124 google ave"
     k.city "San Jose"
     k.state "CA"
-    k.zipcdoe "91585"
+    k.zipcode "91585"
+    k.user { FactoryGirl.create(:user) }
 
     k.trait :with_user do
       user
