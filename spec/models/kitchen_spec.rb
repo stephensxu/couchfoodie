@@ -88,7 +88,7 @@ RSpec.describe Kitchen, :type => :model do
         expect(kitchen).to_not be_editable_by(other_user)
       end
 
-      it "returns false for an anonymoususer" do
+      it "returns false for an anonymous user" do
         expect(kitchen).to_not be_editable_by(nil)
       end
     end
