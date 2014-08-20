@@ -31,6 +31,7 @@ class Kitchen < ActiveRecord::Base
             :format => { :with => /[[:alpha:]]{2}/, message: "can only be 2 character abbreviation"}
   validates :zipcode, :presence => true,
             :format => { :with => /\A\d{5}(-\d{4})?\z/, message: "should be in the form 91234 or 91234-6789"}
+  validates :data_status, :presence => true, :inclusion => { :in => ["active", "archive"] }
 
   validates :user, :presence => true
 
