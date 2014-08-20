@@ -44,6 +44,10 @@ class Kitchen < ActiveRecord::Base
     user.present? && self.user == user
   end
 
+  def editable?
+    self.data_status == "active"
+  end
+
   def archive!(kitchen)
     update_attributes(:data_status => "archive")
   end

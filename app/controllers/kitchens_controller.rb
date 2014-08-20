@@ -45,6 +45,7 @@ class KitchensController < ApplicationController
 
   # GET /kitchens/1/edit
   def edit
+    head(:forbidden) unless @kitchen.editable?
   end
 
   # POST /kitchens
