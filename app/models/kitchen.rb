@@ -4,7 +4,7 @@
 #
 #  id             :integer          not null, primary key
 #  name           :string(255)      not null
-#  description    :string(255)      not null
+#  description    :text             not null
 #  street_address :string(255)      not null
 #  city           :string(255)      not null
 #  state          :string(255)      not null
@@ -20,6 +20,7 @@
 #
 #  index_kitchens_on_user_id  (user_id)
 #
+
 
 
 class Kitchen < ActiveRecord::Base
