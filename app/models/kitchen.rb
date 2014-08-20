@@ -48,8 +48,8 @@ class Kitchen < ActiveRecord::Base
     self.data_status == "active"
   end
 
-  def archive!(kitchen)
-    update_attributes(:data_status => "archive")
+  def archive!
+    self.update_attributes(:data_status => "archive")
   end
 
   belongs_to :user

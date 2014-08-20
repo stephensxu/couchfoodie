@@ -75,6 +75,7 @@ class KitchensController < ApplicationController
   # DELETE /kitchens/1.json
   def destroy
     @kitchen.archive!
+    redirect_to kitchens_users_path, notice: 'Kitchen was succesfully deleted'
   end
 
   private
