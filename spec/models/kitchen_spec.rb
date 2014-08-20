@@ -41,6 +41,8 @@ RSpec.describe Kitchen, :type => :model do
     it { should ensure_length_of(:description).is_at_least(10) }
     it { should ensure_length_of(:description).is_at_most(250) }
 
+    it { should validate_presence_of(:user) }
+
     it { should validate_presence_of(:street_address) }
     it { should ensure_length_of(:street_address).is_at_least(6) }
     it { should ensure_length_of(:street_address).is_at_most(50) }
@@ -70,9 +72,51 @@ RSpec.describe Kitchen, :type => :model do
   end
 
   describe "kitchen" do
-    describe "validations" do
+    describe "validation for uniqueness" do
       subject { FactoryGirl.create(:kitchen) }
       it { should validate_uniqueness_of(:name) }
     end
+
+    describe "#editable_by?" do
+      let(:kitchen) { FactoryGirl.create(:kitchen) }
+      let(:other_user) { FactoryGirl.build_stubbed(:kitchen_with_user) }
+      it "returns true when the owner created the kitchen" do
+        expect(kitchen).to be_editable_by(kitchen.user)
+      end
+
+      it "returns false for user who did not create the kitchen" do
+        expect(kitchen).to_not be_editable_by(other_user)
+      end
+
+      it "returns false for an anonymoususer" do
+        expect(kitchen).to_not be_editable_by(nil)
+      end
+    end
+
+    describe "#editable?" do
+      let(:kitchen) { FactoryGirl.create(:kitchen) }
+
+      it "returns true when the data_status is active" do
+        kitchen.data_status = "active"
+        expect(kitchen).to be_editable
+      end
+
+      it "returns false when data_status is archive" do
+        kitchen.data_status = "archive"
+        expect(kitchen).to_not be_editable
+      end
+    end
+
+    describe "#archive!" do
+      let(:kitchen) { FactoryGirl.create(:kitchen) }
+      it "change the data_status of kitchen to archive" do
+        expect {
+          kitchen.archive!
+        }.to change{ kitchen.reload.data_status }.to eq("archive")
+      end
+    end
   end
 end
+
+
+
