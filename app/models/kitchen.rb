@@ -23,22 +23,28 @@
 
 
 class Kitchen < ActiveRecord::Base
-  scope :for_user, lambda { |user| where(:user => user) }
-
-  validates :name, :presence => true, :uniqueness => true, :length => { :minimum => 6 }
-  validates :description, :presence => true, :length => { :minimum => 10, :maximum => 500 }
-  validates :street_address, :presence => true, :uniqueness => true, :length => { :minimum => 6 }
-  validates :city, :presence => true, :length => { :minimum => 3 },
-            :format => { :with => /[[:alpha:]+]/, message: "name can only be letters"}
+  validates :name, :presence => true, :uniqueness => true, :length => { :minimum => 6 , :maximum => 50 }
+  validates :description, :presence => true, :length => { :minimum => 10, :maximum => 250 }
+  validates :street_address, :presence => true, :length => { :minimum => 6 }
+  validates :city, :presence => true, :length => { :minimum => 3 }
   validates :state, :presence => true, :length => { :minimum => 2, :maximum => 2 },
-            :format => { :with => /[[:alpha:]]{2}/, message: "can only be 2 character abbrivation"}
+            :format => { :with => /[[:alpha:]]{2}/, message: "can only be 2 character abbreviation"}
   validates :zipcode, :presence => true,
             :format => { :with => /\d{5}(-\d{4})/, message: "can only be 5 digit numbers"}
 
-  validates :user_id, :presence => true, :numericality => true
+  validates :user, :presence => true
+
+  belongs_to :user
+  has_many :reservations
+
+  scope :for_user, lambda { |user| where(:user => user) }
 
   def editable_by?(user)
     user.present? && self.user == user
+  end
+
+  def archive!(kitchen)
+    update_attributes(:data_status => "archive")
   end
 
   belongs_to :user

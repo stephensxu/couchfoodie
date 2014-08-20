@@ -73,6 +73,7 @@ class KitchensController < ApplicationController
   # DELETE /kitchens/1
   # DELETE /kitchens/1.json
   def destroy
+    @kitchen.archive!
   end
 
   private

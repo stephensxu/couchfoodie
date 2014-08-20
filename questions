@@ -5,3 +5,26 @@ If I use one-to-one; how can I prevent the data from being destroyed when use ha
 Street, City, State, Zipcode etc.
 
 4. Should I spend time building more feature or testing?
+
+NOTES FROM JESSE:
+
+- Front page has no introduction
+- Log in page not looking good
+- No margin from header
+- Message length cannot be too long
+- Reservation date is too far in the future
+- "Guest" is unclear what it means
+- Kitchen name cannot be too long
+- Notice is mostly out of the place
+- Validate data_status in Kitchens table
+- @total_pending_reservations cannot display 0
+- Notice would be above the footer in some pages
+- Sign up is randomly capitalized
+- Email is caplitalized in form
+- In My Kitchen page, footer is on the top
+- People can still edit kitchen after deletion
+- Change record_status cannot be in view code, has to be controller code
+- Change
+- Add validation for data_status in kitchen
+- Change datatype of kitchen.description to text
+- Add dropdown to State
