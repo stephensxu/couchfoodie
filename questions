@@ -15,5 +15,4 @@ BUG FIND FROM JESSE(8/19):
 - Notice is mostly out of the place
 - Notice would be above the footer in some pages
 - In My Kitchen page, footer is on the top
-- Change datatype of kitchen.description to text
 - Add dropdown to State
