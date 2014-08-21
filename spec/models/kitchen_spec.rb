@@ -45,7 +45,7 @@ RSpec.describe Kitchen, :type => :model do
     it { should ensure_length_of(:street_address).is_at_least(6).is_at_most(50) }
 
     it { should validate_presence_of(:city) }
-    it { should ensure_length_of(:city).is_at_least(3).is_at_most(20) }
+    it { should ensure_length_of(:city).is_at_least(3).is_at_most(50) }
 
     it { should validate_presence_of(:state) }
     it { should ensure_length_of(:state).is_equal_to(2) }
@@ -111,5 +111,22 @@ RSpec.describe Kitchen, :type => :model do
         }.to change{ kitchen.reload.data_status }.to eq("archive")
       end
     end
+
+    describe "scope :for_user" do
+      let(:kitchen) { FactoryGirl.create(:kitchen) }
+      let(:other_user) { FactoryGirl.create(:user) }
+      it "returns the all the kitchens created by a certain user" do
+        user_kitchens = Kitchen.for_user(kitchen.user)
+        expect(user_kitchens).to include(kitchen)
+      end
+
+      it "does not return kitchen that's created by a different user" do
+        other_kitchens = Kitchen.for_user(other_user)
+        expect(other_kitchens).not_to include(kitchen)
+      end
+    end
   end
 end
+
+
+

@@ -28,7 +28,7 @@ class Kitchen < ActiveRecord::Base
   validates :name, :presence => true, :uniqueness => true, :length => { :minimum => 6 , :maximum => 50 }
   validates :description, :presence => true, :length => { :in => (10..250)  }
   validates :street_address, :presence => true, :length => { :minimum => 6, :maximum => 50 }
-  validates :city, :presence => true, :length => { :in => (3..20) }
+  validates :city, :presence => true, :length => { :in => (3..50) }
   validates :state, :presence => true, :length => { :is => 2 },
             :format => { :with => /[[:alpha:]]{2}/, message: "can only be 2 character abbreviation"}
   validates :zipcode, :presence => true, :length => { :minimum => 5 },

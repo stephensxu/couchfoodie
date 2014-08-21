@@ -15,10 +15,10 @@
 #
 
 FactoryGirl.define do
-  factory :user do |u|
-    u.email { Faker::Internet.email }
-    u.password { Faker::Internet.password(min_length = 6) }
-    u.nickname { Faker::Name.title }
-    u.password_confirmation { |u| u.password }
+  factory :reservation do |r|
+    r.email { Faker::Internet.email }
+    r.password { Faker::Internet.password(min_length = 6) }
+    r.nickname "mynickname123"
+    r.password_confirmation { |r| r.password }
   end
 end

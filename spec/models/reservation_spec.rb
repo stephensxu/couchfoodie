@@ -25,5 +25,14 @@
 require 'rails_helper'
 
 RSpec.describe Reservation, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to(:kitchen) }
+  it { should belong_to(:user) }
+
+  describe "#valid?" do
+    it { should validate_presence_of(:status) }
+    it { should validate_presence_of(:reserve_date) }
+    it { should validate_presence_of(:reserve_time) }
+    it { should validate_presence_of(:message_from_guest) }
+    it { should validate_presence_of(:guest_number) }
+  end
 end
