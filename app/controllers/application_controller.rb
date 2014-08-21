@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
   def total_pending_reservations
     return nil if session[:user_id].blank?
 
-    @current_user ||= User.find_by_id(session[:user_id])
+    current_user
     pending_reservations_each_kitchen = @current_user.kitchens.map { |kitchen| kitchen.reservations.pending.count }
     pending_reservations_each_kitchen.empty? ? 
     @total_pending_reservations = 0 : @total_pending_reservations = pending_reservations_each_kitchen.inject(:+)
