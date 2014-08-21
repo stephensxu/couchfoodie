@@ -112,13 +112,14 @@ RSpec.describe ApplicationController, :type => :controller do
 
     context "when the user is logged in" do
       let(:user_one) { FactoryGirl.create(:user) }
-      let(:reservation_one) { FactoryGirl.create(:reservation_with_user, :status => "approved", :user => user_one) }
-      let(:reservation_two) { FactoryGirl.create(:reservation_with_user, :status => "approved", :user => user_one) }
-      let(:reservation_three) { FactoryGirl.create(:reservation_with_user, :status => "approved", :user => user_one) }
 
       it "returns total number of pending reservations for a logged in user" do
         get :index, {}, :user_id => user_one.id
+        reservation_one = FactoryGirl.create(:reservation_with_user, :user => user_one)
+        reservation_two = FactoryGirl.create(:reservation_with_user, :user => user_one)
         p "user_one has #{user_one.reservations.count} reservations"
+        p "current user is #{controller.current_user.reservations.count}"
+        p "total pending is #{controller.total_pending_reservations}"
         expect(controller.total_pending_reservations).to eq(2)
       end
     end
