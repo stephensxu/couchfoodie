@@ -36,5 +36,6 @@ class ApplicationController < ActionController::Base
     pending_reservations_each_kitchen = @current_user.kitchens.map { |kitchen| kitchen.reservations.pending.count }
     pending_reservations_each_kitchen.empty? ? 
     @total_pending_reservations = 0 : @total_pending_reservations = pending_reservations_each_kitchen.inject(:+)
+    @total_pending_reservations
   end
 end

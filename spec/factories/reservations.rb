@@ -31,5 +31,11 @@ FactoryGirl.define do
     guest_number 2
     user { FactoryGirl.create(:user) }
     kitchen { FactoryGirl.create(:kitchen) }
+
+    trait :with_user do
+      user
+    end
+
+    factory :reservation_with_user, :traits => [:with_user]
   end
 end
