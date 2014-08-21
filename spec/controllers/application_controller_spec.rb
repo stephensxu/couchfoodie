@@ -119,7 +119,7 @@ RSpec.describe ApplicationController, :type => :controller do
         kitchen_one = FactoryGirl.create(:kitchen_with_user, :user => user_one)
         reservation_one = FactoryGirl.create(:reservation_with_user, :kitchen => kitchen_one, :user => user_one)
         reservation_two = FactoryGirl.create(:reservation_with_user, :kitchen => kitchen_one, :user => user_one)
-        reservation_two = FactoryGirl.create(:reservation_with_user, :status => "approved", :kitchen => kitchen_one, :user => user_one)
+        reservation_three = FactoryGirl.create(:reservation_with_user, :status => "approved", :kitchen => kitchen_one, :user => user_one)
         expect(controller.total_pending_reservations).to eq(2)
       end
 
