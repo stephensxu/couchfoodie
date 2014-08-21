@@ -34,3 +34,4 @@ This is the golden opportunity to cure starvation, longingness and socialize wit
 * User may search for Kitchens by location(Use graticule maybe)
 * User gets email notification when receiving a new reservation or message
 * User may register and login via facebook
+* Add jQuery to front-end; modal dialog

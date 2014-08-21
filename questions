@@ -15,3 +15,7 @@ BUG FIND FROM JESSE(8/19):
 - Notice is mostly out of the place
 - Notice would be above the footer in some pages
 - In My Kitchen page, footer is on the top
+
+BUG FIND FROM JESSE(8/19):
+- Double header issue
+- Verify html on MDN
