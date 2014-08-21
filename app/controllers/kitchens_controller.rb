@@ -45,7 +45,6 @@ class KitchensController < ApplicationController
 
   # GET /kitchens/1/edit
   def edit
-    head(:forbidden) unless @kitchen.editable?
   end
 
   # POST /kitchens
@@ -81,7 +80,7 @@ class KitchensController < ApplicationController
   private
 
   def require_authorization!
-    head(:forbidden) unless @kitchen.editable_by?(current_user)
+    head(:forbidden) unless @kitchen.editable? && @kitchen.editable_by?(current_user)
   end
 
   # Use callbacks to share common setup or constraints between actions.
