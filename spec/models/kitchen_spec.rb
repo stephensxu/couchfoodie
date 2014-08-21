@@ -52,8 +52,7 @@ RSpec.describe Kitchen, :type => :model do
     it { should ensure_length_of(:city ).is_at_most(20) }
 
     it { should validate_presence_of(:state) }
-    it { should ensure_length_of(:state).is_at_least(2) }
-    it { should ensure_length_of(:state).is_at_most(2) }
+    it { should ensure_length_of(:state).is_equal_to(2) }
     it { should allow_value("CA").for(:state) }
     it { should_not allow_value("CAE").for(:state) }
     it { should_not allow_value("12").for(:state) }
