@@ -14,27 +14,27 @@
 
   <table class="create_kitchen_table", cellspaceing="30">
     <tr>
-      <td align="left"><span class="login_table_content">Name</span></td> 
+      <td class="kitchen-form-label"><span class="login_table_content">Name</span></td> 
       <td><%= f.text_field :name, :class => "input_box" %></td>
     </tr>
     <tr>
-      <td align="left"><span class="login_table_content">Description</span></td> 
+      <td class="kitchen-form-label"><span class="login_table_content">Description</span></td> 
       <td><%= f.text_area :description, :class => "text_box" %></td>
     </tr>
     <tr>
-      <td align="left"><span class="login_table_content">Street address</span></td>
+      <td class="kitchen-form-label"><span class="login_table_content">Street address</span></td>
       <td><%= f.text_field :street_address, :class => "input_box" %></td>
     </tr>
     <tr>
-      <td align="left"><span class="login_table_content">City</span></td> 
+      <td class="kitchen-form-label"><span class="login_table_content">City</span></td> 
       <td><%= f.text_field :city, :class => "input_box" %></td>
     </tr>
     <tr>
-      <td align="left"><span class="login_table_content">State</span></td> 
-      <td><%= f.text_field :state, :class => "input_box" %></td>
+      <td class="kitchen-form-label"><span class="login_table_content">State</span></td> 
+      <td><%= f.select :state, options_for_select(Kitchen::VALID_STATES), :class => "input_box" %></td>
     </tr>
     <tr>
-      <td align="left"><span class="login_table_content">Zipcode</span></td> 
+      <td class="kitchen-form-label"><span class="login_table_content">Zipcode</span></td> 
       <td><%= f.text_field :zipcode, :class => "input_box" %></td>
     </tr>
   </table><br>

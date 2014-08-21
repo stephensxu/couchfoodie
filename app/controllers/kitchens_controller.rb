@@ -74,12 +74,13 @@ class KitchensController < ApplicationController
   # DELETE /kitchens/1.json
   def destroy
     @kitchen.archive!
+    redirect_to kitchens_users_path, notice: 'Kitchen was succesfully deleted'
   end
 
   private
 
   def require_authorization!
-    head(:forbidden) unless @kitchen.editable_by?(current_user)
+    head(:forbidden) unless @kitchen.editable? && @kitchen.editable_by?(current_user)
   end
 
   # Use callbacks to share common setup or constraints between actions.
