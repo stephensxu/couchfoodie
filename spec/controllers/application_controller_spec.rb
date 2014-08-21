@@ -112,15 +112,20 @@ RSpec.describe ApplicationController, :type => :controller do
 
     context "when the user is logged in" do
       let(:user_one) { FactoryGirl.create(:user) }
+      let(:user_two) { FactoryGirl.create(:user) }
 
       it "returns total number of pending reservations for a logged in user" do
         get :index, {}, :user_id => user_one.id
-        reservation_one = FactoryGirl.create(:reservation_with_user, :user => user_one)
-        reservation_two = FactoryGirl.create(:reservation_with_user, :user => user_one)
-        p "user_one has #{user_one.reservations.count} reservations"
-        p "current user is #{controller.current_user.reservations.count}"
-        p "total pending is #{controller.total_pending_reservations}"
+        kitchen_one = FactoryGirl.create(:kitchen_with_user, :user => user_one)
+        reservation_one = FactoryGirl.create(:reservation_with_user, :kitchen => kitchen_one, :user => user_one)
+        reservation_two = FactoryGirl.create(:reservation_with_user, :kitchen => kitchen_one, :user => user_one)
+        reservation_two = FactoryGirl.create(:reservation_with_user, :status => "approved", :kitchen => kitchen_one, :user => user_one)
         expect(controller.total_pending_reservations).to eq(2)
+      end
+
+      it "return's 0 if there is not pending reservations" do
+        get :index, {}, :user_id => user_two
+        expect(controller.total_pending_reservations).to eq(0)
       end
     end
   end
