@@ -26,4 +26,9 @@ class User < ActiveRecord::Base
 
   has_many :kitchens
   has_many :reservations
+  has_many :pending_reservations, :through => :kitchens
+
+  def pending_reservations_count
+    pending_reservations.count
+  end
 end

@@ -39,6 +39,9 @@ class Kitchen < ActiveRecord::Base
 
   belongs_to :user
   has_many :reservations
+  has_many :pending_reservations, 
+           lambda { pending },
+           :class_name => 'Reservation'
 
   scope :for_user, lambda { |user| where(:user => user) }
 

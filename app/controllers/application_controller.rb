@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  helper_method :current_user, :logged_in?
+
   def current_user
     return nil if session[:user_id].blank?
 
@@ -27,15 +29,5 @@ class ApplicationController < ActionController::Base
     if logged_in?
       redirect_to(url)
     end
-  end
-
-  def total_pending_reservations
-    return nil if session[:user_id].blank?
-
-    current_user
-    pending_reservations_each_kitchen = @current_user.kitchens.map { |kitchen| kitchen.reservations.pending.count }
-    pending_reservations_each_kitchen.empty? ? 
-    @total_pending_reservations = 0 : @total_pending_reservations = pending_reservations_each_kitchen.inject(:+)
-    @total_pending_reservations
   end
 end

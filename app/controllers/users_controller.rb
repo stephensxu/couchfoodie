@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_authorization!, :only => [:reservations_all, :reservations_pending, :reservations_approved,
                 :reservations_denied]
-  before_action :total_pending_reservations, :except => [:new, :create]
-
   def index
     current_user
     @kitchen = Kitchen.new
