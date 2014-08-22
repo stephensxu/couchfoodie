@@ -72,11 +72,15 @@ html, body {
   color: #3B3F7D;
 }
 
-.text_box{
+.text_box {
   width: 400px; 
   height: 90px; 
   font-size: 20px;
   color: #3B3F7D;
+}
+
+.login_table_content {
+  font-size: 30px;
 }
 
 .user_login {
