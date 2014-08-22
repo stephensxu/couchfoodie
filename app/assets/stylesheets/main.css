@@ -22,6 +22,18 @@ footer {
   text-align: center;
 }
 
+a { color: #55acee; }
+a:visited { color: purple; }
+a:hover { color: #fff; background-color:#3B3F7D; }
+
+table {
+  border-spacing: 5px;
+}
+
+td {
+  padding: 0.5em;
+}
+
 /* BEGIN CSS Sticky Footer */
 
 html, body {
@@ -42,16 +54,29 @@ html, body {
 
 /* END CSS Sticky Footer */
 
-a { color: #55acee; }
-a:visited { color: purple; }
-a:hover { color: #fff; background-color:#3B3F7D; }
-
-table {
-  border-spacing: 5px;
+.button_normal {
+  margin: 20px 5px 15px 5px;
+  width:150px;
+  border-radius: 6px;
+  font-size: 20px;
+  background-color: #3B3F7D;
+  color: white;
+  height: 200;
+  cursor: pointer;
 }
 
-td {
-  padding: 0.5em;
+.input_box_normal {
+  width: 200px; 
+  height: 30px; 
+  font-size: 20px;
+  color: #3B3F7D;
+}
+
+.text_box{
+  width: 400px; 
+  height: 90px; 
+  font-size: 20px;
+  color: #3B3F7D;
 }
 
 .user_login {
