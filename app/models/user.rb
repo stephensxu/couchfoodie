@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   validates :email, :presence => true, :uniqueness => true, :length => { :minimum => 6 }, :email => true
   validates :password, :presence => true, :length => { :minimum => 6 }, :confirmation => true
   validates :nickname, :presence => true, :length => { :minimum => 6 }, :uniqueness => true,
-            :format => { :with => /\A[\w\s]+\z/, message: "nickname can only be letters and numbers"}
+            :format => { :with => /\A[\w\s]+\z/, message: "nickname cannot contain special characters such as @#$%" }
 
   has_many :kitchens
   has_many :reservations
