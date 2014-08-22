@@ -12,6 +12,7 @@ nav {
   float: right;
 }
 
+
 header {
   margin-top: 2em;
   margin-left: 2em;
@@ -20,6 +21,26 @@ header {
 footer {
   text-align: center;
 }
+
+/* BEGIN CSS Sticky Footer */
+
+html, body {
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -4em;
+}
+
+.footer, .push {
+  height: 4em;
+  clear: both;
+}
+
+/* END CSS Sticky Footer */
 
 a { color: #55acee; }
 a:visited { color: purple; }
