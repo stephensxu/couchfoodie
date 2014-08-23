@@ -26,6 +26,8 @@ a { color: #55acee; }
 a:visited { color: purple; }
 a:hover { color: #fff; background-color:#3B3F7D; }
 
+button:hover { color: #fff; background-color:#3B3F7D; }
+
 table {
   border-spacing: 5px;
 }
@@ -59,11 +61,14 @@ html, body {
   width:150px;
   border-radius: 6px;
   font-size: 20px;
-  background-color: #3B3F7D;
+  background-color: #386FD4;
   color: white;
   height: 200;
   cursor: pointer;
 }
+
+.button_normal:hover { color: white; background-color:#3B3F7D; }
+
 
 .input_box_normal {
   width: 200px; 

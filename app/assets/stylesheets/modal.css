@@ -26,6 +26,11 @@
   width: 100%;
 }
 
+.modal-button-list {
+  list-style-type: none;
+}
+
+
 .my-modal .my-modal-background {
   position: fixed;
   top: 0;

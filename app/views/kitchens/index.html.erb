@@ -1,8 +1,6 @@
 <div class="user_login">
 
   <h2>Please login to see more</h2>
-  
-  <%= render partial: "shared/login_form" %>
 
   <div class="notice">
     <% if flash[:notice] %>
@@ -10,8 +8,6 @@
     <% end %>
   </div>
 
-  <h2>Or <%= link_to("sign up", new_user_path) %></h2>
-
-  <%= render partial: "shared/modal" %>
+  <%= render :partial => "shared/modal" %> 
 
 </div>
