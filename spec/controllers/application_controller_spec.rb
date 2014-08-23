@@ -101,32 +101,4 @@ RSpec.describe ApplicationController, :type => :controller do
       end
     end
   end
-
-  describe "#total_pending_reservations" do
-    context "when the user is not logged in" do
-      it "returns nil when user doesn't exist" do
-        get :index, {}, {}
-        expect(controller.total_pending_reservations).to eq(nil)
-      end
-    end
-
-    context "when the user is logged in" do
-      let(:user_one) { FactoryGirl.create(:user) }
-      let(:user_two) { FactoryGirl.create(:user) }
-
-      it "returns total number of pending reservations for a logged in user" do
-        get :index, {}, :user_id => user_one.id
-        kitchen_one = FactoryGirl.create(:kitchen_with_user, :user => user_one)
-        reservation_one = FactoryGirl.create(:reservation_with_user, :kitchen => kitchen_one, :user => user_one)
-        reservation_two = FactoryGirl.create(:reservation_with_user, :kitchen => kitchen_one, :user => user_one)
-        reservation_three = FactoryGirl.create(:reservation_with_user, :status => "approved", :kitchen => kitchen_one, :user => user_one)
-        expect(controller.total_pending_reservations).to eq(2)
-      end
-
-      it "return's 0 if there is not pending reservations" do
-        get :index, {}, :user_id => user_two
-        expect(controller.total_pending_reservations).to eq(0)
-      end
-    end
-  end
 end

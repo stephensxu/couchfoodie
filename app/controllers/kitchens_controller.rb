@@ -79,7 +79,7 @@ class KitchensController < ApplicationController
   private
 
   def require_authorization!
-    head(:forbidden) unless @kitchen.editable? && @kitchen.editable_by?(current_user)
+    head(:forbidden) unless @kitchen.editable_by?(current_user)
   end
 
   # Use callbacks to share common setup or constraints between actions.

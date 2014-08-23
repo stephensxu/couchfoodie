@@ -27,7 +27,7 @@ FactoryGirl.define do
     k.description "some description about my kitchen"
     k.street_address { Faker::Address.street_address }
     k.city { Faker::Address.city }
-    k.state { Faker::Address.state_abbr }
+    k.state { Kitchen::VALID_STATES.sample }
     k.zipcode { Faker::Address.zip }
     k.user { FactoryGirl.create(:user) }
 

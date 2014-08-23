@@ -21,6 +21,7 @@ require 'rails_helper'
 RSpec.describe User, :type => :model do
   it { should have_many(:kitchens) }
   it { should have_many(:reservations) }
+  it { should have_many(:pending_reservations).through(:kitchens) }
   
   describe "#valid?" do
     it { should validate_presence_of(:email) }
@@ -43,6 +44,23 @@ RSpec.describe User, :type => :model do
     describe "validations" do
       subject { FactoryGirl.create(:user) }
       it { should validate_uniqueness_of(:nickname) }
+    end
+  end
+
+  describe "#pending_reservations_count" do
+    let(:user_one) { FactoryGirl.create(:user) }
+    let(:user_two) { FactoryGirl.create(:user) }
+
+    it "returns total number of pending reservations for a logged in user" do
+      kitchen_one = FactoryGirl.create(:kitchen_with_user, :user => user_one)
+      reservation_one = FactoryGirl.create(:reservation_with_user, :kitchen => kitchen_one, :user => user_one)
+      reservation_two = FactoryGirl.create(:reservation_with_user, :kitchen => kitchen_one, :user => user_one)
+      reservation_three = FactoryGirl.create(:reservation_with_user, :status => "approved", :kitchen => kitchen_one, :user => user_one)
+      expect(user_one.pending_reservations_count).to eq(2)
+    end
+
+    it "return's 0 if there is not pending reservations" do
+      expect(user_two.pending_reservations_count).to eq(0)
     end
   end
 end
