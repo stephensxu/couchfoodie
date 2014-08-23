@@ -129,6 +129,3 @@ RSpec.describe Kitchen, :type => :model do
     end
   end
 end
-
-
-
