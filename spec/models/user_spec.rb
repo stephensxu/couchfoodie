@@ -34,9 +34,19 @@ RSpec.describe User, :type => :model do
     it { should ensure_length_of(:email).is_at_least(6) }
     it { should ensure_length_of(:password).is_at_least(6) }
     it { should allow_value("waffle@gmail.com", "foo+bar@gmail.io").for(:email) }
-    it { should_not allow_value("@", "jim@", "@iams", "stephens@1234ji").for(:email) }
+
+    %w(@ jim@ @iams stephens@1234ji).each do |bad_email|
+      it { should_not allow_value(bad_email).for(:email) }
+    end
+
     it { should allow_value("123456", "abcdefg123", "abcdefgibme", "isigjsdflsj").for(:password) }
+
     it { should_not allow_value("1", "123", "12345", "abcde").for(:password) }
+
+    %w(1 123 12345 abcde).each do |bad_password|
+      it { should_not allow_value(bad_password).for(:password)}
+    end
+    
     it { should validate_confirmation_of(:password) }
   end
 
