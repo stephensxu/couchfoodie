@@ -12,7 +12,6 @@ nav {
   float: right;
 }
 
-
 header {
   margin-top: 2em;
   margin-left: 2em;
@@ -24,9 +23,15 @@ footer {
 
 a { color: #55acee; }
 a:visited { color: purple; }
-a:hover { color: #fff; background-color:#3B3F7D; }
+a:hover { 
+  color: #fff; 
+  background-color:#3B3F7D; 
+}
 
-button:hover { color: #fff; background-color:#3B3F7D; }
+button:hover { 
+  color: #fff; 
+  background-color:#3B3F7D; 
+}
 
 table {
   border-spacing: 5px;

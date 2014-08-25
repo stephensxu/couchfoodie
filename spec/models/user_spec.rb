@@ -58,19 +58,19 @@ RSpec.describe User, :type => :model do
   end
 
   describe "#pending_reservations_count" do
-    let(:user_one) { FactoryGirl.create(:user) }
-    let(:user_two) { FactoryGirl.create(:user) }
+    let(:user_with_reservations) { FactoryGirl.create(:user) }
+    let(:user_without_reservations) { FactoryGirl.create(:user) }
 
     it "returns total number of pending reservations for a logged in user" do
-      kitchen_one = FactoryGirl.create(:kitchen_with_user, :user => user_one)
-      reservation_one = FactoryGirl.create(:reservation_with_user, :kitchen => kitchen_one, :user => user_one)
-      reservation_two = FactoryGirl.create(:reservation_with_user, :kitchen => kitchen_one, :user => user_one)
-      reservation_three = FactoryGirl.create(:reservation_with_user, :status => "approved", :kitchen => kitchen_one, :user => user_one)
-      expect(user_one.pending_reservations_count).to eq(2)
+      kitchen_one = FactoryGirl.create(:kitchen_with_user, :user => user_with_reservations)
+      reservation_one = FactoryGirl.create(:reservation_with_user, :kitchen => kitchen_one, :user => user_with_reservations)
+      reservation_two = FactoryGirl.create(:reservation_with_user, :kitchen => kitchen_one, :user => user_with_reservations)
+      reservation_three = FactoryGirl.create(:reservation_with_user, :status => "approved", :kitchen => kitchen_one, :user => user_with_reservations)
+      expect(user_with_reservations.pending_reservations_count).to eq(2)
     end
 
     it "return's 0 if there is not pending reservations" do
-      expect(user_two.pending_reservations_count).to eq(0)
+      expect(user_without_reservations.pending_reservations_count).to eq(0)
     end
   end
 end
