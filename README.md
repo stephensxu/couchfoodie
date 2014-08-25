@@ -29,9 +29,12 @@ This is the golden opportunity to cure starvation, longingness and socialize wit
 * Guest may include date and time for their reservation
 * Exact address and email address will only be exchanged between host and guest AFTER approval of reservation
 
-### Additional features ###
+### [V2.0] ###
 
 * User may search for Kitchens by location(Use graticule maybe)
 * User gets email notification when receiving a new reservation or message
 * User may register and login via facebook
 * Add jQuery to front-end; modal dialog
+* Host may add pictures to their kitchen
+* Guest may view pictures of kitchen
+* Validate user is the owner of the email address provided before sending out email notification

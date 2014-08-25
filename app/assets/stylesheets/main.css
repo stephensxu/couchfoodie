@@ -21,19 +21,19 @@ footer {
 }
 
 a { 
-  color: #55acee; 
+  color: #386FD4; 
   text-decoration: none;
 }
-a:visited { color: purple; }
+a:visited { color: #386FD4; }
 a:hover { 
   color: #fff; 
-  background-color:#3B3F7D; 
+  background-color: #3B3F7D; 
 }
 
-button:hover { 
+/*button:hover { 
   color: #fff; 
   background-color:#3B3F7D; 
-}
+}*/
 
 table {
   border-spacing: 5px;
@@ -76,7 +76,7 @@ html, body {
 
 /* END CSS Sticky Footer */
 
-.button_normal {
+/*.button_normal {
   margin: 20px 5px 15px 5px;
   width:150px;
   border-radius: 6px;
@@ -92,7 +92,7 @@ html, body {
   color: white;
   background-color:#3B3F7D; 
   opacity: 1.0
-}
+}*/
 
 
 .input_box_normal {

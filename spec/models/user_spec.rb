@@ -47,8 +47,9 @@ RSpec.describe User, :type => :model do
       it { should_not allow_value(bad_password).for(:password)}
     end
     
-    it { should validate_confirmation_of(:password) }
-  endgit 
+      it { should validate_confirmation_of(:password) }
+
+  end
 
   describe "user" do
     describe "validations" do
