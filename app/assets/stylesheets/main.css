@@ -103,7 +103,7 @@ html, body {
 }
 
 .notice {
-  position: fixed;
+  position: absolute;
   color: green;
   font-weight: bold;
   top: 5%;
