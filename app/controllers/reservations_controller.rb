@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
+  before_action :require_login
 
 
   # GET /reservations
@@ -55,6 +56,10 @@ class ReservationsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_reservation
     @reservation = Reservation.find(params[:id])
+  end
+
+  def require_login
+    head(:forbidden) unless logged_in?
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

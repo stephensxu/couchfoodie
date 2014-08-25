@@ -3,6 +3,7 @@ class KitchensController < ApplicationController
                 :reservations_approved, :reservations_denied]
   before_action :require_authorization!, :only => [:edit, :update, :destroy, :reservations_pending,
                 :reservations_approved, :reservations_denied]
+  before_action :require_login, :except => [:index]
 
   # GET /kitchens
   # GET /kitchens.json
@@ -80,6 +81,10 @@ class KitchensController < ApplicationController
 
   def require_authorization!
     head(:forbidden) unless @kitchen.editable_by?(current_user)
+  end
+
+  def require_login
+    head(:forbidden) unless logged_in?
   end
 
   # Use callbacks to share common setup or constraints between actions.

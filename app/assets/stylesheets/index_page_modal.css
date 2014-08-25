@@ -56,7 +56,7 @@
 
 .my-modal .my-modal-content {
   position: fixed;
-  top: 25%;
+  top: 10%;
   left: 50%;
   z-index: 9020;
 
