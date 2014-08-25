@@ -48,7 +48,7 @@ RSpec.describe User, :type => :model do
     end
     
     it { should validate_confirmation_of(:password) }
-  end
+  endgit 
 
   describe "user" do
     describe "validations" do
