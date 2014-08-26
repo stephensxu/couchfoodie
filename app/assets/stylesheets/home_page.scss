@@ -36,6 +36,8 @@ nav ul li:first-child {
   height: 80px;
 }
 
+/* WELCOME MESSAGE */
+
 .welcome_message {
   /*border: 1px solid red;*/
   height: 600px;
@@ -54,8 +56,7 @@ nav ul li:first-child {
 }
 
 .welcome_message p {
-  padding-top: 0.6em;
-  font-size: 25px;
+  font-size: 28px;
   color: white;
   width: 35em;
   line-height: 1.5em;
@@ -65,4 +66,75 @@ nav ul li:first-child {
   font-weight: bold;
   margin-left: 23em;
   margin-top: 3em;
+  opacity: 1.0;
+
 }
+
+/* MESSAGE FOR HOST */
+
+.message_for_host {
+  height: 700px;
+  padding-left: 6em;
+  font-weight: bold;
+}
+
+.message_for_host h2 {
+  padding-top: 1em;
+  font-size: 55px;
+  color: #3B3F7D;
+}
+
+.message_for_host p {
+  padding-top: 0.6em;
+  font-size: 25px;
+  color: #3B3F7D;
+  width: 35em;
+  line-height: 1.5em;
+}
+
+.message_for_host button {
+  font-weight: bold;
+  font-size: 23px;
+  margin-top: 2em;
+  opacity: 1.0;
+
+}
+
+/* MESSAGE FOR GUEST */
+
+.message_for_guest {
+  height: 700px;
+  padding-left: 6em;
+  font-weight: bold;
+  margin-bottom: 1em;
+  background-image: url(/assets/green_cup.png);
+
+}
+
+.message_for_guest h2 {
+  padding-top: 2.5em;
+  font-size: 55px;
+  color: #3B3F7D;
+}
+
+.message_for_guest p {
+  padding-top: 0.6em;
+  font-size: 25px;
+  color: #3B3F7D;
+  width: 35em;
+  line-height: 1.5em;
+}
+
+.message_for_guest button {
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 2em;
+  margin-left: 35em;
+  opacity: 1.0;
+
+}
+
+
+
+
+

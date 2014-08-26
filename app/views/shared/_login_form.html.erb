@@ -1,7 +1,7 @@
 <%= form_for(:session, :url => login_path, :method => :post) do |f| %>
   <table class="sign_in_table", cellspacing="20">
     <tr>
-      <td align="left"><span class="login_table_content">Login</span></td> 
+      <td align="left"><span class="login_table_content">Email</span></td> 
       <td><%= f.text_field(:email, :placeholder => "Email", :class => "input_box_normal")%></td>
     </tr>
     <tr>
