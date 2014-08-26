@@ -17,7 +17,8 @@
 
 #logged_out_header {
   vertical-align: top;
-  height: 80px;
+  margin-top: 0;
+  height: 60px;
   font-size: 20px;
 }
 
@@ -133,7 +134,8 @@
   position: absolute;
   color: green;
   font-weight: bold;
-  top: 5%;
+  font-size: 20px;
+  top: 3%;
   left: 40%;
   right: 40%;
   text-align: center;
