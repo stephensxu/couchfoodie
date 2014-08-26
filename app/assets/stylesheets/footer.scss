@@ -1,0 +1,40 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+footer {
+  text-align: center;
+}
+
+/* BEGIN CSS Sticky Footer */
+
+html, body {
+  height: 100%;
+}
+
+#logged_out_header {
+  position: absolute;
+  top: 0;
+  right: 1%;
+  left: 65%;
+}
+
+#welcome_message {
+  font-size: 30px;
+  text-align: center;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -4em;
+}
+
+.footer, .push {
+  height: 4em;
+  clear: both;
+}
+
+/* END CSS Sticky Footer */

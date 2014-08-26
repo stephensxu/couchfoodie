@@ -1,0 +1,68 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+nav {
+  float: right;
+}
+
+nav ul li {
+  display: inline;
+  border-left: 1px solid #000;
+  padding-left: 6px;
+}
+
+nav ul li:first-child {
+  border-left: none;
+}
+
+
+.login_table_content {
+  font-size: 20px;
+}
+
+.registration_form {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5em;
+  width: 40em;
+  line-height: 1.5em;
+}
+
+#logged_out_header {
+  /*border: 1px solid red;*/
+  vertical-align: top;
+  height: 80px;
+}
+
+.welcome_message {
+  /*border: 1px solid red;*/
+  height: 600px;
+  margin-top: 5em;
+  padding-top: 2em;
+  padding-left: 6em;
+  font-weight: bold;
+  background-image: url(/assets/home_dining_2_crop.jpg);
+  background-repeat: no-repeat;
+}
+
+.welcome_message h1 {
+  padding-top: 2em;
+  font-size: 55px;
+  color: white;
+}
+
+.welcome_message p {
+  padding-top: 0.6em;
+  font-size: 25px;
+  color: white;
+  width: 35em;
+  line-height: 1.5em;
+}
+
+.welcome_message button {
+  font-weight: bold;
+  margin-left: 23em;
+  margin-top: 3em;
+}

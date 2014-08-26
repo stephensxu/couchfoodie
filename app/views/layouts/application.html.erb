@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Couchfoodie</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <%= csrf_meta_tags %>
-</head>
+  <head>
+    <title>Couchfoodie</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <%= csrf_meta_tags %>
+  </head>
 
-<body>
-  <div class="wrapper">
-    <div class="header">
-      <header><%= render partial: "shared/header_logged_in" %></header>
+  <body>
+    <div class="wrapper">
+      <div class="header">
+        <header><%= render partial: "shared/header_all" %></header>
+      </div>
+
+      <%= yield %>
+
+      <div class="push"></div>
     </div>
 
-    <%= yield %>
-
-    <div class="push"></div>
-  </div>
-
-  <div class="footer">
-    <%= render partial: "shared/footer" %>
-  </div>
-</body>
+    <div class="footer">
+      <%= render partial: "shared/footer" %>
+    </div>
+  </body>
 </html>
