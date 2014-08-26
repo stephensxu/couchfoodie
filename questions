@@ -6,7 +6,11 @@ Street, City, State, Zipcode etc.
 
 3. Local testing for production environment not working
 
-4. Problem with html overflow, what's causing it?
+4. How to prevent padding from adding to overall width and causing overflow?
+
+5. photo croping related
+
+6. What's going on with psql database?
 
 
 BUG FIND FROM JESSE(8/19):
