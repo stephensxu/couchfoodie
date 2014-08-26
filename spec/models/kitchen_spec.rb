@@ -26,7 +26,9 @@
 require 'rails_helper'
 
 RSpec.describe Kitchen, :type => :model do
+  it { should have_many(:pending_reservations) }
   it { should have_many(:reservations) }
+
   it { should belong_to(:user) }
 
   describe "#valid?" do
@@ -127,6 +129,3 @@ RSpec.describe Kitchen, :type => :model do
     end
   end
 end
-
-
-

@@ -13,25 +13,25 @@
 
   <div class="field">
     <%= f.label "Introduce yourself to the host, be honest and respectful" %><br>
-    <%= f.text_area :message_from_guest, :class => "text_box" %>
+    <%= f.text_area :message_from_guest, :placeholder => "250 characters or less", :class => "text_box" %>
   </div>
 
   <div class="field">
     <%= f.label "Reservation date" %><br>
-    <%= f.date_field :reserve_date, :class => "url_box" %>
+    <%= f.date_field :reserve_date, :class => "input_box_normal" %>
   </div>
 
   <div class="field">
     <%= f.label "Reservation time" %><br>
-    <%= f.time_field :reserve_time, :class => "url_box" %>
+    <%= f.time_field :reserve_time, :class => "input_box_normal" %>
   </div>
 
   <div class="field">
     <%= f.label "Number of people" %><br>
-    <%= f.number_field :guest_number, :class => "url_box" %>
+    <%= f.number_field :guest_number, :class => "input_box_normal" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Request reservation!", :class => "button" %>
+    <%= f.submit "Reserve", :class => "button_normal" %>
   </div>
 <% end %>

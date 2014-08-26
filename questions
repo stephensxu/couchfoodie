@@ -4,17 +4,15 @@ If I use one-to-one; how can I prevent the data from being destroyed when use ha
 2. How can I do validation for address input?
 Street, City, State, Zipcode etc.
 
-4. Should I spend time building more feature or testing?
+3. Local testing for production environment not working
+
 
 BUG FIND FROM JESSE(8/19):
 
-- Front page has no introduction
-- Log in page not looking good
 - No margin from header
 - "Guest" is unclear what it means
 - Notice is mostly out of the place
 - Notice would be above the footer in some pages
-- In My Kitchen page, footer is on the top
 
 BUG FIND FROM JESSE(8/19):
 - Double header issue

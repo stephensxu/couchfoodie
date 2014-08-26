@@ -1,0 +1,81 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+nav {
+  float: right;
+}
+
+nav ul li {
+  display: inline;
+  border-left: 1px solid #000;
+  padding-left: 6px;
+}
+
+nav ul li:first-child {
+  border-left: none;
+}
+
+html *{
+  font-family: 'Signika', sans-serif !important;
+  color: #3B3F7D;
+}
+
+a { 
+  color: #3B3F7D; 
+  text-decoration: none;
+}
+a:visited { color: #3B3F7D; }
+a:hover { 
+  color: #fff; 
+  background-color: #3B3F7D; 
+}
+
+table {
+  border-spacing: 5px;
+}
+
+td {
+  padding: 0.5em;
+}
+
+.input_box_normal {
+  width: 200px; 
+  height: 30px; 
+  font-size: 20px;
+  color: #3B3F7D;
+}
+
+.text_box {
+  width: 400px; 
+  height: 90px; 
+  font-size: 20px;
+  color: #3B3F7D;
+}
+
+.new_kitchen {
+  margin-left: auto;
+  margin-right: auto;
+  width: 25em
+}
+
+.user_reservations_all {
+  margin-top: 3em;
+	text-align: center;
+  font-size: 30px;
+  line-height: 3em;
+}
+
+.reservation_all {
+  margin-top: 3em;
+}
+
+
+.reservation_approval_form {
+  margin-top: 1em;
+}
+
+.kitchen-form-label {
+  text-align: left;
+}

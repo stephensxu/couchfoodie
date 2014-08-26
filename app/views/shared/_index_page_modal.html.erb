@@ -1,0 +1,44 @@
+<div id="front_page_modal">
+
+  <!-- Button trigger modal -->
+
+  <ul class="modal-button-list">
+    <li>
+      <%= link_to 'Home', root_url %>
+    </li>
+    <li>
+      <button data-my-modal="#user_modal" data-toggle="modal" class="button_small">
+        Log in
+      </button>
+    </li>
+    <li>
+      <button data-my-modal="#sign_up_modal" data-toggle="modal" class="button_small">
+        Sign Up
+      </button>
+    </li>
+  </ul>
+
+   <!-- modal content -->
+
+  <div class="my-modal" id="sign_up_modal">
+    <div class="modal-container">
+      <div class="my-modal-background"></div>
+      <div class="my-modal-content">
+        <a href="#" class="my-modal-close">[X]</a>
+        <h2>Sign Up</h2>
+        <%= render :partial => "users/sign_up_form", :locals => { :user => User.new } %>
+      </div>
+    </div>
+  </div>
+
+  <div class="my-modal" id="user_modal">
+    <div class="modal-container">
+      <div class="my-modal-background"></div>
+      <div class="my-modal-content">
+        <a href="#" class="my-modal-close">[X]</a>
+        <h2>Log In</h2>
+        <%= render :partial => "shared/login_form", :locals => { :user => User.new } %>
+      </div>
+    </div>
+  </div>
+</div>

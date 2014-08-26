@@ -1,0 +1,90 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+#logged_in_header {
+  height: 3em;
+  padding-left: 1em;
+  font-size: 20px;
+}
+
+#logged_in_nav_list {
+  padding-right: 10px;
+  font-weight: bold;
+}
+
+#logged_in_nav_list li a {
+  color: #386FD4;
+}
+
+#logged_in_nav_list li a:hover { 
+  color: #fff; 
+  background-color: #3B3F7D; 
+}
+
+.user_page_notice {
+  position: absolute;
+  color: green;
+  font-weight: bold;
+  font-size: 20px;
+  top: 15%;
+  left: 70%;
+  text-align: center;
+}
+
+.kitchen_index_list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.kitchen_index_list dl {
+  border: 1px solid #3B3F7D;
+  clear: both;
+  float: left;
+  width: 100%;
+  padding-left: 10em;
+  padding-right: 3em;
+  padding-top: 3em;
+  padding-bottom: 3em;
+  margin-bottom: 0;
+  margin-top: 0
+}
+
+.kitchen_index_list .individual_kitchen_info dt {
+  clear: left;
+  float: left;
+
+}
+
+.kitchen_index_list .individual_kitchen_info dd {
+  float: left;
+  margin-bottom: 8px;
+  margin-left: 5px;
+}
+
+.kitchen_name {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+dt.title {
+  font-weight: bold;
+}
+
+dt.reservation_form {
+  margin-top: 2em;
+  line-height: 2em;
+}
+
+.index_page_body {
+  margin-bottom: 1em;
+}

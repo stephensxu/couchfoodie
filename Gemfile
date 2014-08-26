@@ -13,10 +13,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'valid_email'
 # using psql both locally and production
 gem 'pg'
-gem 'turbolinks'
 gem 'simple_form'
 gem 'annotate', '~> 2.6.5'
 gem 'validates_timeliness'
+gem 'sass-rails', '~> 4.0.3'
 
 group :development do
   # Spring speeds up development by keeping your application running in the

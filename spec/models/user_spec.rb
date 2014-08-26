@@ -21,6 +21,7 @@ require 'rails_helper'
 RSpec.describe User, :type => :model do
   it { should have_many(:kitchens) }
   it { should have_many(:reservations) }
+  it { should have_many(:pending_reservations).through(:kitchens) }
   
   describe "#valid?" do
     it { should validate_presence_of(:email) }
@@ -33,16 +34,44 @@ RSpec.describe User, :type => :model do
     it { should ensure_length_of(:email).is_at_least(6) }
     it { should ensure_length_of(:password).is_at_least(6) }
     it { should allow_value("waffle@gmail.com", "foo+bar@gmail.io").for(:email) }
-    it { should_not allow_value("@", "jim@", "@iams", "stephens@1234ji").for(:email) }
+
+    %w(@ jim@ @iams stephens@1234ji).each do |bad_email|
+      it { should_not allow_value(bad_email).for(:email) }
+    end
+
     it { should allow_value("123456", "abcdefg123", "abcdefgibme", "isigjsdflsj").for(:password) }
+
     it { should_not allow_value("1", "123", "12345", "abcde").for(:password) }
-    it { should validate_confirmation_of(:password) }
+
+    %w(1 123 12345 abcde).each do |bad_password|
+      it { should_not allow_value(bad_password).for(:password)}
+    end
+    
+      it { should validate_confirmation_of(:password) }
+
   end
 
   describe "user" do
     describe "validations" do
       subject { FactoryGirl.create(:user) }
       it { should validate_uniqueness_of(:nickname) }
+    end
+  end
+
+  describe "#pending_reservations_count" do
+    let(:user_with_reservations) { FactoryGirl.create(:user) }
+    let(:user_without_reservations) { FactoryGirl.create(:user) }
+
+    it "returns total number of pending reservations for a logged in user" do
+      kitchen_one = FactoryGirl.create(:kitchen_with_user, :user => user_with_reservations)
+      reservation_one = FactoryGirl.create(:reservation_with_user, :kitchen => kitchen_one, :user => user_with_reservations)
+      reservation_two = FactoryGirl.create(:reservation_with_user, :kitchen => kitchen_one, :user => user_with_reservations)
+      reservation_three = FactoryGirl.create(:reservation_with_user, :status => "approved", :kitchen => kitchen_one, :user => user_with_reservations)
+      expect(user_with_reservations.pending_reservations_count).to eq(2)
+    end
+
+    it "return's 0 if there is not pending reservations" do
+      expect(user_without_reservations.pending_reservations_count).to eq(0)
     end
   end
 end

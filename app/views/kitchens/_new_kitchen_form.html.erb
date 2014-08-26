@@ -14,29 +14,29 @@
 
   <table class="create_kitchen_table", cellspaceing="30">
     <tr>
-      <td class="kitchen-form-label"><span class="login_table_content">Name</span></td> 
-      <td><%= f.text_field :name, :class => "input_box" %></td>
+      <td class="kitchen-form-label">Name</td> 
+      <td><%= f.text_field :name, :class => "input_box_normal" %></td>
     </tr>
     <tr>
-      <td class="kitchen-form-label"><span class="login_table_content">Description</span></td> 
-      <td><%= f.text_area :description, :class => "text_box" %></td>
+      <td class="kitchen-form-label">Description</td> 
+      <td><%= f.text_area :description, :placeholder => "250 characters or less", :class => "text_box" %></td>
     </tr>
     <tr>
-      <td class="kitchen-form-label"><span class="login_table_content">Street address</span></td>
-      <td><%= f.text_field :street_address, :class => "input_box" %></td>
+      <td class="kitchen-form-label">Street address</td>
+      <td><%= f.text_field :street_address, :class => "input_box_normal" %></td>
     </tr>
     <tr>
-      <td class="kitchen-form-label"><span class="login_table_content">City</span></td> 
-      <td><%= f.text_field :city, :class => "input_box" %></td>
+      <td class="kitchen-form-label">City</td> 
+      <td><%= f.text_field :city, :class => "input_box_normal" %></td>
     </tr>
     <tr>
-      <td class="kitchen-form-label"><span class="login_table_content">State</span></td> 
-      <td><%= f.select :state, options_for_select(Kitchen::VALID_STATES), :class => "input_box" %></td>
+      <td class="kitchen-form-label">State</td> 
+      <td><%= f.select :state, options_for_select(Kitchen::VALID_STATES), :class => "input_box_normal" %></td>
     </tr>
     <tr>
-      <td class="kitchen-form-label"><span class="login_table_content">Zipcode</span></td> 
-      <td><%= f.text_field :zipcode, :class => "input_box" %></td>
+      <td class="kitchen-form-label">Zipcode</td> 
+      <td><%= f.text_field :zipcode, :class => "input_box_normal" %></td>
     </tr>
   </table><br>
-      <%= f.submit "Submit", :class => "button" %>
+      <%= f.submit "Submit", :class => "button_normal" %>
 <% end %>

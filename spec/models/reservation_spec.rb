@@ -39,10 +39,10 @@ RSpec.describe Reservation, :type => :model do
 
     it { should validate_presence_of(:reserve_date) }
     it { should_not allow_value(DateTime.new(2000)).for(:reserve_date) }
-    it { should_not allow_value(DateTime.new(2020)).for(:reserve_date) }
-    it { should_not allow_value(DateTime.new(2016,12,1)).for(:reserve_date) }
+    it { should_not allow_value(1.year.from_now).for(:reserve_date) }
+    it { should_not allow_value(10.years.from_now).for(:reserve_date) }
     it { should_not allow_value(Time.now).for(:reserve_date) }
-    it { should allow_value(DateTime.new(2015,6,1)).for(:reserve_date) }
+    it { should allow_value(11.months.from_now).for(:reserve_date) }
 
     it { should validate_presence_of(:reserve_time) }
 

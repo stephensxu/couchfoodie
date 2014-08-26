@@ -1,0 +1,54 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+button:hover { 
+  color: white;
+  background-color:#3B3F7D; 
+  opacity: 1.0
+}
+
+.button_normal:hover {
+  color: white;
+  background-color:#3B3F7D; 
+  opacity: 1.0
+}
+
+.button_normal {
+  margin: 20px 5px 15px 5px;
+  width:150px;
+  border-radius: 6px;
+  border: 0;
+  font-size: 20px;
+  background-color: #386FD4;
+  color: white;
+  height: 200;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.button_small {
+  margin: 20px 5px 15px 5px;
+  width:100px;
+  border-radius: 6px;
+  border: 0;
+  font-size: 20px;
+  background-color: #386FD4;
+  color: white;
+  height: 30px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.button_large {
+  margin: 20px 5px 15px 5px;
+  width:150px;
+  height: 50px;
+  border-radius: 6px;
+  border: 0;
+  font-size: 30px;
+  background-color: #386FD4;
+  color: white;
+  cursor: pointer;
+}
+

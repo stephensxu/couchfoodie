@@ -1,25 +1,28 @@
-<div class="main_body">
-  <div class="notice">
+<div class="index_page_body">
+  <div class="user_page_notice">
     <% if flash[:notice] %>
       <%= flash[:notice] %>
     <% end %>
   </div>
-
+  
   <% @kitchens.each do |kitchen| %>
     <% next if kitchen.data_status != "active" %>
-  <hr>
-  <div class="individual_kitchen">
-    <h3><%= kitchen.name %></h3><br>
-    <strong>Kitchen owner: </strong> <%= kitchen.user.nickname %><br>
-    <strong>Description: </strong><%= kitchen.description %><br>
-    <strong>Location: </strong> <%= kitchen.city %>, <%= kitchen.state %>, <%= kitchen.zipcode %><br><br>
-    <%= render partial: "reservations/new_reservation_form", :locals => { :reservation => @reservation, :kitchen => kitchen } %>
-  </div>
-  <hr>
-  <% end %>
+  <ul class="kitchen_index_list clearfix">
+    <li>
+        <dl class="individual_kitchen_info">
+          <dt class="kitchen_name"><%= kitchen.name %></dt>
+          <dt class="title">Kitchen owner: </dt> 
+          <dd><%= kitchen.user.nickname %></dd>
+          <dt class="title">Description: </dt>
+          <dd><%= kitchen.description %></dd>
+          <dt class="title">Location: </dt> 
+          <dd><%= kitchen.city %>, <%= kitchen.state %>, <%= kitchen.zipcode %></dd>
+          <dt class="reservation_form"><%= render partial: "reservations/new_reservation_form", :locals => { :reservation => @reservation, :kitchen => kitchen } %></dt>
+        </dl>
+      
+    </li>
 
-</div>
+  </ul>
+    <% end %>
 
-<div class="footer">
-  <%= render partial: "shared/footer" %>
 </div>

@@ -1,0 +1,142 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+.login_table_content {
+  font-size: 20px;
+}
+
+.registration_form {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5em;
+  width: 40em;
+  line-height: 1.5em;
+}
+
+#logged_out_header {
+  vertical-align: top;
+  margin-top: 0;
+  height: 60px;
+  font-size: 20px;
+}
+
+/* WELCOME MESSAGE */
+
+.welcome_message {
+  /*border: 1px solid red;*/
+  height: 600px;
+  padding-top: 2em;
+  padding-left: 6em;
+  margin-bottom: 0;
+  font-weight: bold;
+  background-image: url(/assets/home_dining_2_crop.jpg);
+  background-repeat: no-repeat;
+  clear: none
+}
+
+.welcome_message h1 {
+  padding-top: 2em;
+  font-size: 55px;
+  color: white;
+}
+
+.welcome_message p {
+  font-size: 28px;
+  color: white;
+  width: 35em;
+  line-height: 1.5em;
+}
+
+.welcome_message button {
+  font-weight: bold;
+  margin-left: 23em;
+  margin-top: 3em;
+  opacity: 1.0;
+
+}
+
+/* MESSAGE FOR HOST */
+
+.message_for_host {
+  float: left;
+  width: 100%;
+  // border: 1px solid red;
+  clear: none;
+  height: 700px;
+  padding-left: 6em;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.message_for_host h2 {
+  padding-top: 2.5em;
+  font-size: 55px;
+  color: #3B3F7D;
+}
+
+.message_for_host p {
+  padding-top: 0.6em;
+  font-size: 25px;
+  color: #3B3F7D;
+  width: 35em;
+  line-height: 1.5em;
+}
+
+.message_for_host button {
+  font-weight: bold;
+  font-size: 23px;
+  margin-top: 2em;
+  opacity: 1.0;
+
+}
+
+/* MESSAGE FOR GUEST */
+
+.message_for_guest {
+  float: left;
+  width: 100%;
+  height: 700px;
+  padding-left: 6em;
+  font-weight: bold;
+  margin-bottom: 1em;
+  background-image: url(/assets/green_cup.png);
+  clear: none;
+  margin-top: 0;
+}
+
+.message_for_guest h2 {
+  padding-top: 2.5em;
+  font-size: 55px;
+  color: #3B3F7D;
+}
+
+.message_for_guest p {
+  padding-top: 0.6em;
+  font-size: 25px;
+  color: #3B3F7D;
+  width: 35em;
+  line-height: 1.5em;
+}
+
+.message_for_guest button {
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 2em;
+  margin-left: 35em;
+  opacity: 1.0;
+
+}
+
+.home_page_notice {
+  position: absolute;
+  color: green;
+  font-weight: bold;
+  font-size: 20px;
+  top: 3%;
+  left: 40%;
+  right: 40%;
+  text-align: center;
+}
