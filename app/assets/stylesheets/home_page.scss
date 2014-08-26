@@ -26,12 +26,13 @@
 .welcome_message {
   /*border: 1px solid red;*/
   height: 600px;
-  margin-top: 5em;
   padding-top: 2em;
   padding-left: 6em;
+  margin-bottom: 0;
   font-weight: bold;
   background-image: url(/assets/home_dining_2_crop.jpg);
   background-repeat: no-repeat;
+  clear: none
 }
 
 .welcome_message h1 {
@@ -58,13 +59,19 @@
 /* MESSAGE FOR HOST */
 
 .message_for_host {
+  float: left;
+  width: 100%;
+  // border: 1px solid red;
+  clear: none;
   height: 700px;
   padding-left: 6em;
   font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .message_for_host h2 {
-  padding-top: 1em;
+  padding-top: 2.5em;
   font-size: 55px;
   color: #3B3F7D;
 }
@@ -88,12 +95,15 @@
 /* MESSAGE FOR GUEST */
 
 .message_for_guest {
+  float: left;
+  width: 100%;
   height: 700px;
   padding-left: 6em;
   font-weight: bold;
   margin-bottom: 1em;
   background-image: url(/assets/green_cup.png);
-
+  clear: none;
+  margin-top: 0;
 }
 
 .message_for_guest h2 {
