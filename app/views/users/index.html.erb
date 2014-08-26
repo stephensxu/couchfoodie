@@ -1,5 +1,5 @@
 <div class="main_body">
-  <div class="notice">
+  <div class="user_page_notice">
     <% if flash[:notice] %>
       <%= flash[:notice] %>
     <% end %>
@@ -7,7 +7,6 @@
 
   <% @kitchens.each do |kitchen| %>
     <% next if kitchen.data_status != "active" %>
-  <hr>
   <div class="individual_kitchen">
     <h3><%= kitchen.name %></h3><br>
     <strong>Kitchen owner: </strong> <%= kitchen.user.nickname %><br>

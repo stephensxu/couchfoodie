@@ -3,21 +3,6 @@
   They will automatically be included in application.css.
 */
 
-nav {
-  float: right;
-}
-
-nav ul li {
-  display: inline;
-  border-left: 1px solid #000;
-  padding-left: 6px;
-}
-
-nav ul li:first-child {
-  border-left: none;
-}
-
-
 .login_table_content {
   font-size: 20px;
 }
@@ -31,9 +16,9 @@ nav ul li:first-child {
 }
 
 #logged_out_header {
-  /*border: 1px solid red;*/
   vertical-align: top;
   height: 80px;
+  font-size: 20px;
 }
 
 /* WELCOME MESSAGE */
@@ -134,7 +119,12 @@ nav ul li:first-child {
 
 }
 
-
-
-
-
+.home_page_notice {
+  position: absolute;
+  color: green;
+  font-weight: bold;
+  top: 5%;
+  left: 40%;
+  right: 40%;
+  text-align: center;
+}

@@ -1,14 +1,14 @@
 <% if @current_user %> 
   <div id="logged_in_header">
-    Hello there, <strong><%= @current_user.nickname %></strong>!
-    <%= link_to 'Home', root_url %>
-    <%= link_to('Logout', logout_path) %>
-
     <nav>
-
-      <%= link_to "Create Kitchen", new_kitchen_path %><br>
-      <%= link_to "My Kitchens (#{current_user.pending_reservations_count} pending messages)", kitchens_users_path %><br>
-      <%= link_to "My reservations (#{@current_user.reservations.approved.count} approved reservations)", reservations_all_users_path %>
+      <ul id="logged_in_nav_list">
+        <li>Hello there, <%= @current_user.nickname %>!</li>
+        <li><%= link_to 'Home', root_url %></li>
+        <li><%= link_to "Create Kitchen", new_kitchen_path %></li>
+        <li><%= link_to "My Kitchens (#{current_user.pending_reservations_count} pending)", kitchens_users_path %></li>
+        <li><%= link_to "My reservations (#{@current_user.reservations.approved.count} approved)", reservations_all_users_path %></li>
+        <li><%= link_to('Logout', logout_path) %></li>
+      </ul>
     </nav>
   </div>
   
@@ -16,7 +16,7 @@
   <div id="logged_out_header">
     <nav><%= render :partial => "shared/index_page_modal" %></nav>
   </div>
-  <div class="notice">
+  <div class="home_page_notice">
     <% if flash[:notice] %>
       <%= flash[:notice] %>
   <% end %>

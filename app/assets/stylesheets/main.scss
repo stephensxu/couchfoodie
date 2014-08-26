@@ -3,6 +3,20 @@
   They will automatically be included in application.css.
 */
 
+nav {
+  float: right;
+}
+
+nav ul li {
+  display: inline;
+  border-left: 1px solid #000;
+  padding-left: 6px;
+}
+
+nav ul li:first-child {
+  border-left: none;
+}
+
 html *{
   font-family: 'Signika', sans-serif !important;
   color: #3B3F7D;
@@ -46,25 +60,10 @@ td {
   text-align: center;
 }
 
-.notice {
-  position: absolute;
-  color: green;
-  font-weight: bold;
-  top: 5%;
-  left: 40%;
-  right: 40%;
-  text-align: center;
-}
-
 .new_kitchen {
   margin-left: auto;
   margin-right: auto;
   width: 25em
-}
-
-.header {
-  margin-bottom: 3em;
-  font-size: 20px;
 }
 
 .user_reservations_all {
