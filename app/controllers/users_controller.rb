@@ -57,7 +57,7 @@ class UsersController < ApplicationController
   private
 
   def require_authorization!
-    head(:forbidden) unless logged_in?
+    redirect_to root_path unless logged_in?
   end
 
   def user_params
