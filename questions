@@ -23,5 +23,4 @@ BUG FIND FROM JESSE(8/19):
 - Verify html on MDN
 
 ** KNOWN BUGS
-- Reservations count doesn't go away once kitchen is deleted
-- Reservation needs to show whether a kitchen is still exist
+- Reservation needs to show regardless a kitchen is still exist

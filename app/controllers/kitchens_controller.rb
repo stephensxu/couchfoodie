@@ -81,11 +81,11 @@ class KitchensController < ApplicationController
   private
 
   def require_authorization!
-    head(:forbidden) unless @kitchen.editable_by?(current_user)
+    redirect_to root_path unless @kitchen.editable_by?(current_user)
   end
 
   def require_login
-    head(:forbidden) unless logged_in?
+    redirect_to root_path unless logged_in?
   end
 
   # Use callbacks to share common setup or constraints between actions.

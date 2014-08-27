@@ -47,13 +47,14 @@
   font-size: 28px;
   color: white;
   width: 35em;
-  line-height: 1.5em;
+  line-height: 1.8em;
 }
 
 .welcome_message button {
   font-weight: bold;
-  margin-left: 23em;
-  margin-top: 3em;
+  font-size: 40px;
+  margin-left: 18em;
+  margin-top: 1em;
   opacity: 1.0;
 
 }
@@ -64,7 +65,8 @@
   overflow: hidden;
   // border: 1px solid red;
   clear: none;
-  height: 700px;
+  // height: 700px;
+  height: 100vh;
   padding-left: 6em;
   font-weight: bold;
   margin-top: 0;
@@ -82,13 +84,12 @@
   font-size: 25px;
   color: #3B3F7D;
   width: 35em;
-  line-height: 1.5em;
+  line-height: 1.8em;
 }
 
 .message_for_host button {
   font-weight: bold;
-  font-size: 23px;
-  margin-top: 2em;
+  margin-top: 1em;
   opacity: 1.0;
 
 }
@@ -97,7 +98,8 @@
 
 .message_for_guest {
   overflow: hidden;
-  height: 700px;
+  // height: 700px;
+  height: 100vh;
   padding-left: 6em;
   font-weight: bold;
   margin-bottom: 1em;
@@ -117,14 +119,14 @@
   font-size: 25px;
   color: #3B3F7D;
   width: 35em;
-  line-height: 1.5em;
+  line-height: 1.8em;
 }
 
 .message_for_guest button {
   font-weight: bold;
-  font-size: 20px;
-  margin-top: 2em;
-  margin-left: 35em;
+  font-size: 28px;
+  margin-top: 1em;
+  margin-left: 23em;
   opacity: 1.0;
 
 }
