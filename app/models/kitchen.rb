@@ -30,6 +30,9 @@ class Kitchen < ActiveRecord::Base
                     MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV MI WY
                     AS DC FM GU MH MP PW PR VI AE AA AP).sort
   # This list contains abbreviation for 50 States in US + 9 commonwealth/territory + 3 Military State
+   
+  scope :for_user, lambda { |user| where(:user => user) }
+  scope :active, lambda { where(:data_status => "active") }
 
   validates :name, :presence => true, :uniqueness => true, :length => { :minimum => 6 , :maximum => 50 }
   validates :description, :presence => true, :length => { :in => (10..250)  }
@@ -49,8 +52,6 @@ class Kitchen < ActiveRecord::Base
            lambda { pending },
            :class_name => 'Reservation'
 
-  scope :for_user, lambda { |user| where(:user => user) }
-
   def editable_by?(user)
     self.editable? && user.present? && self.user == user
   end
@@ -62,7 +63,4 @@ class Kitchen < ActiveRecord::Base
   def archive!
     self.update_attributes(:data_status => "archive")
   end
-
-  belongs_to :user
-  has_many :reservations
 end

@@ -15,11 +15,13 @@ Street, City, State, Zipcode etc.
 
 BUG FIND FROM JESSE(8/19):
 
-- No margin from header
 - "Guest" is unclear what it means
 - Notice is mostly out of the place
 - Notice would be above the footer in some pages
 
 BUG FIND FROM JESSE(8/19):
-- Double header issue
 - Verify html on MDN
+
+** KNOWN BUGS
+- Reservations count doesn't go away once kitchen is deleted
+- Reservation needs to show whether a kitchen is still exist

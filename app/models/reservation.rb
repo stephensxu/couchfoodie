@@ -31,7 +31,7 @@ class Reservation < ActiveRecord::Base
   scope :approved, lambda { where(:status => 'approved') }
   scope :denied, lambda { where(:status => 'denied') }
 
-  validates :status, :presence => true, :inclusion => { :in => ["pending", "denied", "approved"] }
+  validates :status, :presence => true, :inclusion => { :in => ["pending", "denied", "approved", "archive"] }
   validates :reserve_date, :presence => true,
             :timeliness => { :after => lambda { Date.current }, :before =>  lambda { Date.current + 1.year },
             :type => :date, :after_message => "reservation has to be in the future",
@@ -43,10 +43,14 @@ class Reservation < ActiveRecord::Base
   validates :guest_number, :presence => true, 
             :numericality => { :only_integer => true, :greater_than => 0, :less_than => 10 }
 
+  belongs_to :user
+  belongs_to :kitchen
+
   def editable_by?(user)
     user.present? && self.user == user
   end
 
-  belongs_to :user
-  belongs_to :kitchen
+  def archive!
+    self.update_attributes(:status => "archive")
+  end
 end
