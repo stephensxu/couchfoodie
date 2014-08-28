@@ -2,7 +2,7 @@
 <%= form_for(user) do |f| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %>. Oops, please check your input and try again!</h2>
+      <h2><% pluralize(user.errors.count, "error") %>Please check your input for the following guideline</h2>
 
       <ul>
         <% user.errors.full_messages.each do |message| %>

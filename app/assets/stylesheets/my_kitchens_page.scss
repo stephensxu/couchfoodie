@@ -4,7 +4,6 @@
 */
 
 .individule_kitchen {
-  text-align: center;
   line-height: 1.5em;
 }
 
@@ -17,4 +16,45 @@
 
 .kitchen_buttons {
   line-height: 0;
+}
+
+.my_kitchen {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.my_kitchen dl {
+  clear: both;
+  float: left;
+  width: 100%;
+  padding-right: 3em;
+  padding-top: 3em;
+  margin: 0;
+}
+
+.my_kitchen .individule_kitchen_info {
+  margin-bottom: 20px;
+}
+
+.my_kitchen .individule_kitchen_info dt {
+  clear: left;
+  float: left;
+}
+
+.my_kitchen .individule_kitchen_info dd {
+  float: left;
+  margin-bottom: 8px;
+  margin-left: 5px;
+}
+
+.individule_kitchen {
+  padding-left: 10em;
+  padding-bottom: 3em;
 }

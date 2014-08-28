@@ -1,26 +1,25 @@
-1. Between user and kitchen, should I use one-to-one or one-to-many?
+- Between user and kitchen, should I use one-to-one or one-to-many?
 If I use one-to-one; how can I prevent the data from being destroyed when use has to create new kitchen? 
 
-2. How can I do validation for address input?
+- How can I do validation for address input?
 Street, City, State, Zipcode etc.
 
-3. Local testing for production environment not working
+- How to prevent padding from adding to overall width and causing overflow?
 
-4. How to prevent padding from adding to overall width and causing overflow?
+- photo croping related; how to crop a 
 
-5. photo croping related
+- how to live update error message in modal?
 
-6. What's going on with psql database?
+- How to allow user to upload image
 
 
 BUG FIND FROM JESSE(8/19):
 
 - "Guest" is unclear what it means
 - Notice is mostly out of the place
-- Notice would be above the footer in some pages
 
 BUG FIND FROM JESSE(8/19):
 - Verify html on MDN
 
 ** KNOWN BUGS
-- Reservation needs to show regardless a kitchen is still exist
+- Reservation needs to show whether a kitchen still exist

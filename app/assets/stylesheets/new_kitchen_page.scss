@@ -6,12 +6,9 @@
 .new_kitchen {
   margin-left: auto;
   margin-right: auto;
-  padding-top: 3em;
-  padding-bottom: 3em;
+  padding: 3em 3em 3em 3em;
   width: 70%;
-  background-image: image-url("food.png");
-
-
+  line-height: 1.5em;
 }
 
 .new_kitchen h2 {

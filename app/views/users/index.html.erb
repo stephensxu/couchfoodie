@@ -5,23 +5,22 @@
     <% end %>
   </div>
   
+  <ul class="kitchen_index_list clearfix">
   <% @kitchens.each do |kitchen| %>
     <% next if kitchen.data_status != "active" %>
-  <ul class="kitchen_index_list clearfix">
     <li>
-        <dl class="individual_kitchen_info">
+        <dl class="individule_kitchen_info">
           <dt class="kitchen_name"><%= kitchen.name %></dt>
           <dt class="title">Kitchen owner: </dt> 
           <dd><%= kitchen.user.nickname %></dd>
           <dt class="title">Description: </dt>
           <dd><%= kitchen.description %></dd>
           <dt class="title">Location: </dt> 
-          <dd><%= kitchen.city %>, <%= kitchen.state %>, <%= kitchen.zipcode %></dd>
+          <dd><%= kitchen.city %>, <%= kitchen.state %>, <%= kitchen.zipcode %> (street address will be released once reservation approved by kitchen owner)</dd>
           <dt class="reservation_form"><%= render partial: "reservations/new_reservation_form", :locals => { :reservation => @reservation, :kitchen => kitchen } %></dt>
         </dl>
     </li>
-
-  </ul>
     <% end %>
+  </ul>
 
 </div>

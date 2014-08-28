@@ -28,10 +28,10 @@ html *{
 }
 
 a { 
-  color: #3B3F7D; 
+  color: #386FD4;
   text-decoration: none;
 }
-a:visited { color: #3B3F7D; }
+a:visited { color: #386FD4; }
 a:hover { 
   color: #fff; 
   background-color: #3B3F7D; 
@@ -63,30 +63,8 @@ td {
   color: #3B3F7D;
 }
 
-.user_reservations_all {
-  margin-top: 3em;
-	text-align: center;
-  font-size: 30px;
-  line-height: 3em;
-}
-
-.reservation_all {
-  margin-top: 3em;
-}
-
 .field {
   margin-bottom: 10px;
-}
-
-.reservation_new {
-  margin: auto;
-  width: 50%;
-  line-height: 1.5em;
-}
-
-
-.reservation_approval_form {
-  margin-top: 1em;
 }
 
 .kitchen-form-label {
