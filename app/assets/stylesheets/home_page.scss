@@ -31,7 +31,6 @@
   padding-left: 6em;
   margin-bottom: 0;
   font-weight: bold;
-  // background-image: url(/assets/home_dining_2_crop.jpg);
   background-image: image-url("home_dining_2_crop.jpg");
   background-repeat: no-repeat;
   clear: none
@@ -62,10 +61,8 @@
 /* MESSAGE FOR HOST */
 
 .message_for_host {
-  overflow: hidden;
   // border: 1px solid red;
   clear: none;
-  // height: 700px;
   height: 100vh;
   padding-left: 6em;
   font-weight: bold;
@@ -97,8 +94,6 @@
 /* MESSAGE FOR GUEST */
 
 .message_for_guest {
-  overflow: hidden;
-  // height: 700px;
   height: 100vh;
   padding-left: 6em;
   font-weight: bold;

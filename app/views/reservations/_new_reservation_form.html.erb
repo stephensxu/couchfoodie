@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= f.label "Number of people" %><br>
-    <%= f.number_field :guest_number, :class => "input_box_normal" %>
+    <%= f.select :guest_number, options_for_select(Reservation::VALID_GUEST_NUMBER), :class => "selection_dropdown" %>
   </div>
 
   <div class="actions">
