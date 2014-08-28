@@ -6,8 +6,8 @@
   </div>
   
   <div class="reservation_all">
-    <%= link_to "Pending host decision (#{@reservations_pending.count})", reservations_pending_users_path %><br>
-    <%= link_to "Approved by host (#{@reservations_approved.count})", reservations_approved_users_path %><br>
-    <%= link_to "Denied by host (#{@reservations_denied.count})", reservations_denied_users_path %>
+    <%= link_to "Waiting for kitchen reply (#{@reservations_pending.count})", reservations_pending_users_path %><br>
+    <%= link_to "Approved by kitchen (#{@reservations_approved.count})", reservations_approved_users_path %><br>
+    <%= link_to "Denied by kitchen (#{@reservations_denied.count})", reservations_denied_users_path %>
   </div>
 </div>

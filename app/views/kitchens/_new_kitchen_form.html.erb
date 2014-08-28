@@ -2,7 +2,7 @@
 
   <% if kitchen.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(kitchen.errors.count, "error") %>. Oops, please check your input and try again!</h2>
+      <h2><% pluralize(kitchen.errors.count, "error") %>Please check your input for the following guideline</h2>
 
       <ul>
         <% kitchen.errors.full_messages.each do |message| %>
@@ -19,7 +19,7 @@
     </tr>
     <tr>
       <td class="kitchen-form-label">Description</td> 
-      <td><%= f.text_area :description, :placeholder => "250 characters or less", :class => "text_box" %></td>
+      <td><%= f.text_area :description, :placeholder => "When am I usually available to accommodate guests? What do I usually cook?", :class => "text_box" %></td>
     </tr>
     <tr>
       <td class="kitchen-form-label">Street address</td>
@@ -31,7 +31,7 @@
     </tr>
     <tr>
       <td class="kitchen-form-label">State</td> 
-      <td><%= f.select :state, options_for_select(Kitchen::VALID_STATES), :class => "input_box_normal" %></td>
+      <td><%= f.select :state, options_for_select(Kitchen::VALID_STATES), :class => "selection_dropdown" %></td>
     </tr>
     <tr>
       <td class="kitchen-form-label">Zipcode</td> 

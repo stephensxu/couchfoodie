@@ -31,7 +31,7 @@ RSpec.describe Reservation, :type => :model do
 
   describe "#valid?" do
     it { should validate_presence_of(:status) }
-    it { should allow_value("pending", "denied", "approved").for(:status) }
+    it { should allow_value("pending", "denied", "approved", "archive").for(:status) }
 
     %w(soemthing deleted 1234 deny approve).each do |invalid_status|
       it { should_not allow_value(invalid_status).for(:status) }
@@ -75,6 +75,15 @@ RSpec.describe Reservation, :type => :model do
 
     it "returns false for an anonymous user" do
       expect(reservation).to_not be_editable_by(nil)
+    end
+  end
+
+  describe "#archive!" do
+    let(:reservation) { FactoryGirl.create(:reservation) }
+    it "change the status of reservation to archive" do
+      expect {
+        reservation.archive!
+      }.to change{ reservation.reload.status }.to eq("archive")
     end
   end
 

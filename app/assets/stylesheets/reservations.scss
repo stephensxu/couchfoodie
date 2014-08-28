@@ -1,0 +1,68 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+.reservations_list h2 {
+  text-align: center;
+  font-size: 30px;
+}
+
+.kitchen_reservations_list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.kitchen_reservations_list dl {
+  clear: both;
+  float: left;
+  width: 100%;
+  padding-right: 3em;
+  padding-top: 3em;
+  padding-bottom: 3em;
+  margin: 0;
+}
+
+.kitchen_reservations_list .individule_reservation_info dt {
+  clear: left;
+  float: left;
+}
+
+.kitchen_reservations_list .individule_reservation_info dd {
+  float: left;
+  margin-bottom: 8px;
+  margin-left: 5px;
+}
+
+.individule_reservation {
+  padding-left: 10em;
+}
+
+.user_reservations_all {
+  margin-top: 3em;
+  text-align: center;
+  font-size: 30px;
+  line-height: 3em;
+}
+
+.reservation_all {
+  margin-top: 3em;
+}
+
+.reservation_new {
+  margin: auto;
+  padding-top: 2em;
+  width: 50%;
+  line-height: 1.5em;
+}
+
+.reservation_approval_form {
+  margin-top: 1em;
+}

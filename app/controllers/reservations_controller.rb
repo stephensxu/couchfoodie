@@ -59,7 +59,7 @@ class ReservationsController < ApplicationController
   end
 
   def require_login
-    head(:forbidden) unless logged_in?
+    redirect_to root_path unless logged_in?
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

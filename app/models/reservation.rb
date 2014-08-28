@@ -26,12 +26,15 @@
 require 'date'
 
 class Reservation < ActiveRecord::Base
+
+  VALID_GUEST_NUMBER = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
   scope :for_user, lambda { |user| where(:user => user) }
   scope :pending, lambda { where(:status => 'pending') }
   scope :approved, lambda { where(:status => 'approved') }
   scope :denied, lambda { where(:status => 'denied') }
 
-  validates :status, :presence => true, :inclusion => { :in => ["pending", "denied", "approved"] }
+  validates :status, :presence => true, :inclusion => { :in => ["pending", "denied", "approved", "archive"] }
   validates :reserve_date, :presence => true,
             :timeliness => { :after => lambda { Date.current }, :before =>  lambda { Date.current + 1.year },
             :type => :date, :after_message => "reservation has to be in the future",
@@ -41,12 +44,16 @@ class Reservation < ActiveRecord::Base
   validates :user_id, :presence => true
   validates :kitchen_id, :presence => true
   validates :guest_number, :presence => true, 
-            :numericality => { :only_integer => true, :greater_than => 0, :less_than => 10 }
+            :inclusion => { :in => VALID_GUEST_NUMBER }
+
+  belongs_to :user
+  belongs_to :kitchen
 
   def editable_by?(user)
     user.present? && self.user == user
   end
 
-  belongs_to :user
-  belongs_to :kitchen
+  def archive!
+    self.update_attributes(:status => "archive")
+  end
 end

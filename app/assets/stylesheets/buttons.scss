@@ -24,7 +24,7 @@ button:hover {
   color: white;
   height: 200;
   cursor: pointer;
-  opacity: 0.8;
+  opacity: 1.0;
 }
 
 .button_small {
@@ -37,13 +37,13 @@ button:hover {
   color: white;
   height: 30px;
   cursor: pointer;
-  opacity: 0.8;
+  opacity: 1.0;
 }
 
 .button_large {
   margin: 20px 5px 15px 5px;
-  width:150px;
-  height: 50px;
+  width: 200px;
+  height: 70px;
   border-radius: 6px;
   border: 0;
   font-size: 30px;
@@ -51,4 +51,11 @@ button:hover {
   color: white;
   cursor: pointer;
 }
+
+select {
+  appearance: none;
+  font-size: 16px;
+  width: 80px;
+}
+
 

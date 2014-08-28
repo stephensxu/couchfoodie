@@ -38,3 +38,4 @@ This is the golden opportunity to cure starvation, longingness and socialize wit
 * Host may add pictures to their kitchen
 * Guest may view pictures of kitchen
 * Validate user is the owner of the email address provided before sending out email notification
+* Add kitchen delete confirmation
