@@ -5,7 +5,7 @@
 
 .wrapper {
   width: 100%;
-  // overflow: hidden;
+  overflow: hidden;
 }
 
 nav {
@@ -45,6 +45,10 @@ td {
   padding: 0.5em;
 }
 
+.img {
+  max-width: 100%;
+}
+
 .input_box_normal {
   width: 200px; 
   height: 30px; 
@@ -59,12 +63,6 @@ td {
   color: #3B3F7D;
 }
 
-.new_kitchen {
-  margin-left: auto;
-  margin-right: auto;
-  width: 25em
-}
-
 .user_reservations_all {
   margin-top: 3em;
 	text-align: center;
@@ -74,6 +72,16 @@ td {
 
 .reservation_all {
   margin-top: 3em;
+}
+
+.field {
+  margin-bottom: 10px;
+}
+
+.reservation_new {
+  margin: auto;
+  width: 50%;
+  line-height: 1.5em;
 }
 
 
