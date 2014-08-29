@@ -37,6 +37,24 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
+
+  .single_kitchen_info {
+    padding-left: 10em;
+    height: 45em;
+    border-top: 1px solid #3B3F7D;
+    border-bottom: 1px solid #3B3F7D;
+  }
+
+  .single_kitchen_info dt {
+    clear: left;
+    float: left;
+  }
+
+  .single_kitchen_info dd {
+    float: left;
+    margin-bottom: 8px;
+    margin-left: 5px;
+  }
 }
 
 .clearfix:after {
@@ -46,26 +64,14 @@
 }
 
 .kitchen_index_list dl {
-  border: 1px solid #3B3F7D;
+  // border: 1px solid #3B3F7D;
   clear: both;
   float: left;
   width: 100%;
-  padding-left: 10em;
   padding-right: 3em;
   padding-top: 3em;
   padding-bottom: 3em;
   margin: 0;
-}
-
-.kitchen_index_list .individule_kitchen_info dt {
-  clear: left;
-  float: left;
-}
-
-.kitchen_index_list .individule_kitchen_info dd {
-  float: left;
-  margin-bottom: 8px;
-  margin-left: 5px;
 }
 
 .kitchen_name {

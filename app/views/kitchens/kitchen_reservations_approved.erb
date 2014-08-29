@@ -14,7 +14,6 @@
   <ul class="kitchen_reservations_list">
   <% @reservations.each do |reservation| %>
   <li>
-  <hr>
   <div class="individule_reservation">
       <dl class="individule_reservation_info">
         <dt class="title">Status:</dt>
@@ -37,7 +36,6 @@
         <dd><%= reservation.message_from_host %></dd>
       </dl>
   </div>
-  <hr>
   </li>
   <% end %>
   </ul>

@@ -3,6 +3,10 @@
   They will automatically be included in application.css.
 */
 
+.reservations_list {
+  height: 100%;
+}
+
 .reservations_list h2 {
   text-align: center;
   font-size: 30px;
@@ -12,6 +16,23 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
+
+  .single_reservation {
+    padding-left: 10em;
+    border-top: solid 1px #3B3F7D;
+    border-bottom: solid 1px #3B3F7D;
+  }
+
+  .single_reservation_info dt {
+   clear: left;
+    float: left;
+  }
+
+  .single_reservation_info dd {
+   float: left;
+    margin-bottom: 8px;
+    margin-left: 5px;
+  }
 }
 
 .clearfix:after {
@@ -28,21 +49,6 @@
   padding-top: 3em;
   padding-bottom: 3em;
   margin: 0;
-}
-
-.kitchen_reservations_list .individule_reservation_info dt {
-  clear: left;
-  float: left;
-}
-
-.kitchen_reservations_list .individule_reservation_info dd {
-  float: left;
-  margin-bottom: 8px;
-  margin-left: 5px;
-}
-
-.individule_reservation {
-  padding-left: 10em;
 }
 
 .user_reservations_all {
