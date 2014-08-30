@@ -23,10 +23,9 @@
             <dt class="title">Number of people:</dt>
             <dd><%= reservation.guest_number %></dd>
             <dt class="title">Reserve on:</dt>
-            <dd><%= reservation.reserve_date %>, <%= show_reservation_time(reservation) %></dd>
+            <dd><%= show_reservation_time(reservation) %></dd>
             <dt class="title">Location:</dt>
-            <dd><%= reservation.kitchen.city %>, <%= reservation.kitchen.state %>, 
-                          <%= reservation.kitchen.zipcode %></dd>
+            <dd><%= kitchen_location_no_street(reservation.kitchen) %></dd>
             <dt class="title">My reservation message</dt>
             <dd><%= reservation.message_from_guest %></dd>
           </dl>

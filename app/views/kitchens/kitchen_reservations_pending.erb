@@ -14,8 +14,8 @@
   <ul class="kitchen_reservations_list">
   <% @reservations.each do |reservation| %>
   <li>
-  <div class="individule_reservation">
-      <dl class="individule_reservation_info">
+  <div class="single_reservation">
+      <dl class="single_reservation_info">
         <dt class="title">Status:</dt>
         <dd><%= reservation.status %></dd>
         <dt class="title">Guest nickname:</dd>
@@ -23,10 +23,9 @@
         <dt class="title">Number of people:</dt>
         <dd><%= reservation.guest_number %></dd>
         <dt class="title">Reserve on:</dt>
-        <dd><%= reservation.reserve_date %>, <%= show_reservation_time(reservation) %></dd>
+        <dd><%= show_reservation_time(reservation) %></dd>
         <dt class="title">Location:</dt>
-        <dd> <%= reservation.kitchen.city %>, <%= reservation.kitchen.state %>, 
-      							  <%= reservation.kitchen.zipcode %></dd>
+        <dd><%= kitchen_location(reservation.kitchen) %></dd>
         <dt class="title">Message from <%= reservation.user.nickname %>:</dt>
         <dd><%= reservation.message_from_guest %></dd>
       </dl>

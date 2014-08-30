@@ -105,6 +105,20 @@ RSpec.describe Kitchen, :type => :model do
       end
     end
 
+    describe "#archived?" do
+      let(:kitchen) { FactoryGirl.create(:kitchen) }
+
+      it "returns false when the data_status is active" do
+        kitchen.data_status = "active"
+        expect(kitchen.reload.archived?).to be_falsey
+      end
+
+      it "returns true when data_status is archive" do
+        kitchen.archive!
+        expect(kitchen.reload.archived?).to be_truthy
+      end
+    end
+
     describe "#archive!" do
       let(:kitchen) { FactoryGirl.create(:kitchen) }
       it "change the data_status of kitchen to archive" do

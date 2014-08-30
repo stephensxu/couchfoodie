@@ -63,4 +63,8 @@ class Kitchen < ActiveRecord::Base
   def archive!
     self.update_attributes(:data_status => "archive")
   end
+
+  def archived?
+    self.data_status == 'archive'
+  end
 end

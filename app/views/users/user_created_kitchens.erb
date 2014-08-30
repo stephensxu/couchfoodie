@@ -6,32 +6,30 @@
     <% end %>
   </div>
   
-  <ul class="my_kitchen clearfix">
+  <ul class="my_kitchen clearfix ">
     <% @kitchens.each do |kitchen| %>
     <li>
-      <div class="single_kitchen">
-        <dl class="single_kitchen_info">
+      <div class="single_kitchen clearfix">
+        <dl class="single_kitchen_info clearfix">
           <dt class="kitchen_name"><%= kitchen.name %></dt>
           <dt class="title">Description: </dt>
           <dd><%= kitchen.description %></dd>
           <dt class="title">Location: </dt> 
-          <dd><%= kitchen.street_address %>, <%= kitchen.city %>, <%= kitchen.state %>, <%= kitchen.zipcode %></dd>
+          <dd><%= kitchen_location(kitchen) %></dd>
         </dl>
 
-        <div class="kitchen_reservations_in_kitchen_block">
-
-          <% reservations_pending = kitchen.reservations.select { |reservation| reservation.status == "pending" } %>
-          <% reservations_approved = kitchen.reservations.select { |reservation| reservation.status == "approved" } %>
-          <% reservations_denied = kitchen.reservations.select { |reservation| reservation.status == "denied" } %>
-
-          <%= link_to "Pending reservations (#{reservations_pending.count})", reservations_pending_kitchen_path(kitchen) %><br>
-          <%= link_to "Approved reservations (#{reservations_approved.count})", reservations_approved_kitchen_path(kitchen) %><br>
-          <%= link_to "Denied reservations (#{reservations_denied.count})", reservations_denied_kitchen_path(kitchen)%>
-
+        <div class="kitchen_reservations_in_kitchen_block clearfix">
+          <ul class="clearfix">
+            <li><%= link_to "Pending reservations (#{kitchen.reservations.pending.count})", reservations_pending_kitchen_path(kitchen) %></li>
+            <li><%= link_to "Approved reservations (#{kitchen.reservations.approved.count})", reservations_approved_kitchen_path(kitchen) %></li>
+            <li> <%= link_to "Denied reservations (#{kitchen.reservations.denied.count})", reservations_denied_kitchen_path(kitchen)%></li>
+          </ul>
         </div>
         <div class="kitchen_buttons">
-         <%= button_to("Edit", edit_kitchen_path(kitchen), :method => :get, :class => "button_normal")%><br>
-         <%= button_to("Delete", kitchen_path(kitchen), :method => :delete, :class => "button_normal")%><br>
+          <ul>
+            <li><%= button_to("Edit", edit_kitchen_path(kitchen), :method => :get, :class => "button_normal")%></li>
+            <li><%= button_to("Delete", kitchen_path(kitchen), :method => :delete, :class => "button_normal")%></li>
+          </ul>
         </div>
       </div> 
     </li>

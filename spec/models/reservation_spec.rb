@@ -31,7 +31,7 @@ RSpec.describe Reservation, :type => :model do
 
   describe "#valid?" do
     it { should validate_presence_of(:status) }
-    it { should allow_value("pending", "denied", "approved", "archive").for(:status) }
+    it { should ensure_inclusion_of(:status).in_array( %w(pending denied approved archive)) }
 
     %w(soemthing deleted 1234 deny approve).each do |invalid_status|
       it { should_not allow_value(invalid_status).for(:status) }

@@ -1,4 +1,4 @@
-<div class="reservations_list">
+<div class="reservations_list clearfix">
   <div class="notice">
     <% if flash[:notice] %>
       <%= flash[:notice] %>
@@ -11,29 +11,28 @@
 
   <h2>Reservations denied by kitchen</h2>
 
-  <ul class="kitchen_reservations_list">
+  <ul class="kitchen_reservations_list clearfix">
   <% @reservations.each do |reservation| %>
-  <li>
-  <div class="individule_reservation">
-      <dl class="individule_reservation_info">
-        <dt class="title">Status:</dt>
-        <dd><%= reservation.status %></dd>
-        <dt class="title">Reservation for:</dd>
-        <dd><%= reservation.kitchen.name %></dd>
-        <dt class="title">Number of people:</dt>
-        <dd><%= reservation.guest_number %></dd>
-        <dt class="title">Reserve on:</dt>
-        <dd><%= reservation.reserve_date %>, <%= show_reservation_time(reservation) %></dd>
-        <dt class="title">Location:</dt>
-        <dd><%= reservation.kitchen.city %>, <%= reservation.kitchen.state %>, 
-                      <%= reservation.kitchen.zipcode %></dd>
-        <dt class="title">My reservation message:</dt>
-        <dd><%= reservation.message_from_guest %></dd>
-        <dt class="title">Message from <%= reservation.kitchen.name %>:</dt>
-        <dd><%= reservation.message_from_host %></dd>
-      </dl>
-  </div>
-  </li>
+    <li>
+      <div class="single_reservation clearfix">
+          <dl class="single_reservation_info">
+            <dt class="title">Status:</dt>
+            <dd><%= reservation.status %></dd>
+            <dt class="title">Reservation for:</dd>
+            <dd><%= reservation.kitchen.name %></dd>
+            <dt class="title">Number of people:</dt>
+            <dd><%= reservation.guest_number %></dd>
+            <dt class="title">Reserve on:</dt>
+            <dd><%= show_reservation_time(reservation) %></dd>
+            <dt class="title">Location:</dt>
+            <dd><%= kitchen_location_no_street(reservation.kitchen) %></dd>
+            <dt class="title">My reservation message:</dt>
+            <dd><%= reservation.message_from_guest %></dd>
+            <dt class="title">Message from <%= reservation.kitchen.name %>:</dt>
+            <dd><%= reservation.message_from_host %></dd>
+          </dl>
+      </div>
+    </li>
   <% end %>
   </ul>
 </div>
