@@ -5,12 +5,12 @@ class UsersController < ApplicationController
     current_user
     @kitchen = Kitchen.new
     @reservation = Reservation.new
-    @kitchens = Kitchen.order("created_at DESC")
+    @kitchens = Kitchen.active.order("created_at DESC")
     render :index
   end
 
   def kitchens
-    @kitchens = Kitchen.for_user(current_user)
+    @kitchens = Kitchen.for_user(current_user).active
     render :user_created_kitchens
   end
 

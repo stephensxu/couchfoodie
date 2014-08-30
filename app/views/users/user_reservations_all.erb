@@ -6,8 +6,10 @@
   </div>
   
   <div class="reservation_all">
-    <%= link_to "Waiting for kitchen reply (#{@reservations_pending.count})", reservations_pending_users_path %><br>
-    <%= link_to "Approved by kitchen (#{@reservations_approved.count})", reservations_approved_users_path %><br>
-    <%= link_to "Denied by kitchen (#{@reservations_denied.count})", reservations_denied_users_path %>
+    <ul>
+      <li><%= link_to "Waiting for kitchen reply (#{@reservations_pending.count})", reservations_pending_users_path %></li>
+      <li><%= link_to "Approved by kitchen (#{@reservations_approved.count})", reservations_approved_users_path %></li>
+      <li><%= link_to "Denied by kitchen (#{@reservations_denied.count})", reservations_denied_users_path %></li>
+    </ul>
   </div>
 </div>
