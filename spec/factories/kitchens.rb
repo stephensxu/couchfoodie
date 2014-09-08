@@ -21,6 +21,7 @@
 #  index_kitchens_on_user_id  (user_id)
 #
 
+
 FactoryGirl.define do
   factory :kitchen do |k|
     k.name { Faker::Company.name }
