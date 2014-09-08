@@ -55,7 +55,6 @@ class User < ActiveRecord::Base
   def sign_in
     self.update_columns(:last_sign_in_at => Time.zone.now)
     self.update_columns(:sign_in_count => self.sign_in_count += 1)
-    p "I have performed sign in action!"
   end
 
   def self.create_with_omniauth(auth)
