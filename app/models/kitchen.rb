@@ -24,6 +24,7 @@
 
 
 
+
 class Kitchen < ActiveRecord::Base
 
   VALID_STATES = %w(AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO

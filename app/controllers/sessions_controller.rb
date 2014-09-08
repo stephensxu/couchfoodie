@@ -1,11 +1,15 @@
 class SessionsController < ApplicationController
   def create
-    @user = User.find_by_email(session_params[:email])
-    if @user && @user.authenticate(session_params[:password])
+    p "auth hash look like #{request.env['omniauth.auth']}"
+
+    auth = request.env['omniauth.auth']
+    @user = User.create_or_find_with_omniauth(auth)
+
+    if @user
       login!(@user)
       redirect_to users_path
     else
-      redirect_to(root_url, notice: "Invalid email or password.")
+      redirect_to(root_url, :notice => "Invalid user credentials")
     end
   end
 

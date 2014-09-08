@@ -57,3 +57,33 @@ select {
   font-size: 16px;
   width: 80px;
 }
+
+.fb_button {
+  color: white;
+  width: 100%;
+  margin-left: 15px;
+  text-align: center;
+
+  .text_container {
+    color: white;
+    vertical-align: center;
+    padding-left: 20px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  i {
+    text-align: center;
+    color: white;
+    background-color: #4c66a4;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    width: 350px;
+    padding: 10px 10px 10px 10px;
+    font-weight: bold;
+  }
+
+  i:hover {
+    background-color: #304076;
+  }
+}

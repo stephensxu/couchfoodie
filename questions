@@ -1,25 +1,10 @@
-- Between user and kitchen, should I use one-to-one or one-to-many?
-If I use one-to-one; how can I prevent the data from being destroyed when use has to create new kitchen? 
-
-- How can I do validation for address input?
-Street, City, State, Zipcode etc.
-
 - How to prevent padding from adding to overall width and causing overflow?
 
-- photo croping related; how to crop a 
+- photo croping related
 
-- how to live update error message in modal?
-
-- How to allow user to upload image
-
-
-BUG FIND FROM JESSE(8/19):
-
-- "Guest" is unclear what it means
-- Notice is mostly out of the place
-
-BUG FIND FROM JESSE(8/19):
-- Verify html on MDN
+- What is a "access_token" in OAuth 2.0; does it act as a password?
+- Why does it have an expiration? What happens after it expired?
+- Use kuola or fb_graph for facebook graph api?
 
 ** KNOWN BUGS
 - Reservation needs to show whether a kitchen still exist

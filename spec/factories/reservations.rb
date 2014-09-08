@@ -20,6 +20,7 @@
 #  index_reservations_on_user_id     (user_id)
 #
 
+
 require 'date'
 
 FactoryGirl.define do
