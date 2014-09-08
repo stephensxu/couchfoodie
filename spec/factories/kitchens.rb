@@ -22,6 +22,7 @@
 #
 
 
+
 FactoryGirl.define do
   factory :kitchen do |k|
     k.name { Faker::Company.name }

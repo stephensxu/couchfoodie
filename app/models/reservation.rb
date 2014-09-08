@@ -24,6 +24,7 @@
 
 
 
+
 require 'date'
 
 class Reservation < ActiveRecord::Base
