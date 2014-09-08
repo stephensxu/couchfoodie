@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140908035951) do
+ActiveRecord::Schema.define(version: 20140908040705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,9 +50,22 @@ ActiveRecord::Schema.define(version: 20140908035951) do
   add_index "reservations", ["user_id"], name: "index_reservations_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",      null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "email",       null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "provider",    null: false
+    t.string   "oauth_token", null: false
+    t.string   "uid",         null: false
+    t.string   "name",        null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "nickname"
+    t.string   "image"
+    t.string   "location"
+    t.string   "gender"
+    t.boolean  "verified"
+    t.string   "link"
+    t.integer  "timezone"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
