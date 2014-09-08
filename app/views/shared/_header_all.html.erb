@@ -2,8 +2,9 @@
   <div id="logged_in_header">
     <nav>
       <ul id="logged_in_nav_list">
-        <li>Hello there, <%= @current_user.nickname %>!</li>
-        <li><%= link_to 'Home', root_url %></li>
+        <li><%= image_tag(current_user.image) %></li>
+        <li>Hello there, <%= @current_user.name %>!</li>
+        <li><%= link_to 'Couchfoodie', root_url %></li>
         <li><%= link_to "Create Kitchen", new_kitchen_path %></li>
         <li><%= link_to "My Kitchens (#{current_user.pending_reservations_count} pending)", kitchens_users_path %></li>
         <li><%= link_to "My reservations (#{@current_user.reservations.approved.count} approved)", reservations_all_users_path %></li>

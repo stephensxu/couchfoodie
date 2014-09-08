@@ -45,6 +45,10 @@ class User < ActiveRecord::Base
     pending_reservations.count
   end
 
+  def self.create_or_find_with_omniauth(auth)
+    self.find_by_provider_and_uid(auth["provider"], auth["uid"]) || self.create_with_omniauth(auth)
+  end
+
   def self.create_with_omniauth(auth)
     create! do |user|
       user.email = auth['info']['email']
