@@ -62,9 +62,14 @@ Rails.application.routes.draw do
   end
 
   controller :sessions do
-    post '/login',          :action => 'create',        :as => 'login'
-    get  '/session',        :action => 'show'
-    get '/logout',          :action => 'destroy',       :as => 'logout'
+    get '/auth/facebook/callback', :action => 'create'
+    get  '/session',               :action => 'show'
+    get '/logout',                 :action => 'destroy',       :as => 'logout'
   end
+
+  #omniauth-facebook routes
+
+  get '/auth/facebook/callback',   :to => 'sessions#create'
+  get '/auth/facebook',                                        :as => "facebook_login" 
 
 end
