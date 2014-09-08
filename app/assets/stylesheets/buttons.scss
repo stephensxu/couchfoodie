@@ -60,9 +60,8 @@ select {
 
 .fb_button {
   color: white;
-  width: 80%;
-  margin: 35px 35px 35px 35px;
-  margin-right: auto;
+  width: 100%;
+  margin-left: 15px;
   text-align: center;
 
   .text_container {
@@ -75,10 +74,11 @@ select {
 
   i {
     text-align: center;
+    color: white;
     background-color: #4c66a4;
-    margin-top: 40px;
+    margin-top: 30px;
     margin-bottom: 40px;
-    width: 300px;
+    width: 350px;
     padding: 10px 10px 10px 10px;
     font-weight: bold;
   }
