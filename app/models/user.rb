@@ -52,6 +52,12 @@ class User < ActiveRecord::Base
     self.find_by_provider_and_uid(auth["provider"], auth["uid"]) || self.create_with_omniauth(auth)
   end
 
+  def sign_in
+    self.update_columns(:last_sign_in_at => Time.zone.now)
+    self.update_columns(:sign_in_count => self.sign_in_count += 1)
+    p "I have performed sign in action!"
+  end
+
   def self.create_with_omniauth(auth)
     create! do |user|
       user.email = auth['info']['email']

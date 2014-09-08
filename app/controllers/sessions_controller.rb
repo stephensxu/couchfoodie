@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
     @user = User.create_or_find_with_omniauth(auth)
 
     if @user
+      @user.sign_in
       login!(@user)
       redirect_to users_path
     else
