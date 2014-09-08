@@ -4,6 +4,7 @@
 
 - What is a "access_token" in OAuth 2.0; does it act as a password?
 - Why does it have an expiration? What happens after it expired?
+- Use kuola or fb_graph for facebook graph api?
 
 ** KNOWN BUGS
 - Reservation needs to show whether a kitchen still exist
