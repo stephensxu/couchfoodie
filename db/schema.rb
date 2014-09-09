@@ -11,30 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140909034948) do
+ActiveRecord::Schema.define(version: 20140909045353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "kitchens", force: true do |t|
-    t.string   "name",                              null: false
-    t.text     "description",                       null: false
-    t.string   "street_address",                    null: false
-    t.string   "city",                              null: false
-    t.string   "state",                             null: false
-    t.string   "zipcode",                           null: false
+    t.string   "name",                                   null: false
+    t.text     "description",                            null: false
+    t.string   "street_address",                         null: false
+    t.string   "city",                                   null: false
+    t.string   "state",                                  null: false
+    t.string   "zipcode",                                null: false
     t.float    "latitude"
     t.float    "longtitude"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-    t.integer  "user_id",                           null: false
-    t.string   "data_status",    default: "active", null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.integer  "user_id",                                null: false
+    t.string   "data_status",         default: "active", null: false
+    t.integer  "front_page_photo_id"
   end
 
+  add_index "kitchens", ["front_page_photo_id"], name: "index_kitchens_on_front_page_photo_id", using: :btree
   add_index "kitchens", ["user_id"], name: "index_kitchens_on_user_id", using: :btree
 
   create_table "photos", force: true do |t|
-    t.string   "picture",    null: false
+    t.string   "picture"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "kitchen_id", null: false

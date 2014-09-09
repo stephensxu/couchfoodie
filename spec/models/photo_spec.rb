@@ -3,7 +3,7 @@
 # Table name: photos
 #
 #  id         :integer          not null, primary key
-#  picture    :string(255)      not null
+#  picture    :string(255)
 #  created_at :datetime
 #  updated_at :datetime
 #  kitchen_id :integer          not null
@@ -15,6 +15,6 @@
 
 require 'rails_helper'
 
-RSpec.describe Photos, :type => :model do
+RSpec.describe Photo, :type => :model do
   pending "add some examples to (or delete) #{__FILE__}"
 end

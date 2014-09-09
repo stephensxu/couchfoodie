@@ -3,7 +3,7 @@
 # Table name: photos
 #
 #  id         :integer          not null, primary key
-#  picture    :string(255)      not null
+#  picture    :string(255)
 #  created_at :datetime
 #  updated_at :datetime
 #  kitchen_id :integer          not null
@@ -13,7 +13,5 @@
 #  index_photos_on_kitchen_id  (kitchen_id)
 #
 
-class Photos < ActiveRecord::Base
-  belongs_to :kitchen
-  has_one :kitchen, :inverse_of => :front_page_photo
+class Photo < ActiveRecord::Base
 end
