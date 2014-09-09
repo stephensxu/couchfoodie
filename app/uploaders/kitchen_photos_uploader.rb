@@ -24,10 +24,6 @@ include CarrierWave::MiniMagick
     process :resize_to_fill => [600, 450]
   end
 
-  version :gallery_limit do
-    process :resize_to_limit => [600, 450]
-  end
-
   version :gallery_pad do
     process :resize_and_pad => [600, 450, "white", "center"]
   end
