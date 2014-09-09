@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
   def create
-    p "auth hash look like #{request.env['omniauth.auth']}"
 
     auth = request.env['omniauth.auth']
     @user = User.create_or_find_with_omniauth(auth)

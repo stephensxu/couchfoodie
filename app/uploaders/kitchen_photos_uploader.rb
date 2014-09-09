@@ -16,12 +16,12 @@ include CarrierWave::MiniMagick
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  version :gallery_fit do
-    process :resize_to_fit => [600, 450]
-  end
-
   version :gallery_fill do
     process :resize_to_fill => [600, 450]
+  end
+
+  version :gallery_fit do
+    process :resize_to_fit => [600, 450]
   end
 
   version :gallery_pad do
