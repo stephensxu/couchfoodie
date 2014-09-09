@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class KitchenPhotosUploader < CarrierWave::Uploader::Base
-include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick

@@ -54,7 +54,7 @@ class Kitchen < ActiveRecord::Base
   validates :user, :presence => true
 
   belongs_to :user
-  belongs_to :front_page_photo, :class_name => "Photo"
+  # belongs_to :front_page_photo, :class_name => "Photo"
   has_many :reservations
   has_many :photos
   has_many :pending_reservations, 
