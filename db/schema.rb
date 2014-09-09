@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140909034455) do
+ActiveRecord::Schema.define(version: 20140909034948) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +37,10 @@ ActiveRecord::Schema.define(version: 20140909034455) do
     t.string   "picture",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "kitchen_id", null: false
   end
+
+  add_index "photos", ["kitchen_id"], name: "index_photos_on_kitchen_id", using: :btree
 
   create_table "reservations", force: true do |t|
     t.string   "status",             default: "pending", null: false
