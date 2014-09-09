@@ -1,0 +1,18 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.photo-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    border: 1px solid black;
+    float: left;
+    margin-right: 18px;
+    margin-bottom: 18px;
+    width: 600px;
+    height: 450px;
+  }
+}
