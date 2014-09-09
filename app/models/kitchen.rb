@@ -51,6 +51,7 @@ class Kitchen < ActiveRecord::Base
 
   belongs_to :user
   has_many :reservations
+  has_many :photos
   has_many :pending_reservations, 
            lambda { pending },
            :class_name => 'Reservation'

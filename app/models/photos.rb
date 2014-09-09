@@ -14,4 +14,5 @@
 #
 
 class Photos < ActiveRecord::Base
+  belongs_to :kitchen
 end
