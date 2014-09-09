@@ -1,11 +1,17 @@
-- How to prevent padding from adding to overall width and causing overflow?
-
-- photo croping related
+### facebook login related
 
 - What is a "access_token" in OAuth 2.0; does it act as a password?
 - Why does it have an expiration? What happens after it expired?
 - Use kuola or fb_graph for facebook graph api?
 - How to resolve time differences? Why does my database record time different than my own time?
+
+### photo upload related
+
+How to display list of photo as a modal dialog?
+
+### Email notificaiton related
+
+- How to properly construct an email html? How to include dynamic links in email?
 
 ** KNOWN BUGS
 - Reservation needs to show whether a kitchen still exist
