@@ -32,6 +32,15 @@
             <li><%= button_to("Delete", kitchen_path(kitchen), :method => :delete, :class => "button_normal")%></li>
           </ul>
         </div>
+        <ul class="photo-list">
+          <% if kitchen.photos.empty? %>
+            <h3>No photos. :(</h3>
+          <% else %>
+            <% kitchen.photos.each do |photo| %>
+              <li><%= image_tag(photo.picture.gallery_fill.url) %></li>
+            <% end %>
+          <% end %>
+        </ul>
       </div> 
     </li>
   <% end %>
