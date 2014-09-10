@@ -16,3 +16,7 @@ How to display list of photo as a modal dialog?
 ** KNOWN BUGS
 - Reservation needs to show whether a kitchen still exist
 - Use two facebook app; one for dev one for production
+
+- Photo delete data-confirm doesn't work, why?
+
+- User will see error page if they click upload without selecting a file.

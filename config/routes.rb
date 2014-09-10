@@ -47,7 +47,7 @@ Rails.application.routes.draw do
 
   resources :kitchens, :except => [:index] do
     resources :reservations, :except => [:update, :edit]
-    resources :photos, :except => [:update, :edit]
+    resources :photos
   end
 
   resources :users, :except => :destroy do

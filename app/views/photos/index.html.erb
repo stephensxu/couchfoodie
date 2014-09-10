@@ -1,0 +1,12 @@
+<div class="photos_display_page">
+  <ul class="photo-list">
+    <% if @photos.empty? %>
+      <h3>No photos. :(</h3>
+    <% else %>
+      <% @photos.each do |photo| %>
+        <li><%= image_tag(photo.picture.gallery_fill.url) %>
+        <%= button_to "Delete", { :controller => :photos, :action => "destroy", :id => photo.id }, :method => :delete, :confirm => "Delete this photo?" %></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
