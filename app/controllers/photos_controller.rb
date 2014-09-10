@@ -1,4 +1,10 @@
 class PhotosController < ApplicationController
+
+  def index
+    @kitchen = Kitchen.find(params[:kitchen_id])
+    @photos = @kitchen.photos
+  end
+
   def create
     @kitchen = Kitchen.find(params[:kitchen_id])
     @photo = @kitchen.photos.build(photo_params)
@@ -13,6 +19,9 @@ class PhotosController < ApplicationController
 
   def new
     @photo = Photo.new
+  end
+
+  def edit
   end
 
   def photo_params
