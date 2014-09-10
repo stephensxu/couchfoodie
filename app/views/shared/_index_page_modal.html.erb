@@ -1,10 +1,9 @@
 <div id="front_page_modal">
 
   <!-- Button trigger modal -->
-
   <ul class="modal-button-list">
-    <li>
-      <%= link_to 'Home', root_url %>
+    <li id="site_name">
+      <%= link_to 'Couchfoodie', root_url %>
     </li>
     <li>
       <button data-my-modal="#user_modal" data-toggle="modal" class="button_small">
@@ -24,7 +23,6 @@
     <div class="modal-container">
       <div class="my-modal-background"></div>
       <div class="my-modal-content">
-        <a href="#" class="my-modal-close">[X]</a>
         <a class="fb_button" href=<%= facebook_login_path %>><i class="fa fa-facebook fa-2x"><span class="text_container">Sign up with Facebook</span></i></a>
       </div>
     </div>
@@ -34,7 +32,6 @@
     <div class="modal-container">
       <div class="my-modal-background"></div>
       <div class="my-modal-content">
-        <a href="#" class="my-modal-close">[X]</a>
         <a class="fb_button" href=<%= facebook_login_path %>><i class="fa fa-facebook fa-2x"><span class="text_container">Log in with Facebook</span></i></a>
       </div>
     </div>

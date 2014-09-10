@@ -15,56 +15,64 @@
   - jfarmer
 */
 
-.my-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9000;
+#front_page_modal {
 
-  display: none;      /* Hide modal dialogs by default. */
-  height: 100%;
-  width: 100%;
-}
+  .my-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9000;
 
-.modal-button-list {
-  list-style-type: none;
-  margin: 0;
-}
+    display: none;      /* Hide modal dialogs by default. */
+    height: 100%;
+    width: 100%;
+  }
+
+  .modal-button-list {
+    list-style-type: none;
+    margin: 0;
+
+    #site_name {
+      font-weight: bold;
+      font-size: 25px;
+    }
+  }
 
 
-.my-modal .my-modal-background {
-  position: fixed;
-  top: 0;
-  left: 0;
+  .my-modal .my-modal-background {
+    position: fixed;
+    top: 0;
+    left: 0;
 
-  background-color: rgba(0,0,0,0.5);
-  height: 100%;
-  width: 100%;
-}
+    background-color: rgba(0,0,0,0.5);
+    height: 100%;
+    width: 100%;
+  }
 
-.my-modal .my-modal-close {
-  float: right;
-}
+  .my-modal {
+    float: right;
+  }
 
-/*
-  Elements are positioned horizontally according to their left-most edge.
-  By giving the modal content a negative left margin that is exactly half its
-  width, we'll center the modal dialog. In this case, we have
+  /*
+    Elements are positioned horizontally according to their left-most edge.
+    By giving the modal content a negative left margin that is exactly half its
+    width, we'll center the modal dialog. In this case, we have
 
-    width: 400px;
+      width: 400px;
+      margin-left: -200px;
+  */
+
+  .my-modal .my-modal-content {
+    position: fixed;
+    top: 25%;
+    left: 50%;
+    z-index: 9020;
+
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 3px 3px 1px rgba(0,0,0,0.3);
+    padding: 40px;
     margin-left: -200px;
-*/
-
-.my-modal .my-modal-content {
-  position: fixed;
-  top: 25%;
-  left: 50%;
-  z-index: 9020;
-
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 3px 3px 1px rgba(0,0,0,0.3);
-  padding: 40px;
-  margin-left: -200px;
-  width: 400px;
+    width: 400px;
+  }
 }
