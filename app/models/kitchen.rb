@@ -76,4 +76,15 @@ class Kitchen < ActiveRecord::Base
   def archived?
     self.data_status == 'archive'
   end
+
+  def assign_front_page_photo(photo)
+    if self.photos.count == 1
+      self.update_attributes(:front_page_photo_id => photo.id)
+    end
+  end
+
+  def reassign_front_page_photo(photo)
+    self.update_attributes(:front_page_photo_id => photo.id)
+  end
+
 end

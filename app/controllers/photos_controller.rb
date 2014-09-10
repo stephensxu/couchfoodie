@@ -10,6 +10,7 @@ class PhotosController < ApplicationController
     @photo = @kitchen.photos.build(photo_params)
 
     if @photo.save
+      @kitchen.assign_front_page_photo(@photo)
       redirect_to kitchens_users_path, :notice => 'Photo was successfully created.'
     else
       render :new
