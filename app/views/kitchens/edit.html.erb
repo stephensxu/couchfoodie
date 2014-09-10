@@ -1,8 +1,10 @@
-<div class="new_kitchen">
+<div class="edit_kitchen">
   <h2>Edit my own kitchen</h2>
 
   <h3><%= link_to 'Edit Photos', kitchen_photos_path(@kitchen) %></h3>
 
   <%= render partial: "new_kitchen_form", :locals => { :kitchen => @kitchen } %>
+
+  <%= button_to("Delete Kitchen", kitchen_path(@kitchen), :method => :delete, :class => "button_normal")%>
 
 </div>
