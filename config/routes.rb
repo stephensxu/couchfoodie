@@ -32,7 +32,7 @@
 
 Rails.application.routes.draw do
 
-  root :to => 'kitchens#index'
+  root :to => 'users#index'
 
   resources :kitchens do
     member do

@@ -3,16 +3,15 @@ class KitchensController < ApplicationController
                 :reservations_approved, :reservations_denied]
   before_action :require_authorization!, :only => [:edit, :update, :destroy, :reservations_pending,
                 :reservations_approved, :reservations_denied]
-  before_action :require_login, :except => [:index]
+  before_action :require_login
 
   # GET /kitchens
   # GET /kitchens.json
   def index
-    if logged_in?
-      redirect_to users_path
-    else
-      render :index
-    end
+    @kitchen = Kitchen.new
+    @reservation = Reservation.new
+    @kitchens = Kitchen.active.order("created_at DESC")
+    render :index
   end
 
   def reservations_pending

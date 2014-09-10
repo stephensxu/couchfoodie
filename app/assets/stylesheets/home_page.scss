@@ -16,122 +16,121 @@
 }
 
 #logged_out_header {
-  vertical-align: top;
-  margin-top: 0;
-  height: 60px;
+  margin: 0;
+  padding: 0;
+  height: 65px;
   font-size: 20px;
+
 }
 
 /* WELCOME MESSAGE */
 
-.welcome_message {
-  /*border: 1px solid red;*/
-  height: 600px;
-  padding-top: 2em;
-  padding-left: 6em;
-  margin-bottom: 0;
-  font-weight: bold;
-  background-image: image-url("home_dining_2_crop.jpg");
-  background-repeat: no-repeat;
-  clear: none
-}
+#home_page {
+  h1, h2, h3, h4 {
+    margin: 0;
+  }
 
-.welcome_message h1 {
-  padding-top: 2em;
-  font-size: 55px;
-  color: white;
-}
+  .content {
+    padding: 7em 0em 0em 7em;
+    height: 40em;
 
-.welcome_message p {
-  font-size: 28px;
-  color: white;
-  width: 80%;
-  line-height: 1.8em;
-}
+  }
 
-.welcome_message button {
-  font-weight: bold;
-  font-size: 40px;
-  margin-left: 18em;
-  margin-top: 1em;
-  opacity: 1.0;
+  .welcome_message {
+    height: 600px;
+    padding-left: 7em;
+    margin-bottom: 0;
+    font-weight: bold;
+    background-image: image-url("home_dining_2_crop.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    clear: none
+  }
 
-}
+  .welcome_message h1 {
+    color: white;
+    padding-top: 3em;
+    font-size: 55px;
+  }
 
-/* MESSAGE FOR HOST */
+  .welcome_message p {
+    color: white;
+    font-size: 32px;
+    width: 80%;
+    line-height: 1.8em;
+  }
 
-.message_for_host {
-  // border: 1px solid red;
-  clear: none;
-  height: 100vh;
-  padding-left: 6em;
-  font-weight: bold;
-  margin-top: 0;
-  margin-bottom: 0;
-}
+  .welcome_message button {
+    font-weight: bold;
+    font-size: 40px;
+    margin: 1em 2em 2em 2em;
+    float: right;
+  }
 
-.message_for_host h2 {
-  padding-top: 2.5em;
-  font-size: 55px;
-  color: #3B3F7D;
-}
+  /* MESSAGE FOR HOST */
 
-.message_for_host p {
-  padding-top: 0.6em;
-  font-size: 25px;
-  color: #3B3F7D;
-  width: 80%;
-  line-height: 1.8em;
-}
+  .message_for_host {
+    clear: none;
+    font-weight: bold;
+    margin: 0
+  }
 
-.message_for_host button {
-  font-weight: bold;
-  margin-top: 1em;
-  opacity: 1.0;
+  .message_for_host h2 {
+    font-size: 55px;
+    color: #3B3F7D;
+  }
 
-}
+  .message_for_host p {
+    padding-top: 0.6em;
+    font-size: 25px;
+    color: #3B3F7D;
+    width: 80%;
+    line-height: 1.8em;
+  }
 
-/* MESSAGE FOR GUEST */
+  .message_for_host button {
+    float: left;
+    font-weight: bold;
+    margin: 2em 2em 2em 0em;
+  }
 
-.message_for_guest {
-  height: 100vh;
-  padding-left: 6em;
-  font-weight: bold;
-  background-image: image-url("green_cup.png");
-  clear: none;
-  margin-top: 0;
-}
+  /* MESSAGE FOR GUEST */
 
-.message_for_guest h2 {
-  padding-top: 2.5em;
-  font-size: 55px;
-  color: #3B3F7D;
-}
+  .message_for_guest {
+    font-weight: bold;
+    background-image: image-url("green_cup.png");
+    clear: none;
+    margin-top: 0;
+  }
 
-.message_for_guest p {
-  padding-top: 0.6em;
-  font-size: 25px;
-  color: #3B3F7D;
-  width: 80%;
-  line-height: 1.8em;
-}
+  .message_for_guest h2 {
+    font-size: 55px;
+    color: #3B3F7D;
+  }
 
-.message_for_guest button {
-  font-weight: bold;
-  font-size: 28px;
-  margin-top: 1em;
-  margin-left: 23em;
-  opacity: 1.0;
+  .message_for_guest p {
+    padding-top: 0.6em;
+    font-size: 25px;
+    color: #3B3F7D;
+    width: 80%;
+    line-height: 1.8em;
+  }
 
-}
+  .message_for_guest button {
+    font-weight: bold;
+    float: right;
+    font-size: 28px;
+    margin: 2em 2em 2em 2em;
+  }
 
-.home_page_notice {
-  position: absolute;
-  color: green;
-  font-weight: bold;
-  font-size: 20px;
-  top: 3%;
-  left: 40%;
-  right: 40%;
-  text-align: center;
+  .home_page_notice {
+    position: absolute;
+    color: green;
+    font-weight: bold;
+    font-size: 20px;
+    top: 3%;
+    left: 40%;
+    right: 40%;
+    text-align: center;
+  }
 }

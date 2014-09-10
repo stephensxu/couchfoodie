@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
-  before_action :require_authorization!, :only => [:index, :kitchens, :reservations_all, :reservations_pending, :reservations_approved,
+  before_action :require_authorization!, :only => [:kitchens, :reservations_all, :reservations_pending, :reservations_approved,
                 :reservations_denied]
   def index
-    current_user
-    @kitchen = Kitchen.new
-    @reservation = Reservation.new
-    @kitchens = Kitchen.active.order("created_at DESC")
-    render :index
+    if logged_in?
+      redirect_to kitchens_path
+    else
+      render :index
+    end
   end
 
   def kitchens
