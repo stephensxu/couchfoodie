@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if @user
       @user.sign_in
       login!(@user)
-      redirect_to users_path
+      redirect_to kitchens_path
     else
       redirect_to(root_url, :notice => "Invalid user credentials")
     end

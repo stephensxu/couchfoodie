@@ -15,3 +15,4 @@ How to display list of photo as a modal dialog?
 
 ** KNOWN BUGS
 - Reservation needs to show whether a kitchen still exist
+- Use two facebook app; one for dev one for production
