@@ -8,7 +8,6 @@ class PhotosController < ApplicationController
   def create
     @kitchen = Kitchen.find(params[:kitchen_id])
     @photo = @kitchen.photos.build(photo_params)
-    # @photo = @kitchen.photos.new(photo_params)
 
     if @photo.save
       redirect_to kitchens_users_path, :notice => 'Photo was successfully created.'
@@ -22,6 +21,14 @@ class PhotosController < ApplicationController
   end
 
   def edit
+  end
+
+  def destroy
+    @photo = Photo.find(params[:id])
+    @kitchen = @photo.kitchen
+    @photo.remove_picture!
+    @photo.destroy
+    redirect_to kitchen_photos_path(@kitchen)
   end
 
   def photo_params
