@@ -7,18 +7,19 @@
   
   <ul class="kitchen_index_list clearfix">
   <% @kitchens.each do |kitchen| %>
-      <li>
-        <div class="single_kitchen_info">
-          <h4 class="kitchen_name"><%= kitchen.name %></h4>
-          <dl>
-            <dt class="title">Kitchen owner: </dt> 
-            <dd><%= kitchen.user.name %></dd>
-            <dt class="title">Description: </dt>
-            <dd><%= kitchen.description %></dd>
-            <dt class="title">Location: </dt> 
-            <dd><%= kitchen.city %>, <%= kitchen.state %>, <%= kitchen.zipcode %> (street address will be released once reservation approved by kitchen owner)</dd>
-            <dt class="reservation_form"><%= render partial: "reservations/new_reservation_form", :locals => { :reservation => @reservation, :kitchen => kitchen } %></dt>
-          </dl>
+      <% next if kitchen.front_page_photo.nil? %>
+      <li class="kitchen_box clearfix">
+        <div class="thumbnail_container">
+          <%= image_tag(kitchen.show_front_page_photo_thumbnail) %>
+        </div>
+
+        <div>
+          <span><%= image_tag(kitchen.user.image) %></span>
+          <ul class="kitchen_info">
+            <li><%= kitchen.name %></li>
+            <li>Host - <%= kitchen.user.name %></li>
+            <li><%= kitchen.city %>, <%= kitchen.state %></li>
+          </ul>
         </div>
       </li>
     <% end %>

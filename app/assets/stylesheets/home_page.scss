@@ -63,7 +63,7 @@
   .welcome_message button {
     font-weight: bold;
     font-size: 40px;
-    margin: 1em 2em 2em 2em;
+    margin: 1em 1em 1em 1em;
     float: right;
   }
 
@@ -81,7 +81,7 @@
   }
 
   .message_for_host p {
-    padding-top: 0.6em;
+    margin-top: 2em;
     font-size: 25px;
     color: #3B3F7D;
     width: 80%;
@@ -91,7 +91,7 @@
   .message_for_host button {
     float: left;
     font-weight: bold;
-    margin: 2em 2em 2em 0em;
+    margin: 1em 1em 1em 0em;
   }
 
   /* MESSAGE FOR GUEST */
@@ -109,7 +109,7 @@
   }
 
   .message_for_guest p {
-    padding-top: 0.6em;
+    margin-top: 2em;
     font-size: 25px;
     color: #3B3F7D;
     width: 80%;
@@ -120,7 +120,7 @@
     font-weight: bold;
     float: right;
     font-size: 28px;
-    margin: 2em 2em 2em 2em;
+    margin: 1em 1em 1em 1em;
   }
 
   .home_page_notice {

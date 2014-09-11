@@ -1,0 +1,18 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+.edit_kitchen {
+  padding-left: 15em;
+
+  form#edit_kitchen_1 {
+    padding: 0;
+    margin: 0;
+  }
+
+  form.button_to {
+    margin-right: 3em;
+    text-align: right;
+  }
+}

@@ -12,21 +12,36 @@ class KitchenPhotosUploader < CarrierWave::Uploader::Base
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
+  
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
   version :gallery_fill do
+    process :auto_orient!
     process :resize_to_fill => [600, 450]
   end
 
-  version :gallery_fit do
-    process :resize_to_fit => [600, 450]
+  version :gallery_fill_thumbnail do
+    process :auto_orient!
+    process :resize_to_fill => [350, 263]
   end
 
-  version :gallery_pad do
-    process :resize_and_pad => [600, 450, "white", "center"]
+  def auto_orient!
+    manipulate! do |img|
+      img.auto_orient
+      img = yield(img) if block_given?
+      img
+    end
   end
+
+  # version :gallery_fit do
+  #   process :resize_to_fit => [600, 450]
+  # end
+
+  # version :gallery_pad do
+  #   process :resize_and_pad => [600, 450, "white", "center"]
+  # end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
