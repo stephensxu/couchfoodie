@@ -12,6 +12,8 @@
 
 - User will see error page if they click upload without selecting a file. How can I make that not happen?
 
+- How to show waiting dialog when photo is uploading?
+
 
 ### Email notificaiton related
 
