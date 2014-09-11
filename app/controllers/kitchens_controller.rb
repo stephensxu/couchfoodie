@@ -35,7 +35,6 @@ class KitchensController < ApplicationController
   # GET /kitchens/1
   # GET /kitchens/1.json
   def show
-    @kitchen = Kitchen.find(params[:id])
     render :show
   end
 
