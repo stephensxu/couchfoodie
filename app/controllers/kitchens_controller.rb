@@ -35,6 +35,7 @@ class KitchensController < ApplicationController
   # GET /kitchens/1
   # GET /kitchens/1.json
   def show
+    render :show
   end
 
   # GET /kitchens/new

@@ -1,13 +1,17 @@
 ### facebook login related
 
-- What is a "access_token" in OAuth 2.0; does it act as a password?
-- Why does it have an expiration? What happens after it expired?
 - Use kuola or fb_graph for facebook graph api?
-- How to resolve time differences? Why does my database record time different than my own time?
 
 ### photo upload related
 
-How to display list of photo as a modal dialog?
+- How to display list of photo as a modal dialog?
+
+- How to make a background photo responsive to screen size?
+
+- How to make a photo that display as cover-image, taking up entire width of screen?
+
+- User will see error page if they click upload without selecting a file. How can I make that not happen?
+
 
 ### Email notificaiton related
 
@@ -18,5 +22,3 @@ How to display list of photo as a modal dialog?
 - Use two facebook app; one for dev one for production
 
 - Photo delete data-confirm doesn't work, why?
-
-- User will see error page if they click upload without selecting a file.
