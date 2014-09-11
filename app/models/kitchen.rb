@@ -77,14 +77,10 @@ class Kitchen < ActiveRecord::Base
     self.data_status == 'archive'
   end
 
-  def assign_front_page_photo(photo)
-    if self.photos.count == 1
-      self.update_attributes(:front_page_photo_id => photo.id)
+  def show_front_page_photo_thumbnail
+    if self.front_page_photo
+      self.front_page_photo.picture.gallery_fill_thumbnail.url
     end
-  end
-
-  def reassign_front_page_photo(photo)
-    self.update_attributes(:front_page_photo_id => photo.id)
   end
 
 end

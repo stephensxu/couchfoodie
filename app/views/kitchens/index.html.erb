@@ -19,7 +19,7 @@
             <dt class="title">Location: </dt> 
             <dd><%= kitchen.city %>, <%= kitchen.state %>, <%= kitchen.zipcode %> (street address will be released once reservation approved by kitchen owner)</dd>
           </dl>
-          <%= image_tag(kitchen.front_page_photo.picture.gallery_fill.url) %>
+            <%= image_tag(kitchen.show_front_page_photo_thumbnail) %>
         </div>
       </li>
     <% end %>
