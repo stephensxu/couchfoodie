@@ -1,9 +1,24 @@
 <div class="kitchen_show_page_body">
+  <div class="cover_image">
+  <div>
   <div class="user_page_notice">
     <% if flash[:notice] %>
       <%= flash[:notice] %>
     <% end %>
   </div>
-  
+  <div class="kitchen_info">
+    <h3><%= @kitchen.name %></h3>
+    <p>Owner: <%= @kitchen.user.name %> <%= image_tag(@kitchen.user.image) %></p>
+    <p><%= @kitchen.description %></p>
+    <p><%= kitchen_location_no_street(@kitchen) %></p>
+    <div class="kichen_photos">
+      <% @kitchen.photos.each do |photo| %>
+        <%= image_tag(photo.picture.gallery_fill.url) %>
+      <% end %>
+    </div>
+  </div>
+  <div class="reservation_box">
+    <%= render :partial => "reservations/new_reservation_form", :locals => { :kitchen => @kitchen, :reservation => Reservation.new } %>
+  </div>
 
 </div>
