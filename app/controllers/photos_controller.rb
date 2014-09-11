@@ -28,7 +28,6 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
     @kitchen = @photo.kitchen
     @kitchen.front_page_photo.destroy if @photo == @kitchen.front_page_photo
-    @photo.remove_picture!
     @photo.destroy
     redirect_to kitchen_photos_path(@kitchen)
   end
