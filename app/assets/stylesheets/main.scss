@@ -8,20 +8,6 @@
   // overflow: hidden;
 }
 
-nav {
-  float: right;
-}
-
-nav ul li {
-  display: inline;
-  border-left: 1px solid #000;
-  padding-left: 6px;
-}
-
-nav ul li:first-child {
-  border-left: none;
-}
-
 html *{
   font-family: 'Signika', sans-serif;
   color: #3B3F7D;

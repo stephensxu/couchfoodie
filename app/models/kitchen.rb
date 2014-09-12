@@ -78,4 +78,9 @@ class Kitchen < ActiveRecord::Base
     end
   end
 
+  def destroy_front_page_photo
+    self.front_page_photo.destroy 
+    self.update!(:front_page_photo => nil)
+  end
+
 end
