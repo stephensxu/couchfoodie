@@ -1,0 +1,27 @@
+<ul class="kitchen_index_list clearfix">
+  <% kitchens.each do |kitchen| %>
+    <li class="kitchen_container clearfix">
+      <div class="thumbnail_container">
+        <%= link_to image_tag(kitchen.show_front_page_photo_thumbnail), kitchen_path(kitchen), :class => "darken" %>
+      </div>
+
+      <div class="kitchen_info">
+        <div class="kitchen_host_photo">
+          <%= user_photo_tag(kitchen.user, :height => 25, :width => 25) %>
+        </div>
+
+        <ul class="kitchen_description">
+          <li class="kitchen_name">
+            <%= link_to kitchen.name, kitchen_path(kitchen) %>
+          </li>
+          <li class="kitchen_host">
+            Host - <%= kitchen.user.first_name %>
+          </li>
+          <li class="kitchen_location">
+            <%= kitchen.city %>, <%= kitchen.state %>
+          </li>
+        </ul>
+      </div>
+    </li>
+  <% end %>
+</ul>

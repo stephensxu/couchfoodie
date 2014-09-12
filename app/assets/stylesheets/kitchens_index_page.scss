@@ -48,17 +48,22 @@
   margin: 0 auto;
   padding: 0;
 
-  .kitchen_box {
+  .kitchen_container {
     float: left;
 
     margin: 40px 10px 0 10px;
     padding: 0;
     width: 350px;
     height: 370px;
-    // border: solid 1px #3B3F7D;
 
-    span {
+    .kitchen_host_photo {
       float: right;
+      padding: 15px 0 0 0;
+
+      img {
+        border-radius: 100px;
+        border: solid 2px #386FD4;
+      }
     }
 
     .thumbnail_container {
@@ -99,11 +104,12 @@
 
     }
 
-    .kitchen_info {
+    .kitchen_description {
       list-style-type: none;
       padding: 15px 0 0 0px;
       line-height: 25px;
       font-weight: bold;
+      font-size: 15px;
     }
 
   }
@@ -122,10 +128,3 @@
   display: table;
   clear: both;
 }
-
-
-.kitchen_name {
-  font-size: 25px;
-  font-weight: bold;
-}
-

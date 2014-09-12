@@ -8,7 +8,7 @@
   </div>
   <div class="kitchen_info">
     <h3><%= @kitchen.name %></h3>
-    <p>Owner: <%= @kitchen.user.name %> <%= image_tag(@kitchen.user.image) %></p>
+    <p>Owner: <%= @kitchen.user.first_name %> <%= image_tag(@kitchen.user.image) %></p>
     <p><%= @kitchen.description %></p>
     <p><%= kitchen_location_no_street(@kitchen) %></p>
     <div class="kichen_photos">
