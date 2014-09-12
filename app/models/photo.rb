@@ -13,8 +13,6 @@
 #  index_photos_on_kitchen_id  (kitchen_id)
 #
 
-require 'file_size_validator'
-
 class Photo < ActiveRecord::Base
   after_create :set_as_front_page_photo_if_first
 
