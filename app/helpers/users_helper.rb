@@ -1,6 +1,6 @@
 module UsersHelper
   def user_photo_url(user, params = {})
-    uri.query = Addressable::URI.parse(user.image)
+    uri = Addressable::URI.parse(user.image)
     uri.query = params.to_param
     uri.to_s
   end

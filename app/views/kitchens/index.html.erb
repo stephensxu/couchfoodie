@@ -14,7 +14,7 @@
         </div>
 
         <div>
-          <span><%= image_tag(kitchen.user.image) %></span>
+          <span><%= user_photo_tag(kitchen.user, :type => "square") %></span>
           <ul class="kitchen_info">
             <li><%= link_to kitchen.name, kitchen_path(kitchen) %></li>
             <li>Host - <%= kitchen.user.name %></li>
