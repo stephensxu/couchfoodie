@@ -24,13 +24,6 @@
 #
 
 
-
-
-
-
-
-
-
 class Kitchen < ActiveRecord::Base
 
   VALID_STATES = %w(AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO
@@ -40,6 +33,8 @@ class Kitchen < ActiveRecord::Base
    
   scope :for_user, lambda { |user| where(:user => user) }
   scope :active, lambda { where(:data_status => "active") }
+  scope :with_photo, lambda { where.not(:front_page_photo => nil) }
+  scope :published, lambda { active.with_photo }
 
   validates :name, :presence => true, :uniqueness => true, :length => { :minimum => 6 , :maximum => 50 }
   validates :description, :presence => true, :length => { :in => (10..250)  }

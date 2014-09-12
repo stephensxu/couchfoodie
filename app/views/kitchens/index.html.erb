@@ -4,24 +4,6 @@
       <%= flash[:notice] %>
     <% end %>
   </div>
+  <%= render 'kitchens/kitchen_list', :kitchens => @kitchens %>
   
-  <ul class="kitchen_index_list clearfix">
-  <% @kitchens.each do |kitchen| %>
-      <% next if kitchen.front_page_photo.nil? %>
-      <li class="kitchen_box clearfix">
-        <div class="thumbnail_container">
-          <%= link_to image_tag(kitchen.show_front_page_photo_thumbnail), kitchen_path(kitchen), :class => "darken" %>
-        </div>
-
-        <div>
-          <span><%= image_tag(kitchen.user.image) %></span>
-          <ul class="kitchen_info">
-            <li><%= link_to kitchen.name, kitchen_path(kitchen) %></li>
-            <li>Host - <%= kitchen.user.name %></li>
-            <li><%= kitchen.city %>, <%= kitchen.state %></li>
-          </ul>
-        </div>
-      </li>
-    <% end %>
-  </ul>
 </div>
