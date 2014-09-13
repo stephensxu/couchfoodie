@@ -4,7 +4,7 @@
 #
 #  id                  :integer          not null, primary key
 #  name                :string(255)      not null
-#  description         :text             not null
+#  description         :text
 #  street_address      :string(255)      not null
 #  city                :string(255)      not null
 #  state               :string(255)      not null
@@ -37,7 +37,7 @@ class Kitchen < ActiveRecord::Base
   scope :published, lambda { active.with_photo }
 
   validates :name, :presence => true, :uniqueness => true, :length => { :minimum => 6 , :maximum => 50 }
-  validates :description, :presence => true, :length => { :in => (10..250)  }
+  validates :description, :length => { :in => (10..250)  }
   validates :street_address, :presence => true, :length => { :minimum => 6, :maximum => 50 }
   validates :city, :presence => true, :length => { :in => (3..50) }
   validates :state, :presence => true, :length => { :is => 2 },

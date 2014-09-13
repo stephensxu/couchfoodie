@@ -4,7 +4,7 @@
 #
 #  id                  :integer          not null, primary key
 #  name                :string(255)      not null
-#  description         :text             not null
+#  description         :text
 #  street_address      :string(255)      not null
 #  city                :string(255)      not null
 #  state               :string(255)      not null
