@@ -44,7 +44,6 @@ RSpec.describe Kitchen, :type => :model do
     it { should_not allow_value("@123").for(:name) }
     it { should_not allow_value("1234t").for(:name) }
 
-    it { should validate_presence_of(:description) }
     it { should ensure_length_of(:description).is_at_least(10).is_at_most(250) }
 
     it { should validate_presence_of(:user) }
