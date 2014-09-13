@@ -5,7 +5,7 @@
     </div>
     <nav>
       <ul id="logged_in_nav_list">
-        <li class="drop_down_trigger user_image_circle_container header_menu"><%= user_photo_tag(current_user, :type => "square", :height => 15, :width => 15)%><span class="user_first_name"><%= current_user.first_name %></span><i class="fa fa-caret-down"></i>
+        <li class="drop_down_trigger user_image_circle_container header_menu"><%= user_photo_tag(current_user, :type => "square", :height => 30, :width => 30)%><span class="user_first_name"><%= current_user.first_name %></span><i class="fa fa-caret-down"></i>
           <ul class="drop_down_list">
             <li><%= link_to "My Kitchens (#{current_user.pending_reservations_count} pending)", kitchens_users_path %></li>
             <li><%= link_to "My reservations (#{current_user.reservations.approved.count} approved)", reservations_all_users_path %></li>

@@ -22,20 +22,20 @@ $(document).ready(function() {
     // ASCII code for "ESC" is 27.
     // See: http://www.asciitable.com/
     if ($('.my-modal').is(':visible') && e.which == 27) {
-      $('.my-modal').hide();
+      $('.my-modal').fadeOut(200);
     }
   });
 
   $('[data-toggle="modal"]').on('click', function(e) {
     // var modal_id = $(this).attr('data-my-modal');
     var modal_id = $(this).data('my-modal');
-    $(modal_id).show();
+    $(modal_id).fadeIn(200);
   });
 
   $('.my-modal .my-modal-background, .my-modal .my-modal-close').on('click', function(e) {
     // Remember, "this" is the DOM node THAT WAS CLICKED.
 
-    $(this).closest('.my-modal').hide();
+    $(this).closest('.my-modal').fadeOut(200);
     e.preventDefault();
   });
 });
