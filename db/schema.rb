@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140909045353) do
+ActiveRecord::Schema.define(version: 20140913044101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "kitchens", force: true do |t|
     t.string   "name",                                   null: false
-    t.text     "description",                            null: false
+    t.text     "description"
     t.string   "street_address",                         null: false
     t.string   "city",                                   null: false
     t.string   "state",                                  null: false
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20140909045353) do
     t.integer  "user_id",                                null: false
     t.string   "data_status",         default: "active", null: false
     t.integer  "front_page_photo_id"
+    t.string   "menu",                                   null: false
   end
 
   add_index "kitchens", ["front_page_photo_id"], name: "index_kitchens_on_front_page_photo_id", using: :btree

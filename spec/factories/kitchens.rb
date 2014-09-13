@@ -4,7 +4,7 @@
 #
 #  id                  :integer          not null, primary key
 #  name                :string(255)      not null
-#  description         :text             not null
+#  description         :text
 #  street_address      :string(255)      not null
 #  city                :string(255)      not null
 #  state               :string(255)      not null
@@ -16,6 +16,7 @@
 #  user_id             :integer          not null
 #  data_status         :string(255)      default("active"), not null
 #  front_page_photo_id :integer
+#  menu                :string(255)      not null
 #
 # Indexes
 #

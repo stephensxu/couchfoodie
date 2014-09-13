@@ -4,7 +4,7 @@
 #
 #  id                  :integer          not null, primary key
 #  name                :string(255)      not null
-#  description         :text             not null
+#  description         :text
 #  street_address      :string(255)      not null
 #  city                :string(255)      not null
 #  state               :string(255)      not null
@@ -16,6 +16,7 @@
 #  user_id             :integer          not null
 #  data_status         :string(255)      default("active"), not null
 #  front_page_photo_id :integer
+#  menu                :string(255)      not null
 #
 # Indexes
 #
@@ -44,7 +45,6 @@ RSpec.describe Kitchen, :type => :model do
     it { should_not allow_value("@123").for(:name) }
     it { should_not allow_value("1234t").for(:name) }
 
-    it { should validate_presence_of(:description) }
     it { should ensure_length_of(:description).is_at_least(10).is_at_most(250) }
 
     it { should validate_presence_of(:user) }

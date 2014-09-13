@@ -15,11 +15,11 @@
   <table class="create_kitchen_table", cellspaceing="30">
     <tr>
       <td class="kitchen-form-label">Name</td> 
-      <td><%= f.text_field :name, :class => "input_box_normal" %></td>
+      <td><%= f.text_field :name, :class => "input_box_normal", :placeholder => "Give me a name" %></td>
     </tr>
     <tr>
-      <td class="kitchen-form-label">Description</td> 
-      <td><%= f.text_area :description, :placeholder => "When am I usually available to accommodate guests? What do I usually cook?", :class => "text_box" %></td>
+      <td class="kitchen-form-label">Menu</td> 
+      <td><%= f.text_field :menu, :class => "input_box_normal", :placeholder => "What's on the menu" %></td>
     </tr>
     <tr>
       <td class="kitchen-form-label">Street address</td>
@@ -36,6 +36,10 @@
     <tr>
       <td class="kitchen-form-label">Zipcode</td> 
       <td><%= f.text_field :zipcode, :class => "input_box_normal" %></td>
+    </tr>
+    <tr>
+      <td class="kitchen-form-label">Description</td> 
+      <td><%= f.text_area :description, :placeholder => "When am I usually available to cook? What do I want in return for sharing me delicious cuisine?", :class => "text_box" %></td>
     </tr>
   </table><br>
       <%= f.submit "Submit Kitchen", :class => "button_normal" %>

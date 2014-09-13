@@ -95,7 +95,7 @@ class KitchensController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def kitchen_params
-    params.require(:kitchen).permit(:name, :description, :street_address, :city,
+    params.require(:kitchen).permit(:name, :menu, :description, :street_address, :city,
                    :state, :zipcode, :data_status)
   end
 
