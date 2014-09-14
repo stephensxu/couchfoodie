@@ -25,41 +25,57 @@
     width: 80%;
     margin: 0 auto;
     padding: 100px 0;
-    
     height: 400px;
 
-    .owner_info {
-      text-align: center;
+    .description_wrapper {
       float: left;
-      height: 400px;
-      // line-height: 400px;
-
-      .owner_photo {
-
-        img {
-          border-radius: 100px;
-          height: 100px;
-          width: 100px;
+      margin: 0;
+      padding: 0;
+      width: 500px;
+      height: 300px;
+      .owner_info {
+        text-align: center;
+        float: left;
+        .owner_photo {
+          img {
+            border-radius: 100px;
+            height: 100px;
+            width: 100px;
+          }
+        }
+      }
+      .kitchen_description {
+        float: left;
+        vertical-align: top;
+        .description_list {
+          list-style: none;
+          margin: 0;
+          padding: 0 0 0 50px;
+          line-height: 2em;
+          width: 350px;
+          .kitchen_name {
+            font-weight: bold;
+          }
+        }
+      }
+      .additional_description {
+        float: left;
+        width: 500px;
+        margin: 0;
+        padding: 50px 0 0 0;
+        p {
+          line-height: 2em;
+          .strong {
+            font-weight: bold;
+          }
         }
       }
     }
 
-    .kitchen_description {
-      float: left;
+    .reservation_box {
+      float: right;
+      width: 410px;
       height: 400px;
-      vertical-align: top;
-
-      .description_list {
-        list-style: none;
-        margin: 0;
-        padding: 0 0 0 50px;
-        line-height: 2em;
-        width: 300px;
-
-        .kitchen_name {
-          font-weight: bold;
-        }
-      }
     }
   }
 
@@ -79,11 +95,6 @@
         height: 450px;
       }
     }
-  }
-
-  .reservation_box {
-    float: right;
-    height: 400px;
   }
 }
 

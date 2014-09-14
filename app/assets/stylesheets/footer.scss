@@ -5,7 +5,10 @@
 
 footer {
   text-align: center;
+  padding: 200px 0;
+  background-image: image-url("restaurant_icons.png");
 }
+
 
 /* BEGIN CSS Sticky Footer */
 
@@ -17,13 +20,12 @@ html, body {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin: 0 auto -4em;
+  margin: 0 auto -40px;
 }
 
 .footer, .push {
   height: 40px;
   clear: both;
-  padding-top: 20px;
 }
 
 /* END CSS Sticky Footer */

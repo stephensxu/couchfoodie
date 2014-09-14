@@ -26,3 +26,9 @@
 - Photo delete data-confirm doesn't work, why?
 
 - If user delete front-page-photo and there are still photos left for a particular kitchen, it will not re-assign front-page-photo.
+
+To-do:
+
+- Write tests!
+- Add detailed README
+- Provide instruction for other developer to test the code
