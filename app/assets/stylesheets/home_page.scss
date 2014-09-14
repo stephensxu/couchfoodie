@@ -135,3 +135,20 @@
     text-align: center;
   }
 }
+
+@media (max-width: 1900px) {
+  #home_page {
+    .welcome_message {
+      height: 600px;
+    }
+  }
+}
+
+@media (min-width: 1900px) {
+
+  #home_page {
+    .welcome_message {
+      height: 700px;
+    }
+  }
+}
