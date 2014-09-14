@@ -28,10 +28,9 @@
 
     <div class="kitchen_description clearfix">
       <ul class="description_list">
-        <li><%= @kitchen.name %></li>
+        <li class="kitchen_name"><%= @kitchen.name %></li>
         <li><%= kitchen_location_no_street(@kitchen) %></li>
         <li><%= @kitchen.menu %></li>
-        <!-- <li><%= @kitchen.description %></li> -->
       </ul>
     </div>
 
@@ -41,9 +40,11 @@
   </div>
 
   <div class="kitchen_photos clearfix">
-    <% @kitchen.photos.each do |photo| %>
-      <%= image_tag(photo.standard_picture) %>
-    <% end %>
+    <ul class="photo_list">
+      <% @kitchen.photos.each do |photo| %>
+        <li><%= image_tag(photo.standard_picture) %></li>
+      <% end %>
+    </ul>
   </div>
 
 </div>

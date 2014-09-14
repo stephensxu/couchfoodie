@@ -55,12 +55,30 @@
         padding: 0 0 0 50px;
         line-height: 2em;
         width: 300px;
+
+        .kitchen_name {
+          font-weight: bold;
+        }
       }
     }
   }
 
   .kitchen_photos {
-    padding: 100px 0 40px 40px;
+    padding: 0 0 400px 0;
+
+    .photo_list {
+      padding: 0;
+      margin: auto;
+      width: 1260px;
+      list-style: none;
+
+      li {
+        float: left;
+        padding: 15px 15px 0 15px;
+        width: 600px;
+        height: 450px;
+      }
+    }
   }
 
   .reservation_box {
