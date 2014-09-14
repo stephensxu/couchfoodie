@@ -1,26 +1,34 @@
-<style media="screen">
-  .cover_image { 
-    background-image: url( <%= @kitchen.front_page_photo.picture.gallery_fill_cover.url %>);
-  }
-</style>
-
 <div class="kitchen_show_page_body">
-  <div class="cover_image clearfix">
-    <!-- <%= image_tag(@kitchen.front_page_photo.picture.gallery_fill_cover.url) %> -->
+
+  <style media="screen">
+    .kitchen_cover_image { 
+      background-image: url( <%= @kitchen.front_page_photo.picture.gallery_fill_cover.url %>);
+    }
+  </style>
+
+  <div class="kitchen_cover_image clearfix">
   </div>
+
   <div class="user_page_notice">
     <% if flash[:notice] %>
       <%= flash[:notice] %>
     <% end %>
   </div>
+  
   <div class="kitchen_info">
     <h3><%= @kitchen.name %></h3>
-    <p>Owner: <%= @kitchen.user.first_name %> <%= image_tag(@kitchen.user.image) %></p>
-    <p><%= @kitchen.description %></p>
-    <p><%= kitchen_location_no_street(@kitchen) %></p>
+    <div class="owner">
+      Owner: <%= @kitchen.user.first_name %> <%= image_tag(@kitchen.user.image) %>
+    </div>
+    <div class="kitchen_description">
+      <%= @kitchen.description %>
+    </div>
+    <div class="kitchen_location">
+      <%= kitchen_location_no_street(@kitchen) %>
+    </div>
     <div class="kichen_photos">
       <% @kitchen.photos.each do |photo| %>
-        <%= image_tag(photo.picture.gallery_fill.url) %>
+        <%= image_tag(photo.standard_picture) %>
       <% end %>
     </div>
   </div>
