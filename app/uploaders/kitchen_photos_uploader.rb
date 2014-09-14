@@ -27,6 +27,11 @@ class KitchenPhotosUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [350, 263]
   end
 
+  version :gallery_fill_cover do
+    process :auto_orient!
+    process :resize_to_fill => [1900, 700]
+  end
+
   def auto_orient!
     manipulate! do |img|
       img.auto_orient

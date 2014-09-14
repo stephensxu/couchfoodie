@@ -1,6 +1,13 @@
+<style media="screen">
+  .cover_image { 
+    background-image: url( <%= @kitchen.front_page_photo.picture.gallery_fill_cover.url %>);
+  }
+</style>
+
 <div class="kitchen_show_page_body">
-  <div class="cover_image">
-  <div>
+  <div class="cover_image clearfix">
+    <!-- <%= image_tag(@kitchen.front_page_photo.picture.gallery_fill_cover.url) %> -->
+  </div>
   <div class="user_page_notice">
     <% if flash[:notice] %>
       <%= flash[:notice] %>
@@ -20,5 +27,4 @@
   <div class="reservation_box">
     <%= render :partial => "reservations/new_reservation_form", :locals => { :kitchen => @kitchen, :reservation => Reservation.new } %>
   </div>
-
 </div>

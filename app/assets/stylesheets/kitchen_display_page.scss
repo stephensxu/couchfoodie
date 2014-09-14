@@ -4,7 +4,13 @@
 */
 
 .kitchen_show_page_body {
-
+  .cover_image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    margin: 0;
+    padding: 0;
+  }
 
   .kitchen_info {
     margin: 0;
@@ -14,5 +20,17 @@
 
   .reservation_box {
     text-align: center;
+  }
+}
+
+@media (max-width: 1900px) {
+  .cover_image {
+    height: 500px;
+  }
+}
+
+@media (min-width: 1900px) {
+  .cover_image {
+    height: 700px;
   }
 }
