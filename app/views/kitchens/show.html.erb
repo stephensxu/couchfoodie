@@ -14,25 +14,36 @@
       <%= flash[:notice] %>
     <% end %>
   </div>
-  
+
   <div class="kitchen_info">
-    <h3><%= @kitchen.name %></h3>
-    <div class="owner">
-      Owner: <%= @kitchen.user.first_name %> <%= image_tag(@kitchen.user.image) %>
+
+    <div class="owner_info clearfix">
+      <div class="owner_photo">
+        <%= user_photo_tag(@kitchen.user, :type => "square", :height => 100, :width => 100) %>
+      </div>
+      <div class="owner_description clearfix">
+        <%= @kitchen.user.first_name %>
+      </div> 
     </div>
-    <div class="kitchen_description">
-      <%= @kitchen.description %>
+
+    <div class="kitchen_description clearfix">
+      <ul class="description_list">
+        <li><%= @kitchen.name %></li>
+        <li><%= kitchen_location_no_street(@kitchen) %></li>
+        <li><%= @kitchen.menu %></li>
+        <!-- <li><%= @kitchen.description %></li> -->
+      </ul>
     </div>
-    <div class="kitchen_location">
-      <%= kitchen_location_no_street(@kitchen) %>
-    </div>
-    <div class="kichen_photos">
-      <% @kitchen.photos.each do |photo| %>
-        <%= image_tag(photo.standard_picture) %>
-      <% end %>
+
+    <div class="reservation_box">
+      <%= render :partial => "reservations/new_reservation_form", :locals => { :kitchen => @kitchen, :reservation => Reservation.new } %>
     </div>
   </div>
-  <div class="reservation_box">
-    <%= render :partial => "reservations/new_reservation_form", :locals => { :kitchen => @kitchen, :reservation => Reservation.new } %>
+
+  <div class="kitchen_photos clearfix">
+    <% @kitchen.photos.each do |photo| %>
+      <%= image_tag(photo.standard_picture) %>
+    <% end %>
   </div>
+
 </div>

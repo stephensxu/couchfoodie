@@ -3,7 +3,16 @@
   They will automatically be included in application.css.
 */
 
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .kitchen_show_page_body {
+  margin: 0;
+  padding: 0;
+
   .kitchen_cover_image {
     background-repeat: no-repeat;
     background-size: cover;
@@ -13,22 +22,73 @@
   }
 
   .kitchen_info {
-    margin: 0;
-    padding: 40px 0 40px 0;
+    width: 80%;
+    margin: 0 auto;
+    padding: 100px 0;
+    
+    height: 400px;
+
+    .owner_info {
+      text-align: center;
+      float: left;
+      height: 400px;
+      // line-height: 400px;
+
+      .owner_photo {
+
+        img {
+          border-radius: 100px;
+          height: 100px;
+          width: 100px;
+        }
+      }
+    }
+
+    .kitchen_description {
+      float: left;
+      height: 400px;
+      vertical-align: top;
+
+      .description_list {
+        list-style: none;
+        margin: 0;
+        padding: 0 0 0 50px;
+        line-height: 2em;
+        width: 300px;
+      }
+    }
+  }
+
+  .kitchen_photos {
+    padding: 100px 0 40px 40px;
   }
 
   .reservation_box {
+    float: right;
+    height: 400px;
   }
 }
 
 @media (max-width: 1900px) {
-  .kitchen_cover_image {
-    height: 500px;
+
+  .kitchen_show_page_body {
+    .kitchen_cover_image {
+      height: 500px;
+    }
   }
 }
 
-@media (min-width: 1900px) {
-  .kitchen_cover_image {
-    height: 700px;
+@media (min-width: 1800px) {
+
+  .kitchen_show_page_body {
+
+    .kitchen_cover_image {
+      height: 700px;
+    }
+
+    .kitchen_info {
+      width: 60%;
+
+    }
   }
 }
