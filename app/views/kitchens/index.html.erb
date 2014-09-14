@@ -1,9 +1,19 @@
-<div class="index_page_body">
+<div class="index_page">
   <div class="user_page_notice">
     <% if flash[:notice] %>
       <%= flash[:notice] %>
     <% end %>
   </div>
-  <%= render 'kitchens/kitchen_list', :kitchens => @kitchens %>
+
+  <div class="kitchen_index_cover_image">
+  </div>
+
+  <div class="index_page_intro">
+    <h2>Discover Kitchens in your city</h2>
+  </div>
+
+  <div class="index_page_body">
+    <%= render 'kitchens/kitchen_list', :kitchens => @kitchens %>
+  </div>
   
 </div>
