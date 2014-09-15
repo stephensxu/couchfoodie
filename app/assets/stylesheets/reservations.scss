@@ -15,23 +15,53 @@
 .kitchen_reservations_list {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 0 0 300px 0;
 
   .single_reservation {
-    padding-left: 10em;
+    padding-left: 20%;
+    font-size: 18px;
     border-top: solid 1px #3B3F7D;
-    border-bottom: solid 1px #3B3F7D;
-  }
 
-  .single_reservation_info dt {
-   clear: left;
-    float: left;
-  }
+    .description_list {
+      margin: 0;
+      padding: 40px 0;
+      list-style: none;
+      line-height: 2em;
 
-  .single_reservation_info dd {
-   float: left;
-    margin-bottom: 8px;
-    margin-left: 5px;
+      .title {
+        font-weight: bold;
+      }
+
+      .kitchen_info {
+
+        .images {
+          .kitchen_image {
+            padding-right: 20px;
+            img {
+              width: 120px;
+              height: 120px;
+              border-radius: 1000px;
+            }
+          }
+          .kitchen_user_image {
+            height: 50px;
+            line-height: 50px;
+            img {
+              width: 50px;
+              height: 50px;
+              border-radius: 1000px;
+            }
+          }
+          a:hover {
+            background-color: transparent;
+          }
+        }
+
+        .kitchen_name {
+          font-weight: bold;
+        }
+      }
+    }
   }
 }
 
@@ -39,32 +69,6 @@
   content: " ";
   display: table;
   clear: both;
-}
-
-.kitchen_reservations_list dl {
-  clear: both;
-  float: left;
-  width: 100%;
-  padding-right: 3em;
-  padding-top: 3em;
-  padding-bottom: 3em;
-  margin: 0;
-}
-
-.user_reservations_all {
-  margin-top: 3em;
-  text-align: center;
-  font-size: 30px;
-  line-height: 3em;
-
-  ul {
-    list-style-type: none;
-    padding-left: 0;
-  }
-}
-
-.reservation_all {
-  margin-top: 3em;
 }
 
 .reservation_approval_form {
