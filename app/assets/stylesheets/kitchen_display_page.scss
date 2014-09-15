@@ -22,13 +22,14 @@
   }
 
   .kitchen_info {
-    width: 80%;
+    width: 1000px;
     margin: 0 auto;
     padding: 100px 0;
     height: 400px;
 
     .description_wrapper {
       float: left;
+      font-size: 15px;
       margin: 0;
       padding: 0;
       width: 500px;
@@ -85,7 +86,7 @@
 
     .photo_list {
       padding: 0;
-      margin: auto;
+      margin: 0 auto;
       width: 1260px;
       list-style: none;
 
