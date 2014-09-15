@@ -80,6 +80,12 @@ class Kitchen < ActiveRecord::Base
     end
   end
 
+  def show_cover_photo
+    if self.front_page_photo
+      self.front_page_photo.picture.gallery_fill_cover.url
+    end
+  end
+
   def destroy_front_page_photo
     self.front_page_photo.destroy 
     self.update!(:front_page_photo => nil)
