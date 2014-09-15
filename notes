@@ -27,8 +27,14 @@
 
 - If user delete front-page-photo and there are still photos left for a particular kitchen, it will not re-assign front-page-photo.
 
+
 To-do:
 
 - Write tests!
 - Add detailed README
 - Provide instruction for other developer to test the code
+- Change reservation status "Denied" to "Declined". "Denied" is a harsh word.
+
+### Additional feature to consider:
+
+- Add google map API to let user be able to click on address to find kitchen location on google map.

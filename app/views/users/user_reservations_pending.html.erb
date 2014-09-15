@@ -1,34 +1,33 @@
 <div class="reservations_list clearfix">
-  <div class="notice">
-    <% if flash[:notice] %>
-      <%= flash[:notice] %>
+
+  <div class="title">
+    <h2>Pending reservations</h2>
+    <% if @reservations.empty? %>
+      <h2>There is nothing here.</h2>
     <% end %>
   </div>
-
-  <% if @reservations.empty? %>
-    <h2>There is nothing here.</h2>
-  <% end %>
-
-  <h2>Reservations waiting for kitchen approval</h2>
 
   <ul class="kitchen_reservations_list clearfix">
   <% @reservations.each do |reservation| %>
     <li class="clearfix">
       <div class="single_reservation clearfix">
-          <dl class="single_reservation_info">
-            <dt class="title">Status:</dt>
-            <dd><%= reservation.status %></dd>
-            <dt class="title">Reservation for:</dt>
-            <dd><%= reservation.kitchen.name %></dd>
-            <dt class="title">Number of people:</dt>
-            <dd><%= reservation.guest_number %></dd>
-            <dt class="title">Reserve on:</dt>
-            <dd><%= show_reservation_time(reservation) %></dd>
-            <dt class="title">Location:</dt>
-            <dd><%= kitchen_location_no_street(reservation.kitchen) %></dd>
-            <dt class="title">My reservation message</dt>
-            <dd><%= reservation.message_from_guest %></dd>
-          </dl>
+          <ul class="description_list">
+            <li class="title">Status: <%= reservation.status %></li>
+            <li><%= show_reservation_time(reservation) %></li>
+            <li>
+              <div class="kitchen_info">
+                <div class="kitchen_link clearfix">
+                  <span class="kitchen_name"><%= link_to "#{reservation.kitchen.name}", kitchen_path(reservation.kitchen) %></span> - For <%= reservation.guest_number %> Guest(s)
+                </div> 
+                <div class="images">
+                  <span class="kitchen_image"><%= link_to image_tag(reservation.kitchen.show_front_page_photo_thumbnail), kitchen_path(reservation.kitchen) %></span><span class="kitchen_user_image"><%= link_to user_photo_tag(reservation.kitchen.user, :type => "square", :height => 100, :width => 100), reservation.kitchen.user.link, :target => "_blank" %></span>
+                </div>
+              </div>
+            </li>
+            <li><%= kitchen_location_no_street(reservation.kitchen) %></li>
+            <li class="title">My original reservation message</li>
+            <li><%= reservation.message_from_guest %></li>
+          </ul>
       </div>
     </li>
   <% end %>
