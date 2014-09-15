@@ -44,7 +44,7 @@
   <div class="kitchen_photos clearfix">
     <ul class="photo_list">
       <% @kitchen.photos.each do |photo| %>
-        <li><%= image_tag(photo.standard_picture) %></li>
+        <li class="clearfix"><%= image_tag(photo.standard_picture) %></li>
       <% end %>
     </ul>
   </div>
