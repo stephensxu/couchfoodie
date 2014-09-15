@@ -4,9 +4,26 @@
 */
 
 .reservation_new {
+  margin: auto;
+  padding-top: 2em;
+  width: 50%;
+  line-height: 1.5em;
+
   .reservation_form_table {
     padding-bottom: 200px;
 
+  }
+
+  .field_with_errors {
+    input, textarea {
+      border: 2px solid rgb(5, 190, 116);
+    }
+  }
+
+  #error_explanation {
+    li {
+      color: rgb(5, 190, 116);
+    }
   }
 }
 
@@ -33,6 +50,7 @@
   h4 {
     margin: 0;
     padding: 0;
+    font-size: 15px;
   }
 
   select {
@@ -73,3 +91,5 @@
   .message_field {
   }
 }
+
+
