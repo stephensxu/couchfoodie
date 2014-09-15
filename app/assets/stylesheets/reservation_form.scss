@@ -41,7 +41,7 @@
 
   .content_wrapper {
     float: left;
-    padding: 0 35px 0 0;
+    padding: 0 18px 0 0;
   }
 
   .row_1 {
@@ -49,7 +49,7 @@
   }
 
   .row_2 {
-    height: 55px;
+    height: 75px;
     padding-bottom: 20px;
     .field {
       height: 35px;
@@ -58,15 +58,18 @@
   }
 
   .guests {
-    float: right;
+    float: left;
     padding: 0;
   }
 
   .date_field {
-    width: 150px;
+    width: 180px;
   }
 
   .time_field {
     width: 120px;
+  }
+
+  .message_field {
   }
 }
