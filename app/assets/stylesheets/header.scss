@@ -81,6 +81,7 @@
         margin: 0 20px 0 20px;
 
         .drop_down_list {
+          z-index: 2;
           font-size: 18px;
           position: absolute;
           display: none;

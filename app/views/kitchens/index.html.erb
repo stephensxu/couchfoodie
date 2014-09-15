@@ -1,10 +1,4 @@
 <div class="index_page">
-  <div class="user_page_notice">
-    <% if flash[:notice] %>
-      <%= flash[:notice] %>
-    <% end %>
-  </div>
-
   <div class="kitchen_index_cover_image">
   </div>
 
@@ -15,5 +9,4 @@
   <div class="index_page_body">
     <%= render 'kitchens/kitchen_list', :kitchens => @kitchens %>
   </div>
-  
 </div>
