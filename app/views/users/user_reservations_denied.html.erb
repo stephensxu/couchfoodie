@@ -20,7 +20,7 @@
                   <span class="kitchen_name"><%= link_to "#{reservation.kitchen.name}", kitchen_path(reservation.kitchen) %></span> - For <%= reservation.guest_number %> Guest(s)
                 </div> 
                 <div class="images">
-                  <span class="kitchen_image"><%= link_to image_tag(reservation.kitchen.show_front_page_photo_thumbnail), kitchen_path(reservation.kitchen) %></span><span class="kitchen_user_image"><%= link_to image_tag(reservation.kitchen.user.image), reservation.kitchen.user.link, :target => "_blank" %></span>
+                  <span class="kitchen_image"><%= link_to image_tag(reservation.kitchen.show_front_page_photo_thumbnail), kitchen_path(reservation.kitchen) %></span><span class="kitchen_user_image"><%= link_to user_photo_tag(reservation.kitchen.user, :type => "square", :height => 50, :width => 50), reservation.kitchen.user.link, :target => "_blank" %></span>
                 </div>
               </div>
             </li>

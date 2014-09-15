@@ -32,3 +32,6 @@ To-do:
 - Write tests!
 - Add detailed README
 - Provide instruction for other developer to test the code
+
+### Additional feature to consider:
+- Add google map API to let user be able to click on address to find kitchen location on google map.
