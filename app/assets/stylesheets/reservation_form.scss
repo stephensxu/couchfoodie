@@ -1,0 +1,72 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+.reservation_new {
+  .reservation_form_table {
+    padding-bottom: 200px;
+
+  }
+}
+
+.reservation_form_table {
+  width: 410px;
+  height: 300px;
+
+  .button_normal {
+    margin: 20px 0 0 0;
+    width: 406px;
+    height: 50px;
+    border-radius: 0px;
+  }
+
+  .title {
+    padding-bottom: 10px;
+  }
+
+  .field {
+    margin: 0;
+    padding: 0;
+  }
+
+  h4 {
+    margin: 0;
+    padding: 0;
+  }
+
+  select {
+    width: 60px;
+  }
+
+  .content_wrapper {
+    float: left;
+    padding: 0 35px 0 0;
+  }
+
+  .row_1 {
+    padding-bottom: 20px;
+  }
+
+  .row_2 {
+    height: 55px;
+    padding-bottom: 20px;
+    .field {
+      height: 35px;
+      line-height: 35px;
+    }
+  }
+
+  .guests {
+    float: right;
+    padding: 0;
+  }
+
+  .date_field {
+    width: 150px;
+  }
+
+  .time_field {
+    width: 120px;
+  }
+}

@@ -10,26 +10,48 @@
       </ul>
     </div>
   <% end %>
+  
+  <div class ="reservation_form_table">
+    <div class="content_wrapper row_1">
+      <div class="title">
+        <h4>Introduce yourself to the host (required)</h4>
+      </div>
+      <div class="field">
+        <% f.label "Message to Host" %>
+        <%= f.text_area :message_from_guest, :placeholder => "Are you willing to offer something in return for sharing their food? Do you live close by or are you traveling?", :class => "text_box message_field" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label "Introduce yourself to the host, be honest and respectful" %><br>
-    <%= f.text_area :message_from_guest, :placeholder => "250 characters or less", :class => "text_box" %>
-  </div>
 
-  <div class="field">
-    <%= f.label "Reservation date" %><br>
-    <%= f.date_field :reserve_date, :class => "input_box_normal" %>
-  </div>
+    <div class="content_wrapper row_2">
+      <div class="title">
+        <h4>Reservation date</h4>
+      </div>
+      <div class="field">
+        <% f.label "Reservation date" %>
+        <%= f.date_field :reserve_date, :class => "input_box_normal date_field" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label "Reservation time" %><br>
-    <%= f.time_field :reserve_time, :class => "input_box_normal" %>
-  </div>
+    <div class="content_wrapper row_2">
+      <div class="title">
+        <h4>Time</h4>
+      </div>
+      <div class="field">
+        <% f.label "Reservation time" %>
+        <%= f.time_field :reserve_time, :class => "input_box_normal time_field" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label "Number of people" %><br>
-    <%= f.select :guest_number, options_for_select(Reservation::VALID_GUEST_NUMBER), :class => "selection_dropdown" %>
-  </div>
+    <div class="content_wrapper row_2 guests">
+      <div class="title">
+        <h4>Guests</h4>
+      </div>
+      <div class="field">
+        <% f.label "Number of people" %>
+        <%= f.select :guest_number, options_for_select(Reservation::VALID_GUEST_NUMBER), :class => "selection_dropdown" %>
+      </div>
+    </div>
 
   <div class="actions">
     <%= f.submit "Reserve", :class => "button_normal" %>

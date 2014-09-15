@@ -15,8 +15,7 @@
     <% end %>
   </div>
 
-  <div class="kitchen_info">
-
+  <div class="kitchen_info clearfix">
     <div class="description_wrapper clearfix">
       <div class="owner_info">
         <div class="owner_photo">
@@ -26,7 +25,6 @@
           <%= @kitchen.user.first_name %>
         </div> 
       </div>
-
       <div class="kitchen_description clearfix">
         <ul class="description_list">
           <li class="kitchen_name"><%= @kitchen.name %></li>
@@ -34,16 +32,13 @@
           <li><%= @kitchen.menu %></li>
         </ul>
       </div>
-
       <div class="additional_description clearfix">
         <p><span class="strong">Description</span>: <%= @kitchen.description %></p>
       </div>
     </div>
-
-    <div class="reservation_box">
+    <div class="reservation_container">
       <%= render :partial => "reservations/new_reservation_form", :locals => { :kitchen => @kitchen, :reservation => Reservation.new } %>
     </div>
-
   </div>
 
   <div class="kitchen_photos clearfix">
