@@ -3,6 +3,10 @@ class PhotosController < ApplicationController
   before_action :require_authorization!
   before_action :require_login
 
+  def index
+    @photos = @kitchen.photos
+  end
+
   def create
     @photo = @kitchen.photos.build(photo_params)
 
