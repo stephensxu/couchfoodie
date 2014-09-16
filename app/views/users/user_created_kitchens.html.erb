@@ -34,7 +34,7 @@
         </div>
         <ul class="photo-list">
           <% if kitchen.photos.empty? %>
-            <h3>No photos. :(</h3>
+            <h3>Your kitchen is not available to public yet. Add a cover photo to publish!</h3>
           <% else %>
             <% kitchen.photos.each do |photo| %>
               <li><%= image_tag(photo.picture.gallery_fill.url) %></li>
