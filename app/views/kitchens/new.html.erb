@@ -1,5 +1,10 @@
 <div class="new_kitchen">
   <h2>Create my own kitchen</h2>
+
+  <div class="step_explanation">
+    <p class="step">Step 1 of 2</p>
+    <p class="explanation">Enter Kitchen description (all fields required)</p>
+  </div>
   
   <div class="new_kitchen_form">
     <%= render partial: "new_kitchen_form", locals: { :kitchen => @kitchen } %>
