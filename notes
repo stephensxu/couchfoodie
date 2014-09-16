@@ -6,14 +6,7 @@
 
 - How to display list of photo as a modal dialog?
 
-- How to make a background photo responsive to screen size?
-
-- How to make a photo that display as cover-image, taking up entire width of screen?
-
-- User will see error page if they click upload without selecting a file. How can I make that not happen?
-
-- How to show waiting dialog when photo is uploading?
-
+- How to make a function to assign photo as front-page? How to make front auto-assign as front page?
 
 ### Email notificaiton related
 
@@ -26,7 +19,6 @@
 - Photo delete data-confirm doesn't work, why?
 
 - If user delete front-page-photo and there are still photos left for a particular kitchen, it will not re-assign front-page-photo.
-
 
 To-do:
 

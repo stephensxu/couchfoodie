@@ -1,13 +1,13 @@
 <div class="add_photo_page new_kitchen">
-  <h2>Create my own kitchen</h2>
 
   <div class="step_explanation">
-    <p class="step">Step 2 of 2</p>
+    <h2 class="step">Step 2 of 2</h2>
+    <p>Create cover photo to <%= @kitchen.name %></p>
     <p class="explanation">Add cover photo for my kitchen. This will be displayed as your front page, make sure to use the best one!</p>
   </div>
   
   <div class="new_photo_form">
-    <%= render :partial => "photos/new_photo_form", :locals => { :photo => Photo.new, :kitchen => Kitchen.find(params[:kitchen_id]) } %>
+    <%= render :partial => "photos/new_photo_form", :locals => { :photo => @photo, :kitchen => @kitchen } %>
   </div>
   <div class="modal">
     <%= render :partial => "shared/photo_upload_modal"%>

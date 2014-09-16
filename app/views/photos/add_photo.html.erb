@@ -1,0 +1,10 @@
+<div class="add_photo_page new_kitchen">
+  <h2>Add photo to <%= @kitchen.name %></h2>
+
+  <div class="new_photo_form">
+    <%= render :partial => "photos/new_photo_form", :locals => { :photo => Photo.new, :kitchen => @kitchen } %>
+  </div>
+  <div class="modal">
+    <%= render :partial => "shared/photo_upload_modal"%>
+  </div>
+</div>

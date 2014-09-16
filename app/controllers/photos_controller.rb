@@ -19,6 +19,11 @@ class PhotosController < ApplicationController
 
   def new
     @photo = Photo.new
+    if @kitchen.photos.empty?
+      render 'new'
+    else
+      render 'add_photo'
+    end
   end
 
   def destroy
