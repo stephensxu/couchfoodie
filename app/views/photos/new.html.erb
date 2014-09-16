@@ -9,5 +9,7 @@
   <div class="new_photo_form">
     <%= render :partial => "photos/new_photo_form", :locals => { :photo => Photo.new, :kitchen => Kitchen.find(params[:kitchen_id]) } %>
   </div>
-
+  <div class="modal">
+    <%= render :partial => "shared/photo_upload_modal"%>
+  </div>
 </div>
