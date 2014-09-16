@@ -24,7 +24,9 @@
                 </div>
               </div>
             </li>
-            <li><%= kitchen_location_no_street(reservation.kitchen) %></li>
+            <li>
+              <%= render :partial => "kitchens/kitchen_address_no_street", :locals => { :kitchen => reservation.kitchen } %>
+            </li>
             <li class="title">My original reservation message</li>
             <li><%= reservation.message_from_guest %></li>
           </ul>
