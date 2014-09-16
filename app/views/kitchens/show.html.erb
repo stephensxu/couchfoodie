@@ -22,7 +22,9 @@
       <div class="kitchen_description clearfix">
         <ul class="description_list">
           <li class="kitchen_name"><%= @kitchen.name %></li>
-          <li><%= kitchen_location_no_street(@kitchen) %></li>
+          <li>
+            <%= render :partial => "kitchens/kitchen_address_no_street", :locals => { :kitchen => @kitchen } %>
+          </li>
           <li><%= @kitchen.menu %></li>
         </ul>
       </div>
