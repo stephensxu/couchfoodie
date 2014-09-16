@@ -22,7 +22,7 @@ class Photo < ActiveRecord::Base
   mount_uploader :picture, KitchenPhotosUploader
 
   validates :picture, :presence => true, 
-            :file_size => { :maximum => 5.megabytes.to_i }
+            :file_size => { :maximum => 10.megabytes.to_i }
 
   def set_as_front_page_photo_if_first
     kitchen.update!(:front_page_photo => self) if kitchen.photos.count == 1

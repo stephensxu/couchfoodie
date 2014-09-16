@@ -1,0 +1,53 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+.new_kitchen {
+  margin: 0 auto;
+  padding: 50px 50px 100px 50px;
+  width: 70%;
+  line-height: 1.5em;
+
+  h2 {
+    text-align: center;
+  }
+
+  .step_explanation {
+    margin: 0;
+    padding: 20px 0;
+    line-height: 3em;
+    p {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+}
+
+.add_photo_page {
+  padding-bottom: 300px;
+  .step_explanation {
+    .explanation {
+      text-align: left;
+
+    }
+  }
+  .new_photo_form {
+    width: 300px;
+    margin: 0 auto;
+    line-height: 5em;
+
+    .buttons {
+      input,  {
+        margin: 0;
+      }
+    }
+    .field {
+      margin: 0;
+    }
+
+  }
+}

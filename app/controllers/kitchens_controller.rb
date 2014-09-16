@@ -54,7 +54,7 @@ class KitchensController < ApplicationController
     @kitchen.user = current_user
 
     if @kitchen.save
-      redirect_to kitchens_users_path, notice: 'Kitchen was successfully created.'
+      redirect_to new_kitchen_photo_path(@kitchen)
     else
       render :new
     end
