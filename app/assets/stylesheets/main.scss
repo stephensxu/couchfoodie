@@ -8,6 +8,12 @@
   // overflow: hidden;
 }
 
+input, textarea {
+  border-radius: 4px !important;
+  border: 1px solid #386FD4;
+  background-color: #FBFBFB;
+}
+
 html *{
   font-family: 'Signika', sans-serif;
   color: #3B3F7D;
@@ -67,5 +73,8 @@ td {
 #error_explanation {
   li {
     color: rgb(5, 190, 116);
+  }
+  h2 {
+    line-height: 1.5em;
   }
 }

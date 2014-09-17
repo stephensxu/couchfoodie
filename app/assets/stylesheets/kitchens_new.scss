@@ -31,6 +31,9 @@
 .add_photo_page {
   padding-bottom: 300px;
   .step_explanation {
+    h2 {
+      line-height: 1.5em;
+    }
 
     .explanation {
       text-align: left;
