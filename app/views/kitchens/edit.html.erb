@@ -1,7 +1,9 @@
 <div class="edit_kitchen_page">
   <h2>Edit my own kitchen</h2>
-
-  <h3><%= link_to 'Edit Photos', kitchen_photos_path(@kitchen) %></h3>
+  
+  <% if @kitchen.photos.any? %>
+    <h3><%= link_to 'Edit Photos', kitchen_photos_path(@kitchen) %></h3>
+  <% end %>
 
   <%= render partial: "new_kitchen_form", :locals => { :kitchen => @kitchen } %>
 
