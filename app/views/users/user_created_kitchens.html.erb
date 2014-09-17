@@ -5,43 +5,52 @@
       <%= flash[:notice] %>
     <% end %>
   </div>
+
+  <div class="title">
+    <h2>My Kitchens</h2>
+  </div>
   
-  <ul class="my_kitchen clearfix ">
+  <ul class="my_kitchens clearfix ">
     <% @kitchens.each do |kitchen| %>
     <li>
-      <div class="single_kitchen clearfix">
-        <dl class="single_kitchen_info clearfix">
-          <dt class="kitchen_name"><%= link_to kitchen.name, kitchen_path(kitchen) %></dt>
-          <dt class="menu"><%= kitchen.menu %></dt>
-          <dt class="title">Description: </dt>
-          <dd><%= kitchen.description %></dd>
-          <dt class="location">Location: </dt> 
-          <dd><%= kitchen_location(kitchen) %></dd>
-        </dl>
-
-        <div class="kitchen_reservations_in_kitchen_block clearfix">
-          <ul class="clearfix">
-            <li><%= link_to "Pending reservations (#{kitchen.reservations.pending.count})", reservations_pending_kitchen_path(kitchen) %></li>
-            <li><%= link_to "Approved reservations (#{kitchen.reservations.approved.count})", reservations_approved_kitchen_path(kitchen) %></li>
-            <li> <%= link_to "Denied reservations (#{kitchen.reservations.denied.count})", reservations_denied_kitchen_path(kitchen)%></li>
+      <% if kitchen.front_page_photo %>
+        <div class="single_kitchen clearfix">
+          <ul class="single_kitchen_info clearfix">
+            <li class="kitchen_name"><%= link_to kitchen.name, kitchen_path(kitchen) %></li>
+            <li class="menu"><%= kitchen.menu %></li>
           </ul>
+          <div class="thumbnail_container">
+            <%= link_to image_tag(kitchen.show_front_page_photo_thumbnail), kitchen_path(kitchen), :class => 'darken' %>
+          </div>
+          <div class="kitchen_reservations_in_kitchen_block clearfix">
+            <ul class="clearfix">
+              <li><%= link_to "Pending reservations (#{kitchen.reservations.pending.count})", reservations_pending_kitchen_path(kitchen) %></li>
+              <li><%= link_to "Approved reservations (#{kitchen.reservations.approved.count})", reservations_approved_kitchen_path(kitchen) %></li>
+              <li> <%= link_to "Denied reservations (#{kitchen.reservations.denied.count})", reservations_denied_kitchen_path(kitchen)%></li>
+            </ul>
+          </div>
+          <div class="kitchen_buttons">
+            <ul>
+              <li><%= button_to("Add photo", new_kitchen_photo_path(kitchen), :method => :get, :class => "button_normal")%></li>
+            </ul>
+          </div>
         </div>
-        <div class="kitchen_buttons">
-          <ul>
-            <li><%= button_to("Add photo", new_kitchen_photo_path(kitchen), :method => :get, :class => "button_normal")%></li>
-            <li><%= button_to("Edit", edit_kitchen_path(kitchen), :method => :get, :class => "button_normal")%></li>
+      <% else %>
+        <div class="single_kitchen clearfix">
+          <ul class="single_kitchen_info clearfix">
+            <li class="kitchen_name"><%= kitchen.name %></li>
+            <li class="message">Your kitchen is incomplete, add cover photo or continue editing</li>
           </ul>
+          <div class="thumbnail_container thumbnail_placeholder">
+            <ul class="buttons">
+              <li><%= button_to("Add cover photo", new_kitchen_photo_path(kitchen), :method => :get, :class => "button_normal")%></li>
+              <li>
+                <%= button_to("Edit", edit_kitchen_path(kitchen), :method => :get, :class => "button_normal")%>
+              </li>
+            </ul>
+          </div>
         </div>
-        <ul class="photo-list">
-          <% if kitchen.photos.empty? %>
-            <h3>Your kitchen is not available to public yet. Add a cover photo to publish!</h3>
-          <% else %>
-            <% kitchen.photos.each do |photo| %>
-              <li><%= image_tag(photo.picture.gallery_fill.url) %></li>
-            <% end %>
-          <% end %>
-        </ul>
-      </div> 
+      <% end %>
     </li>
   <% end %>
   </ul>

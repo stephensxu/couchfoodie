@@ -42,6 +42,15 @@
     margin: 0 auto;
     line-height: 5em;
 
+    #photo_picture {
+      width: 220px;
+    }
+
+    #photo_upload_submit {
+      width: 220px;
+      height: 30px;
+    }
+
     .buttons {
       input,  {
         margin: 0;
