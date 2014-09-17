@@ -31,6 +31,14 @@
       <div class="additional_description clearfix">
         <p><span class="strong">Description</span>: <%= @kitchen.description %></p>
       </div>
+      <% if @kitchen.editable_by?(current_user) %>
+        <div class="edit_button clearfix">
+          <%= button_to("Edit", edit_kitchen_path(@kitchen), :method => :get, :class => "button_normal")%>
+        </div>
+        <div class="add_photo_button clearfix">
+          <%= button_to("Add photo", new_kitchen_photo_path(@kitchen), :method => :get, :class => "button_normal")%>
+        </div>
+      <% end %>
     </div>
     <div class="reservation_container">
       <%= render :partial => "reservations/new_reservation_form", :locals => { :kitchen => @kitchen, :reservation => Reservation.new } %>

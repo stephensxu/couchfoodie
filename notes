@@ -20,6 +20,10 @@
 
 - If user delete front-page-photo and there are still photos left for a particular kitchen, it will not re-assign front-page-photo.
 
+- Photo Gallery is too wide. Has scroll bar.
+
+- Feedback about photo dimension
+
 To-do:
 
 - Write tests!
