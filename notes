@@ -14,15 +14,11 @@
 
 ** KNOWN BUGS
 - Reservation needs to show whether a kitchen still exist
-- Use two facebook app; one for dev one for production
 
-- Photo delete data-confirm doesn't work, why?
-
-- If user delete front-page-photo and there are still photos left for a particular kitchen, it will not re-assign front-page-photo.
+- Past due reservations are not sperated; cannot approve or deny past due reservations. Need to seperate into different catagory.
 
 - Photo Gallery is too wide. Has scroll bar.
 
-- Feedback about photo dimension
 
 To-do:
 
@@ -30,6 +26,8 @@ To-do:
 - Add detailed README
 - Provide instruction for other developer to test the code
 - Change reservation status "Denied" to "Declined". "Denied" is a harsh word.
+- Use two facebook app; one for dev one for production
+
 
 ### Additional feature to consider:
 
