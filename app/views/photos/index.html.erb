@@ -14,6 +14,8 @@
             <% else %>
               <%= button_to "Delete", { :controller => :photos, :action => "destroy", :id => photo.id }, 
                                         :method => :delete, :class => "button_normal" %>
+              <%= button_to "set front page", { :controller => :photos, :action => "set_as_front_page_photo", :id => photo.id }, 
+                                                :method => :get, :class => "button_normal" %>
             <% end %>
           </div>
         </li>

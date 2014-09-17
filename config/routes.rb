@@ -47,7 +47,11 @@ Rails.application.routes.draw do
 
   resources :kitchens, :except => [:index] do
     resources :reservations, :except => [:update, :edit]
-    resources :photos
+    resources :photos do 
+      member do
+        get 'set_as_front_page_photo', :action => 'set_as_front_page_photo'
+      end
+    end
   end
 
   resources :users, :except => :destroy do

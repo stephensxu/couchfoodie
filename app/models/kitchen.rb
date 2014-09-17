@@ -91,4 +91,9 @@ class Kitchen < ActiveRecord::Base
     self.update!(:front_page_photo => nil)
   end
 
+  def set_front_page_photo(photo)
+    self.front_page_photo = photo
+    self.save
+  end
+
 end
