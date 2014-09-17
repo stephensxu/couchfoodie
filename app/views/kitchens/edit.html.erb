@@ -1,12 +1,17 @@
 <div class="edit_kitchen_page">
-  <h2>Edit my own kitchen</h2>
+  <div class="center_form">
+    <h2>Edit my own kitchen</h2>
+    
+    <% if @kitchen.photos.any? %>
+      <h3><%= link_to 'Edit Photos', kitchen_photos_path(@kitchen) %></h3>
+    <% end %>
+
+    <div class="kitchen_form">
+      <%= render partial: "new_kitchen_form", :locals => { :kitchen => @kitchen } %>
+    </div>
+  </div>
   
-  <% if @kitchen.photos.any? %>
-    <h3><%= link_to 'Edit Photos', kitchen_photos_path(@kitchen) %></h3>
-  <% end %>
-
-  <%= render partial: "new_kitchen_form", :locals => { :kitchen => @kitchen } %>
-
-  <%= button_to("Delete Kitchen", kitchen_path(@kitchen), :method => :delete, :class => "button_normal")%>
-
+  <div class="delete_button">
+    <%= button_to("Delete Kitchen", kitchen_path(@kitchen), :method => :delete, :class => "button_normal")%>
+  </div>
 </div>
