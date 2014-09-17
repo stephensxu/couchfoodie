@@ -10,16 +10,15 @@
 
   .title {
     text-align: center;
+    h2 {
+      font-size: 30px;
+    }
   }
 
   .my_kitchens {
     list-style-type: none;
     margin: 0;
     padding: 0;
-
-    .title {
-      text-align: center;
-    }
 
     ul {
       list-style: none;
