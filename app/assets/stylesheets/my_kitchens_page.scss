@@ -3,58 +3,54 @@
   They will automatically be included in application.css.
 */
 
-.kitchen_reservations_in_kitchen_block {
-  line-height: 1.5em;
-  margin-top: 2em;
-  margin-bottom: 2em;
-  font-size: 20px;
-}
 
-.kitchen_buttons {
-  line-height: 0;
-}
-
-.my_kitchen {
-  list-style-type: none;
+.my_kitchen_list {
   margin: 0;
-  padding: 0;
+  padding: 0 0 300px 0;
 
-  dl {
-    clear: both;
-    float: left;
-    width: 100%;
-    padding-right: 0;
-    padding-top: 3em;
-    margin: 0;
+  .title {
+    text-align: center;
+    h2 {
+      font-size: 30px;
+    }
   }
 
-  ul {
+  .my_kitchens {
     list-style-type: none;
-    padding-left: 0;
+    margin: 0;
+    padding: 0;
 
-  }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
 
-  .single_kitchen {
-    border-top: solid 1px #3B3F7D;
-    border-bottom: solid 1px #3B3F7D;
-    line-height: 1.5em;
-    padding-left: 10em;
-    padding-bottom: 3em;
-  }
-
-  .single_kitchen_info {
-    margin-bottom: 20px;
-  }
-
-  .single_kitchen_info dt {
-    clear: left;
-    float: left;
-  }
-
-  .single_kitchen_info dd {
-   float: left;
-    margin-bottom: 8px;
-    margin-left: 5px;
+    .single_kitchen {
+      width: 600px;
+      margin: 0 auto 100px auto;
+      padding: 80px 80px 80px 80px;
+      font-size: 18px;
+      box-shadow: 10px 10px rgba(185, 187, 187, 0.46);
+      background-color: #CDEEEC;
+      .kitchen_reservations_in_kitchen_block{
+        padding-top: 40px;
+        line-height: 1.5em;
+      }
+      .single_kitchen_info {
+        margin-bottom: 20px;
+      }
+      .kitchen_name {
+        font-weight: bold;
+        padding-bottom: 20px;
+      }
+      .menu {
+        line-height: 2em;
+      }
+      .button_normal {
+        margin: 40px 0 0 0;
+      }
+    }
   }
 }
 
@@ -62,4 +58,42 @@
   content: "";
   display: table;
   clear: both;
+}
+
+.thumbnail_container {
+  margin: 0;
+  padding: 0;
+  width: 350px;
+  height: 263px;
+
+  a:hover {
+    background-color: transparent;
+    text-decoration: none;
+  }
+
+  a.darken {
+    background: black;
+    display: inline-block;
+    padding: 0;
+  }
+
+  a.darken img {
+    display: block;
+    transition: all 0.2s linear;
+  }
+
+  a.darken:hover img {
+    opacity: 0.8;
+  }
+}
+
+.thumbnail_placeholder {
+  border: 1px solid #386FD4;
+  ul.buttons {
+    text-align: center;
+    margin-top: 35px;
+    .button_normal {
+      font-size: 18px;
+    }
+  }
 }

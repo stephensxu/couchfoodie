@@ -4,10 +4,19 @@
 */
 
 .edit_kitchen_page {
-  padding-left: 15em;
+  padding: 50px 50px 100px 50px;
 
-  form.button_to {
+  .center_form {
+    width: 600px;
+    margin: 0 auto;
+  }
+
+  .delete_button {
     margin-right: 3em;
     text-align: right;
+  }
+
+  .kitchen_form {
+
   }
 }

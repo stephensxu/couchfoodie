@@ -34,6 +34,13 @@ class PhotosController < ApplicationController
     redirect_to kitchen_photos_path(@kitchen)
   end
 
+  def set_as_front_page_photo
+    @photo = Photo.find(params[:id])
+    @kitchen = @photo.kitchen
+    @kitchen.set_front_page_photo(@photo)
+    redirect_to kitchen_path(@kitchen)
+  end
+
   private
 
   def set_kitchen

@@ -28,6 +28,11 @@ class Photo < ActiveRecord::Base
     kitchen.update!(:front_page_photo => self) if kitchen.photos.count == 1
   end
 
+  def set_as_front_page_photo(kitchen)
+    self.kitchen_displaying_as_front_page = kitchen
+    self.kitchen.save
+  end
+
   def standard_picture
     self.picture.gallery_fill.url
   end
