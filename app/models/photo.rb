@@ -14,12 +14,13 @@
 #
 
 class Photo < ActiveRecord::Base
+  mount_uploader :picture, KitchenPhotosUploader
+  store_in_background :picture
+
   after_create :set_as_front_page_photo_if_first
 
   belongs_to :kitchen
   has_one :kitchen_displaying_as_front_page, :class_name => "Kitchen", :inverse_of => :front_page_photo
-
-  mount_uploader :picture, KitchenPhotosUploader
 
   validates :picture, :presence => true, 
             :file_size => { :maximum => 10.megabytes.to_i }
