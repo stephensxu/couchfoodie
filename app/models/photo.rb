@@ -2,12 +2,13 @@
 #
 # Table name: photos
 #
-#  id          :integer          not null, primary key
-#  picture     :string(255)
-#  created_at  :datetime
-#  updated_at  :datetime
-#  kitchen_id  :integer          not null
-#  picture_tmp :string(255)
+#  id           :integer          not null, primary key
+#  picture      :string(255)
+#  created_at   :datetime
+#  updated_at   :datetime
+#  kitchen_id   :integer          not null
+#  picture_tmp  :string(255)
+#  processed_at :datetime
 #
 # Indexes
 #
