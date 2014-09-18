@@ -7,6 +7,11 @@
   </style>
 
   <div class="kitchen_cover_image clearfix">
+    <% if @kitchen.editable_by?(current_user) %>
+      <div class="transparent_image">
+        <%= link_to image_tag('blank_image.png'), kitchen_photos_path(@kitchen) %>
+      </div>
+    <% end %>
   </div>
 
   <div class="kitchen_info clearfix">
