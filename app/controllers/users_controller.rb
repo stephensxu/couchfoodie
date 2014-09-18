@@ -11,7 +11,11 @@ class UsersController < ApplicationController
 
   def kitchens
     @kitchens = Kitchen.for_user(current_user).active
-    render :user_created_kitchens
+    if @kitchens.empty?
+      render :no_kitchen_page
+    else
+      render :user_created_kitchens
+    end
   end
 
   def reservations_all
