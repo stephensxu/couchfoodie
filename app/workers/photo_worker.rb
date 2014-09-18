@@ -1,5 +1,6 @@
 class PhotoWorker
   include Sidekiq::Worker
+  sidekiq_options :retry => false
 
   def perform(photo_id)
     puts "worker starting to process photo"
