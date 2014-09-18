@@ -3,8 +3,10 @@ class UsersController < ApplicationController
                 :reservations_denied]
   def index
     if logged_in?
+      HardWorker.perform_async
       redirect_to kitchens_path
     else
+      HardWorker.perform_async
       render :index
     end
   end
