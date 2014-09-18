@@ -55,7 +55,7 @@
       <ul class="photo_list clearfix">
         <% @kitchen.photos.each do |photo| %>
           <% if photo.picture_processing %>
-            <li class="clearfix">Photo processing %></li>
+            <li class="clearfix">Photo processing</li>
           <% else %>
             <li class="clearfix"><%= link_to image_tag(photo.standard_picture), kitchen_photos_path(@kitchen) %></li>
           <% end %>
@@ -65,7 +65,7 @@
       <ul class="photo_list clearfix">
         <% @kitchen.photos.each do |photo| %>
           <% if photo.picture_processing %>
-            <li class="clearfix">Photo processing </li>
+            <li class="clearfix">Photo processing</li>
           <% else %>
             <li class="clearfix"><%= image_tag(photo.standard_picture) %></li>
           <% end %>
