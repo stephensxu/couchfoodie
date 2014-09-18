@@ -54,13 +54,21 @@
     <% if @kitchen.editable_by?(current_user) %>
       <ul class="photo_list clearfix">
         <% @kitchen.photos.each do |photo| %>
-          <li class="clearfix"><%= link_to image_tag(photo.standard_picture), kitchen_photos_path(@kitchen) %></li>
+          <% if photo.picture_processing %>
+            <li class="clearfix">Photo processing %></li>
+          <% else %>
+            <li class="clearfix"><%= link_to image_tag(photo.standard_picture), kitchen_photos_path(@kitchen) %></li>
+          <% end %>
         <% end %>
       </ul>
     <% else %>
       <ul class="photo_list clearfix">
         <% @kitchen.photos.each do |photo| %>
-          <li class="clearfix"><%= image_tag(photo.standard_picture) %></li>
+          <% if photo.picture_processing %>
+            <li class="clearfix">Photo processing </li>
+          <% else %>
+            <li class="clearfix"><%= image_tag(photo.standard_picture) %></li>
+          <% end %>
         <% end %>
       </ul>
     <% end %>
