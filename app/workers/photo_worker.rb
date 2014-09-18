@@ -6,7 +6,7 @@ class PhotoWorker
     puts "worker starting to process photo..."
     photo = Photo.find(photo_id)
     puts "calling recreate versions on photosuploader..."
-    KitchenPhotosUploader.recreate_versions!
+    photo.picture.recreate_versions!
     puts "recreate_versions sucess..."
     photo.processed_at = Time.zone.now
     puts "worker finished processing photo..."
