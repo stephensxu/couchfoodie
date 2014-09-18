@@ -19,6 +19,23 @@
     background-position: 50% 50%;
     margin: 0;
     padding: 0;
+
+    a:hover {
+      background-color: transparent;
+    }
+
+    .transparent_image {
+      position: relative;
+      width: 100%;
+      height: 100%;
+
+      img {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+      }
+    }
   }
 
   .kitchen_info {
@@ -109,6 +126,10 @@
         padding: 15px 15px 0 15px;
         width: 600px;
         height: 450px;
+      }
+
+      a:hover {
+        background-color: transparent;
       }
     }
   }

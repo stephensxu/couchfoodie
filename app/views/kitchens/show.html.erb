@@ -7,6 +7,11 @@
   </style>
 
   <div class="kitchen_cover_image clearfix">
+    <% if @kitchen.editable_by?(current_user) %>
+      <div class="transparent_image">
+        <%= link_to image_tag('blank_image.png'), kitchen_photos_path(@kitchen) %>
+      </div>
+    <% end %>
   </div>
 
   <div class="kitchen_info clearfix">
@@ -46,11 +51,19 @@
   </div>
 
   <div class="kitchen_photos clearfix">
-    <ul class="photo_list clearfix">
-      <% @kitchen.photos.each do |photo| %>
-        <li class="clearfix"><%= image_tag(photo.standard_picture) %></li>
-      <% end %>
-    </ul>
+    <% if @kitchen.editable_by?(current_user) %>
+      <ul class="photo_list clearfix">
+        <% @kitchen.photos.each do |photo| %>
+          <li class="clearfix"><%= link_to image_tag(photo.standard_picture), kitchen_photos_path(@kitchen) %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <ul class="photo_list clearfix">
+        <% @kitchen.photos.each do |photo| %>
+          <li class="clearfix"><%= image_tag(photo.standard_picture) %></li>
+        <% end %>
+      </ul>
+    <% end %>
   </div>
 
 </div>
