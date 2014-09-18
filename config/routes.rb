@@ -32,9 +32,10 @@
 
 require 'sidekiq/web'
 
-mount Sidekiq::Web => '/sidekiq'
-
 Rails.application.routes.draw do
+
+  mount Sidekiq::Web => '/sidekiq'
+
 
   root :to => 'users#index'
 
