@@ -30,6 +30,10 @@
 #                   logout GET    /logout(.:format)                                     sessions#destroy
 #
 
+require 'sidekiq/web'
+
+mount Sidekiq::Web => '/sidekiq'
+
 Rails.application.routes.draw do
 
   root :to => 'users#index'
