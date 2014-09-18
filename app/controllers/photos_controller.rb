@@ -12,7 +12,7 @@ class PhotosController < ApplicationController
 
     if @photo.save
       p "photo is saved to the database"
-      PhotoWorkder.perform_async(@photo.id)
+      PhotoWorker.perform_async(@photo.id)
       redirect_to kitchens_users_path, :notice => 'Photo was successfully created.'
     else
       render :new
