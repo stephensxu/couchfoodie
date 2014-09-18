@@ -2,6 +2,7 @@
 
 class KitchenPhotosUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
+  include ::CarrierWave::Backgrounder::Delay
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
