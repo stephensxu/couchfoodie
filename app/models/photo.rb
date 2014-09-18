@@ -19,7 +19,7 @@
 
 class Photo < ActiveRecord::Base
   mount_uploader :picture, KitchenPhotosUploader
-  # process_in_background :picture
+  process_in_background :picture
 
   after_create :set_as_front_page_photo_if_first
 
