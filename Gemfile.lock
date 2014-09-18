@@ -47,6 +47,8 @@ GEM
     carrierwave-aws (0.4.1)
       aws-sdk (>= 1.29)
       carrierwave (>= 0.7)
+    carrierwave_backgrounder (0.4.1)
+      carrierwave (~> 0.5)
     celluloid (0.15.2)
       timers (~> 1.1.0)
     connection_pool (2.0.0)
@@ -213,6 +215,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   carrierwave
   carrierwave-aws
+  carrierwave_backgrounder
   dotenv-rails
   factory_girl_rails (~> 4.0)
   faker

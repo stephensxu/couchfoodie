@@ -28,6 +28,7 @@ gem 'carrierwave-aws'
 gem 'addressable', :require => 'addressable/uri'
 
 gem 'sidekiq'
+gem 'carrierwave_backgrounder'
 
 group :development do
   # Spring speeds up development by keeping your application running in the
