@@ -1,23 +1,23 @@
 <div class="photos_display_page">
-  <ul class="photo-list">
+  <ul class="photo_list clearfix">
     <% if @photos.empty? %>
       <h3>No photos. :(</h3>
     <% else %>
       <% @photos.each do |photo| %>
-        <li>
-          <div class="single_photo">
+        <li class="single_photo clearfix">
+          <div class="photo">
             <%= image_tag(photo.picture.gallery_fill.url) %>
           </div>
-          <div class="photo_edit_buttons">
-            <% if photo == photo.kitchen.front_page_photo %>
-              <p class="photo_description">This is cover photo</p>
-            <% else %>
-              <%= button_to "Delete", { :controller => :photos, :action => "destroy", :id => photo.id }, 
-                                        :method => :delete, :class => "button_normal" %>
-              <%= button_to "set front page", { :controller => :photos, :action => "set_as_front_page_photo", :id => photo.id }, 
-                                                :method => :get, :class => "button_normal" %>
-            <% end %>
-          </div>
+          <% if photo == photo.kitchen.front_page_photo %>
+            <div class="photo_edit_buttons">
+                <p class="photo_description">This is cover photo. To delete this, upload a replacement</p>
+            </div>
+              <% else %>
+            <div class="photo_edit_buttons">
+                <span class="front_page_button"><%= button_to "set front page", { :controller => :photos, :action => "set_as_front_page_photo", :id => photo.id }, :method => :get, :class => "button_normal" %></span>
+                <span class="delete_button"><%= button_to "Delete", { :controller => :photos, :action => "destroy", :id => photo.id }, :method => :delete, :class => "button_normal" %></span>
+            </div>
+          <% end %>
         </li>
       <% end %>
     <% end %>
