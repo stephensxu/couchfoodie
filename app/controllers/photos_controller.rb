@@ -11,8 +11,6 @@ class PhotosController < ApplicationController
     @photo = @kitchen.photos.build(photo_params)
 
     if @photo.save
-      p "photo is saved to the database"
-      # PhotoWorker.perform_async(@photo.id)
       redirect_to kitchen_path(@kitchen), :notice => 'Photo was successfully created.'
     else
       render :new

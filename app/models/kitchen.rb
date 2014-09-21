@@ -57,6 +57,12 @@ class Kitchen < ActiveRecord::Base
   has_many :pending_reservations, 
            lambda { pending },
            :class_name => 'Reservation'
+  has_many :processed_photos,
+           lambda { processed },
+           :class_name => "Photo"
+  has_many :unprocessed_photos,
+           lambda { unprocessed },
+           :class_name => "Photo"
 
   def editable_by?(user)
     self.editable? && user.present? && self.user == user
