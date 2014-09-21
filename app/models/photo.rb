@@ -22,6 +22,7 @@ class Photo < ActiveRecord::Base
   process_in_background :picture
 
   after_create :set_as_front_page_photo_if_first
+  before_update :set_processed_at!
 
   belongs_to :kitchen
   has_one :kitchen_displaying_as_front_page, :class_name => "Kitchen", :inverse_of => :front_page_photo
@@ -40,5 +41,13 @@ class Photo < ActiveRecord::Base
 
   def standard_picture
     self.picture.gallery_fill.url
+  end
+
+  private 
+
+  def set_processed_at!
+    if picture_processing_was == true && picture_processing == false
+      write_attribute(:processed_at, Time.zone.now)
+    end
   end
 end
