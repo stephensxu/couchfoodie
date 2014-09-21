@@ -21,7 +21,7 @@ class Photo < ActiveRecord::Base
   mount_uploader :picture, KitchenPhotosUploader
   process_in_background :picture
 
-  after_create :set_as_front_page_photo_if_first
+  after_commit :set_as_front_page_photo_if_first
   before_update :set_processed_at!
 
   belongs_to :kitchen
@@ -34,7 +34,9 @@ class Photo < ActiveRecord::Base
   scope :unprocessed, lambda { where(:processed_at => nil) }
 
   def set_as_front_page_photo_if_first
-    kitchen.update!(:front_page_photo => self) if kitchen.photos.count == 1
+    if kitchen.front_page_photo.blank? && self.processed_at?
+      kitchen.update!(front_page_photo: self)
+    end
   end
 
   def set_as_front_page_photo(kitchen)
