@@ -35,6 +35,8 @@ class KitchensController < ApplicationController
   # GET /kitchens/1
   # GET /kitchens/1.json
   def show
+    @processed_photos = @kitchen.processed_photos
+    @unprocessed_photos = @kitchen.unprocessed_photos
     render :show
   end
 

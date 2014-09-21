@@ -30,7 +30,7 @@ class Photo < ActiveRecord::Base
   validates :picture, :presence => true, 
             :file_size => { :maximum => 10.megabytes.to_i }
 
-  scope :processed, lambda { where(:processed_at).not(nil) }
+  scope :processed, lambda { where.not(:processed_at => nil) }
   scope :unprocessed, lambda { where(:processed_at => nil) }
 
   def set_as_front_page_photo_if_first
