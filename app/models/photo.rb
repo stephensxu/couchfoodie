@@ -21,8 +21,8 @@ class Photo < ActiveRecord::Base
   mount_uploader :picture, KitchenPhotosUploader
   process_in_background :picture
 
-  after_commit :set_as_front_page_photo_if_first
   before_update :set_processed_at!
+  after_commit :set_as_front_page_photo_if_first
 
   belongs_to :kitchen
   has_one :kitchen_displaying_as_front_page, :class_name => "Kitchen", :inverse_of => :front_page_photo
@@ -35,7 +35,7 @@ class Photo < ActiveRecord::Base
 
   def set_as_front_page_photo_if_first
     if kitchen.front_page_photo.blank? && self.processed_at?
-      kitchen.update!(front_page_photo: self)
+      kitchen.update!(:front_page_photo => self)
     end
   end
 
