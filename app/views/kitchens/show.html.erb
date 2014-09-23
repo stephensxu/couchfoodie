@@ -56,6 +56,9 @@
         <% @processed_photos.each do |photo| %>
             <%= render :partial => "photos/processed_photo", :locals => { :photo => photo, :kitchen => @kitchen } %>
         <% end %>
+        <% @unprocessed_photos.each do |photo| %>
+            <%= render :partial => "photos/unprocessed_photo", :locals => { :photo => photo, :kitchen => @kitchen } %>
+        <% end %>
       </ul>
     <% else %>
       <ul class="photo_list clearfix">
