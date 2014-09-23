@@ -21,8 +21,8 @@ class Photo < ActiveRecord::Base
   mount_uploader :picture, KitchenPhotosUploader
   process_in_background :picture
 
-  after_create :set_as_front_page_photo_if_first
   before_update :set_processed_at!
+  after_commit :set_as_front_page_photo_if_first
 
   belongs_to :kitchen
   has_one :kitchen_displaying_as_front_page, :class_name => "Kitchen", :inverse_of => :front_page_photo
@@ -30,11 +30,13 @@ class Photo < ActiveRecord::Base
   validates :picture, :presence => true, 
             :file_size => { :maximum => 10.megabytes.to_i }
 
-  scope :processed, lambda { where(:processed_at).not(nil) }
+  scope :processed, lambda { where.not(:processed_at => nil) }
   scope :unprocessed, lambda { where(:processed_at => nil) }
 
   def set_as_front_page_photo_if_first
-    kitchen.update!(:front_page_photo => self) if kitchen.photos.count == 1
+    if kitchen.front_page_photo.blank? && self.processed_at?
+      kitchen.update!(:front_page_photo => self)
+    end
   end
 
   def set_as_front_page_photo(kitchen)

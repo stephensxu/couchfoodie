@@ -4,7 +4,7 @@ class PhotosController < ApplicationController
   before_action :require_login
 
   def index
-    @photos = @kitchen.photos
+    @photos = @kitchen.processed_photos
   end
 
   def create

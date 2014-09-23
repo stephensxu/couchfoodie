@@ -6,13 +6,15 @@
     }
   </style>
 
-  <div class="kitchen_cover_image clearfix">
-    <% if @kitchen.editable_by?(current_user) %>
-      <div class="transparent_image">
-        <%= link_to image_tag('blank_image.png'), kitchen_photos_path(@kitchen) %>
-      </div>
-    <% end %>
-  </div>
+  <% if @kitchen.front_page_photo %>
+    <div class="kitchen_cover_image clearfix">
+      <% if @kitchen.editable_by?(current_user) %>
+        <div class="transparent_image">
+          <%= link_to image_tag('blank_image.png'), kitchen_photos_path(@kitchen) %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 
   <div class="kitchen_info clearfix">
     <div class="description_wrapper clearfix">
@@ -53,22 +55,17 @@
   <div class="kitchen_photos clearfix">
     <% if @kitchen.editable_by?(current_user) %>
       <ul class="photo_list clearfix">
-        <% @kitchen.photos.each do |photo| %>
-          <% if photo.picture_processing %>
-            <li class="clearfix">Photo processing</li>
-          <% else %>
-            <li class="clearfix"><%= link_to image_tag(photo.standard_picture), kitchen_photos_path(@kitchen) %></li>
-          <% end %>
+        <% @processed_photos.each do |photo| %>
+            <%= render :partial => "photos/processed_photo", :locals => { :photo => photo, :kitchen => @kitchen } %>
+        <% end %>
+        <% @unprocessed_photos.each do |photo| %>
+            <%= render :partial => "photos/unprocessed_photo", :locals => { :photo => photo, :kitchen => @kitchen } %>
         <% end %>
       </ul>
     <% else %>
       <ul class="photo_list clearfix">
-        <% @kitchen.photos.each do |photo| %>
-          <% if photo.picture_processing %>
-            <li class="clearfix">Photo processing</li>
-          <% else %>
-            <li class="clearfix"><%= image_tag(photo.standard_picture) %></li>
-          <% end %>
+        <% @processed_photos.each do |photo| %>
+            <% render :partial => "photos/processed_photo" %>
         <% end %>
       </ul>
     <% end %>

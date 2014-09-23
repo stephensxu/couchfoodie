@@ -128,6 +128,30 @@
         height: 450px;
       }
 
+      .unprocessed_photo {
+        
+        .transparant {
+          width: 600px;
+          height: 450px;
+          background-color: rgba(96, 153, 151, 0.38);
+
+          img {
+            width: 600px;
+            height: 450px;
+            opacity: 0;
+          }
+          .explaination {
+            position: relative;
+            text-align: center;
+            line-height: 1.5em;
+            width: 80%;
+            top: 150px;
+            margin: 0 auto 0 auto;
+            padding: 0;
+          }
+        }
+      }
+
       a:hover {
         background-color: transparent;
       }
