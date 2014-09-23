@@ -27,7 +27,7 @@ gem 'carrierwave-aws'
 
 gem 'addressable', :require => 'addressable/uri'
 
-gem 'sidekiq', :require => 'open-uri'
+gem 'sidekiq'
 gem 'carrierwave_backgrounder'
 
 gem 'slim', '>= 1.1.0'
