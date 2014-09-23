@@ -35,8 +35,8 @@ class KitchensController < ApplicationController
   # GET /kitchens/1
   # GET /kitchens/1.json
   def show
-    @processed_photos = @kitchen.processed_photos
-    @unprocessed_photos = @kitchen.unprocessed_photos
+    @processed_photos = @kitchen.processed_photos.order("created_at ASC")
+    @unprocessed_photos = @kitchen.unprocessed_photos.order("created_at ASC")
     render :show
   end
 
