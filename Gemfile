@@ -33,6 +33,8 @@ gem 'carrierwave_backgrounder'
 gem 'slim', '>= 1.1.0'
 gem 'sinatra', '>=1.3.0', :require => nil
 
+gem 'redis'
+
 group :development do
   # Spring speeds up development by keeping your application running in the
   # background. Read more: https://github.com/rails/spring
