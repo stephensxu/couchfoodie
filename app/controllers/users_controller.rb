@@ -27,17 +27,17 @@ class UsersController < ApplicationController
   end
 
   def reservations_pending
-    @reservations = current_user.reservations.pending
+    @reservations = current_user.reservations.pending.order('reserve_date DESC')
     render :user_reservations_pending
   end
 
   def reservations_approved
-    @reservations = current_user.reservations.approved
+    @reservations = current_user.reservations.approved.order('reserve_date DESC')
     render :user_reservations_approved
   end
 
   def reservations_denied
-    @reservations = current_user.reservations.denied
+    @reservations = current_user.reservations.denied.order('reserve_date DESC')
     render :user_reservations_denied
   end
 
