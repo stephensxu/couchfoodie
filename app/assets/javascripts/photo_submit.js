@@ -7,7 +7,7 @@ $(document).ready(function() {
    $('#photo_upload_submit').css({ opacity: 0.5 });
   }
 
-  $('input:file').on("change", function() {
+  $('#photo_picture:file').on("change", function() {
     $('#photo_upload_submit').prop('disabled', false);
     $('#photo_upload_submit').css({ opacity: 1 });
   });
