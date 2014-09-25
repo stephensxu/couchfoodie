@@ -26,13 +26,19 @@
               </div>
             </li>
             <li><%= reservation.message_from_guest %></li>
-            <li>
-              <div class="reservation_approval_form">
-                <%= render partial: "approve_reservation_form", :locals => { :reservation => reservation } %>
+            <% if reservation.in_future? %>
+              <li>
+                <div class="reservation_approval_form">
+                  <%= render partial: "approve_reservation_form", :locals => { :reservation => reservation } %>
 
-                <%= render partial: "deny_reservation_form", :locals => { :reservation => reservation } %>
-              </div>
-            </li>
+                  <%= render partial: "deny_reservation_form", :locals => { :reservation => reservation } %>
+                </div>
+              </li>
+            <% else %>
+              <li class="cannot_respond_explain">
+                This reservation is past response time. Please respond to reservations one day prior to the reserve date.
+              </li>
+            <% end %>
           </ul>
       </div>
     </li>

@@ -54,4 +54,8 @@ class Reservation < ActiveRecord::Base
   def archive!
     self.update_attributes(:status => "archive")
   end
+
+  def in_future?
+    self.reserve_date > Time.now.to_date
+  end
 end
