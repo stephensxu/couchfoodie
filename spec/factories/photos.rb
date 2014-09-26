@@ -28,7 +28,7 @@ require 'carrierwave/test/matchers'
 
 FactoryGirl.define do
   factory :photo do |p|
-    p.picture "IMG_11111.JPG"
+    p.picture Rack::Test::UploadedFile.new(File.open(File.join(Rails.root, '/spec/fixtures/photos/photo_for_rspec.png')))
     p.kitchen { FactoryGirl.create(:kitchen) }
     p.picture_processing :false
   
