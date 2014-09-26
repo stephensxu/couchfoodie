@@ -28,10 +28,6 @@
 #
 
 
-
-
-
-
 class User < ActiveRecord::Base
 
   validates :email, :presence => true, :uniqueness => true, :length => { :minimum => 6 }, :email => true

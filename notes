@@ -13,8 +13,6 @@
 ** KNOWN BUGS
 - Reservation needs to show whether a kitchen still exist
 
-- Past due reservations are not sperated; cannot approve or deny past due reservations. Need to seperate into different catagory.
-
 - Photo Gallery is too wide. Has scroll bar.
 
 
@@ -23,8 +21,9 @@ To-do:
 - Write tests!
 - Add detailed README
 - Provide instruction for other developer to test the code
-- Change reservation status "Denied" to "Declined". "Denied" is a harsh word.
 - Use two facebook app; one for dev one for production
+
+- Change reservation status "Denied" to "Declined". "Denied" is a harsh word.
 
 - Responsive design; mobile browsing experience.
 
