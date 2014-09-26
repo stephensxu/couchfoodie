@@ -11,6 +11,8 @@
 - How to properly construct an email html? How to include dynamic links in email?
 
 ** KNOWN BUGS
+- Add NOT NULL to picture attribute of photo model
+
 - Reservation needs to show whether a kitchen still exist
 
 - Photo Gallery is too wide. Has scroll bar.

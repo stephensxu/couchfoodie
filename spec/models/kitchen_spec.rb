@@ -89,77 +89,99 @@ RSpec.describe Kitchen, :type => :model do
 
   end
 
-  # describe "kitchen" do
-    # describe "validation for uniqueness" do
-    #   subject { FactoryGirl.create(:kitchen) }
-    #   it { should validate_uniqueness_of(:name) }
-    # end
+  ### scope test
+  
 
-  #   describe "#editable_by?" do
-  #     let(:kitchen) { FactoryGirl.create(:kitchen) }
-  #     let(:other_user) { FactoryGirl.build_stubbed(:kitchen_with_user) }
-  #     it "returns true when the owner created the kitchen" do
-  #       expect(kitchen).to be_editable_by(kitchen.user)
-  #     end
+  describe "kitchen scope" do
+    describe "scope :for_user" do
+      let(:kitchen) { FactoryGirl.create(:kitchen) }
+      let(:other_user) { FactoryGirl.create(:user) }
+      it "returns the all the kitchens created by a certain user" do
+        user_kitchens = Kitchen.for_user(kitchen.user)
+        expect(user_kitchens).to include(kitchen)
+      end
 
-  #     it "returns false for user who did not create the kitchen" do
-  #       expect(kitchen).to_not be_editable_by(other_user)
-  #     end
+      it "does not return kitchen that's created by a different user" do
+        other_kitchens = Kitchen.for_user(other_user)
+        expect(other_kitchens).not_to include(kitchen)
+      end
+    end
 
-  #     it "returns false for an anonymous user" do
-  #       expect(kitchen).to_not be_editable_by(nil)
-  #     end
-  #   end
+    describe "scope :active" do
+      let(:kitchen_one) { FactoryGirl.create(:kitchen, :data_status => "active") }
+      let(:kitchen_two) { FactoryGirl.create(:kitchen, :data_status => "archive") }
+      it "only returns kitchen record with data_status equals to active" do
+        active_kitchens = Kitchen.active
+        expect(active_kitchens).to include(kitchen_one)
+      end
 
-  #   describe "#editable?" do
-  #     let(:kitchen) { FactoryGirl.create(:kitchen) }
+      it "does not include kitchen record with data_status equals to archive" do
+        active_kitchens = Kitchen.active
+        expect(active_kitchens).not_to include(kitchen_two)
+      end
+    end
+  end
 
-  #     it "returns true when the data_status is active" do
-  #       kitchen.data_status = "active"
-  #       expect(kitchen).to be_editable
-  #     end
+  ### method test
 
-  #     it "returns false when data_status is archive" do
-  #       kitchen.data_status = "archive"
-  #       expect(kitchen).to_not be_editable
-  #     end
-  #   end
 
-  #   describe "#archived?" do
-  #     let(:kitchen) { FactoryGirl.create(:kitchen) }
+  describe "kitchen" do
+    describe "validation for uniqueness" do
+      subject { FactoryGirl.create(:kitchen) }
+      it { should validate_uniqueness_of(:name) }
+    end
 
-  #     it "returns false when the data_status is active" do
-  #       kitchen.data_status = "active"
-  #       expect(kitchen.reload.archived?).to be_falsey
-  #     end
+    describe "#editable_by?" do
+      let(:kitchen) { FactoryGirl.create(:kitchen) }
+      let(:other_user) { FactoryGirl.build_stubbed(:kitchen_with_user) }
+      it "returns true when the owner created the kitchen" do
+        expect(kitchen).to be_editable_by(kitchen.user)
+      end
 
-  #     it "returns true when data_status is archive" do
-  #       kitchen.archive!
-  #       expect(kitchen.reload.archived?).to be_truthy
-  #     end
-  #   end
+      it "returns false for user who did not create the kitchen" do
+        expect(kitchen).to_not be_editable_by(other_user)
+      end
 
-  #   describe "#archive!" do
-  #     let(:kitchen) { FactoryGirl.create(:kitchen) }
-  #     it "change the data_status of kitchen to archive" do
-  #       expect {
-  #         kitchen.archive!
-  #       }.to change{ kitchen.reload.data_status }.to eq("archive")
-  #     end
-  #   end
+      it "returns false for an anonymous user" do
+        expect(kitchen).to_not be_editable_by(nil)
+      end
+    end
 
-  #   describe "scope :for_user" do
-  #     let(:kitchen) { FactoryGirl.create(:kitchen) }
-  #     let(:other_user) { FactoryGirl.create(:user) }
-  #     it "returns the all the kitchens created by a certain user" do
-  #       user_kitchens = Kitchen.for_user(kitchen.user)
-  #       expect(user_kitchens).to include(kitchen)
-  #     end
+    describe "#editable?" do
+      let(:kitchen) { FactoryGirl.create(:kitchen) }
 
-  #     it "does not return kitchen that's created by a different user" do
-  #       other_kitchens = Kitchen.for_user(other_user)
-  #       expect(other_kitchens).not_to include(kitchen)
-  #     end
-  #   end
-  # end
+      it "returns true when the data_status is active" do
+        kitchen.data_status = "active"
+        expect(kitchen).to be_editable
+      end
+
+      it "returns false when data_status is archive" do
+        kitchen.data_status = "archive"
+        expect(kitchen).to_not be_editable
+      end
+    end
+
+    describe "#archived?" do
+      let(:kitchen) { FactoryGirl.create(:kitchen) }
+
+      it "returns false when the data_status is active" do
+        kitchen.data_status = "active"
+        expect(kitchen.reload.archived?).to be_falsey
+      end
+
+      it "returns true when data_status is archive" do
+        kitchen.archive!
+        expect(kitchen.reload.archived?).to be_truthy
+      end
+    end
+
+    describe "#archive!" do
+      let(:kitchen) { FactoryGirl.create(:kitchen) }
+      it "change the data_status of kitchen to archive" do
+        expect {
+          kitchen.archive!
+        }.to change{ kitchen.reload.data_status }.to eq("archive")
+      end
+    end
+  end
 end
