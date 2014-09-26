@@ -41,7 +41,7 @@ class ReservationsController < ApplicationController
   # PATCH/PUT /reservations/1.json
   def update
     if @reservation.update(reservation_params)
-      redirect_to kitchens_users_path, notice: 'Reservation was succesfully updated'
+      redirect_to reservations_pending_kitchen_path(@reservation.kitchen), notice: 'Reservation was succesfully updated'
     else
       render :edit
     end

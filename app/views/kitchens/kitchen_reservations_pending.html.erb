@@ -1,5 +1,11 @@
 <div class="reservations_list clearfix">
 
+  <div class="user_page_notice">
+    <% if flash[:notice] %>
+      <%= flash[:notice] %>
+    <% end %>
+  </div>
+
   <div class="title">
     <h2>Pending reservations for <%= @kitchen.name %></h2>
     <% if @reservations.empty? %>
