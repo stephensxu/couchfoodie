@@ -42,6 +42,11 @@ FactoryGirl.define do
       user
     end
 
+    k.trait :with_photo do
+      photo
+    end
+
     factory :kitchen_with_user, :traits => [:with_user]
+    factory :kitchen_with_photo, :traits => [:with_photo]
   end
 end

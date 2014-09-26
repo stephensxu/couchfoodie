@@ -110,7 +110,7 @@ RSpec.describe Kitchen, :type => :model do
     describe "scope :active" do
       let(:kitchen_one) { FactoryGirl.create(:kitchen, :data_status => "active") }
       let(:kitchen_two) { FactoryGirl.create(:kitchen, :data_status => "archive") }
-      it "only returns kitchen record with data_status equals to active" do
+      it "include kitchen record with data_status equals to active" do
         active_kitchens = Kitchen.active
         expect(active_kitchens).to include(kitchen_one)
       end
@@ -118,6 +118,21 @@ RSpec.describe Kitchen, :type => :model do
       it "does not include kitchen record with data_status equals to archive" do
         active_kitchens = Kitchen.active
         expect(active_kitchens).not_to include(kitchen_two)
+      end
+    end
+
+    describe "scope :with_photo" do
+      let(:photo_one) { FactoryGirl.create(:photo) }
+      let(:kitchen_one) { FactoryGirl.create(:kitchen, :front_page_photo => photo_one) }
+      let(:kitchen_two) { FactoryGirl.create(:kitchen, :front_page_photo => nil)}
+      it "include kitchen that has a front page photo" do
+        kitchens_with_photo = Kitchen.with_photo
+        expect(kitchens_with_photo).to include(kitchen_one)
+      end
+
+      it "does not include kitchen that has no front page photo" do
+        kitchens_with_photo = Kitchen.with_photo
+        expect(kitchens_with_photo).not_to include(kitchen_two)
       end
     end
   end
