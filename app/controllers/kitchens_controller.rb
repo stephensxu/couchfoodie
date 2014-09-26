@@ -17,6 +17,7 @@ class KitchensController < ApplicationController
   def reservations_pending
     @kitchen = Kitchen.find(params[:id])
     @reservations = @kitchen.reservations.pending.order("reserve_date DESC, reserve_time DESC")
+    @future_reservations = @kitchen.reservations.pending.select { |reservation| reservation.in_future? }
     render :kitchen_reservations_pending
   end
 

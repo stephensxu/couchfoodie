@@ -32,6 +32,7 @@ class Reservation < ActiveRecord::Base
   scope :approved, lambda { where(:status => 'approved') }
   scope :denied, lambda { where(:status => 'denied') }
   scope :active, lambda { where("reserve_date >= '#{Time.now.to_date}'")}
+  scope :in_future, lambda { where("reserve_date > '#{Time.now.to_date}'")}
 
   validates :status, :presence => true, :inclusion => { :in => ["pending", "denied", "approved", "archive"] }
   # validates :reserve_date, :presence => true,

@@ -57,6 +57,9 @@ class Kitchen < ActiveRecord::Base
   has_many :active_pending_reservations, 
            lambda { Reservation.pending.active },
            :class_name => 'Reservation'
+  has_many :in_future_pending_reservations,
+           lambda { Reservation.pending.in_future },
+           :class_name => 'Reservation'
   has_many :processed_photos,
            lambda { processed },
            :class_name => "Photo"

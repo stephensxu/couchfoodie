@@ -43,10 +43,11 @@ class User < ActiveRecord::Base
   has_many :kitchens
   has_many :reservations
   has_many :active_pending_reservations, :through => :kitchens
+  has_many :in_future_pending_reservations, :through => :kitchens
   
 
-  def active_pending_reservations_count
-    active_pending_reservations.count
+  def in_future_pending_reservations_count
+    in_future_pending_reservations.count
   end
 
   def self.create_or_find_with_omniauth(auth)
