@@ -20,8 +20,8 @@ class UsersController < ApplicationController
 
   def reservations_all
     @reservations = Reservation.for_user(current_user)
-    @reservations_pending = current_user.reservations.pending
-    @reservations_approved = current_user.reservations.approved
+    @reservations_pending = current_user.reservations.pending.active
+    @reservations_approved = current_user.reservations.approved.active
     @reservations_denied = current_user.reservations.denied
     render :user_reservations_all
   end
