@@ -54,8 +54,11 @@ class Kitchen < ActiveRecord::Base
   belongs_to :front_page_photo, :class_name => "Photo"
   has_many :reservations
   has_many :photos
-  has_many :pending_reservations, 
-           lambda { pending },
+  has_many :active_pending_reservations, 
+           lambda { Reservation.pending.active },
+           :class_name => 'Reservation'
+  has_many :in_future_pending_reservations,
+           lambda { Reservation.pending.in_future },
            :class_name => 'Reservation'
   has_many :processed_photos,
            lambda { processed },

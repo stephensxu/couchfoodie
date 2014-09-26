@@ -21,11 +21,6 @@
 #
 
 
-
-
-
-
-
 require 'date'
 
 class Reservation < ActiveRecord::Base
@@ -36,6 +31,8 @@ class Reservation < ActiveRecord::Base
   scope :pending, lambda { where(:status => 'pending') }
   scope :approved, lambda { where(:status => 'approved') }
   scope :denied, lambda { where(:status => 'denied') }
+  scope :active, lambda { where("reserve_date >= '#{Time.now.to_date}'")}
+  scope :in_future, lambda { where("reserve_date > '#{Time.now.to_date}'")}
 
   validates :status, :presence => true, :inclusion => { :in => ["pending", "denied", "approved", "archive"] }
   validates :reserve_date, :presence => true,
@@ -58,5 +55,9 @@ class Reservation < ActiveRecord::Base
 
   def archive!
     self.update_attributes(:status => "archive")
+  end
+
+  def in_future?
+    self.reserve_date > Time.now.to_date
   end
 end

@@ -16,19 +16,20 @@ class KitchensController < ApplicationController
 
   def reservations_pending
     @kitchen = Kitchen.find(params[:id])
-    @reservations = @kitchen.reservations.pending
+    @reservations = @kitchen.reservations.pending.order("reserve_date DESC, reserve_time DESC")
+    @future_reservations = @kitchen.reservations.pending.select { |reservation| reservation.in_future? }
     render :kitchen_reservations_pending
   end
 
   def reservations_approved
     @kitchen = Kitchen.find(params[:id])
-    @reservations = @kitchen.reservations.approved
+    @reservations = @kitchen.reservations.approved.order("reserve_date DESC, reserve_time DESC")
     render :kitchen_reservations_approved
   end
 
   def reservations_denied
     @kitchen = Kitchen.find(params[:id])
-    @reservations = @kitchen.reservations.denied
+    @reservations = @kitchen.reservations.denied.order("reserve_date DESC, reserve_time DESC")
     render :kitchen_reservations_denied
   end
 
