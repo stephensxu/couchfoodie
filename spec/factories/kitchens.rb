@@ -31,6 +31,7 @@ FactoryGirl.define do
   factory :kitchen do |k|
     k.name { Faker::Company.name }
     k.description "some description about my kitchen"
+    k.menu "Chinese Food, Korean BBQ"
     k.street_address { Faker::Address.street_address }
     k.city { Faker::Address.city }
     k.state { Kitchen::VALID_STATES.sample }

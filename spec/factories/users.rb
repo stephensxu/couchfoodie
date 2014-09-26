@@ -38,5 +38,6 @@ FactoryGirl.define do
     u.uid "1234567"
     u.name "John Stall"
     u.sign_in_count 1
+    u.last_sign_in_at DateTime.new(2014, 6, 1)
   end
 end

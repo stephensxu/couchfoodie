@@ -64,20 +64,38 @@ RSpec.describe User, :type => :model do
     end
   end
 
-  # describe "#pending_reservations_count" do
-  #   let(:user_with_reservations) { FactoryGirl.create(:user) }
-  #   let(:user_without_reservations) { FactoryGirl.create(:user) }
+  describe "#in_future_pending_reservations_count" do
+    let(:user_with_reservations) { FactoryGirl.create(:user) }
+    let(:user_without_reservations) { FactoryGirl.create(:user) }
 
-  #   it "returns total number of pending reservations for a logged in user" do
-  #     kitchen_one = FactoryGirl.create(:kitchen_with_user, :user => user_with_reservations)
-  #     reservation_one = FactoryGirl.create(:reservation_with_user, :kitchen => kitchen_one, :user => user_with_reservations)
-  #     reservation_two = FactoryGirl.create(:reservation_with_user, :kitchen => kitchen_one, :user => user_with_reservations)
-  #     reservation_three = FactoryGirl.create(:reservation_with_user, :status => "approved", :kitchen => kitchen_one, :user => user_with_reservations)
-  #     expect(user_with_reservations.pending_reservations_count).to eq(2)
-  #   end
+    it "returns total number of pending reservations on future date for a logged in user" do
+      kitchen_one = FactoryGirl.create(:kitchen_with_user, :user => user_with_reservations)
+      reservation_one = FactoryGirl.create(:reservation_with_user, :kitchen => kitchen_one, :user => user_with_reservations)
+      reservation_two = FactoryGirl.create(:reservation_with_user, :kitchen => kitchen_one, :user => user_with_reservations)
+      reservation_three = FactoryGirl.create(:reservation_with_user, :status => "approved", :kitchen => kitchen_one, :user => user_with_reservations)
+      expect(user_with_reservations.in_future_pending_reservations_count).to eq(2)
+    end
 
-  #   it "return's 0 if there is not pending reservations" do
-  #     expect(user_without_reservations.pending_reservations_count).to eq(0)
-  #   end
-  # end
+    it "return's 0 if there is no pending reservations" do
+      expect(user_without_reservations.in_future_pending_reservations_count).to eq(0)
+    end
+  end
+
+  describe "#sign_in" do
+    before do
+      Timecop.freeze(Time.local(2014, 9, 1, 12, 0, 0))
+    end
+    let(:user) { FactoryGirl.create(:user) }
+    it "updates last_sign_in_at to current time" do
+      expect {
+        user.sign_in
+      }.to change { user.reload.last_sign_in_at }.to eq(Time.zone.now)
+    end
+
+    it "increments sign_in_count" do
+      expect {
+        user.sign_in
+      }.to change { user.reload.sign_in_count }.by(1)
+    end
+  end
 end
