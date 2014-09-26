@@ -24,9 +24,9 @@
           </div>
           <div class="kitchen_reservations_in_kitchen_block clearfix">
             <ul class="clearfix">
-              <li><%= link_to "Pending reservations (#{kitchen.reservations.pending.count})", reservations_pending_kitchen_path(kitchen) %></li>
-              <li><%= link_to "Approved reservations (#{kitchen.reservations.approved.count})", reservations_approved_kitchen_path(kitchen) %></li>
-              <li> <%= link_to "Denied reservations (#{kitchen.reservations.denied.count})", reservations_denied_kitchen_path(kitchen)%></li>
+              <li><%= link_to "Pending reservations (#{kitchen.reservations.pending.active.count} active)", reservations_pending_kitchen_path(kitchen) %></li>
+              <li><%= link_to "Approved reservations (#{kitchen.reservations.approved.active.count} active)", reservations_approved_kitchen_path(kitchen) %></li>
+              <li> <%= link_to "Denied reservations (#{kitchen.reservations.denied.count} total)", reservations_denied_kitchen_path(kitchen)%></li>
             </ul>
           </div>
           <div class="kitchen_buttons">
