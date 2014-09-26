@@ -120,7 +120,6 @@ RSpec.describe User, :type => :model do
       expect(user.name).to eq("Joe Bloggs")
       expect(user.oauth_token).to eq("ABCDEFGHIJKL")
       expect(user.email).to eq("joe@bloggs.com")
-      p "user number is #{User.count}..."
     end
 
     it "does not create new user if auth information already exist in database" do
