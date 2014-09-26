@@ -20,6 +20,9 @@ if Rails.env.test? or Rails.env.cucumber?
   CarrierWave::Uploader::Base.descendants.each do |picture|
     next if picture.anonymous?
     picture.class_eval do
+      
+      storage :file
+
       def cache_dir
         "#{Rails.root}/spec/support/uploads/tmp"
       end
