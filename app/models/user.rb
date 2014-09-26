@@ -46,13 +46,13 @@ class User < ActiveRecord::Base
     in_future_pending_reservations.count
   end
 
-  def self.create_or_find_with_omniauth(auth)
-    self.find_by_provider_and_uid(auth["provider"], auth["uid"]) || self.create_with_omniauth(auth)
-  end
-
   def sign_in
     self.update_columns(:last_sign_in_at => Time.zone.now)
     self.update_columns(:sign_in_count => self.sign_in_count += 1)
+  end
+
+  def self.create_or_find_with_omniauth(auth)
+    self.find_by_provider_and_uid(auth["provider"], auth["uid"]) || self.create_with_omniauth(auth)
   end
 
   def self.create_with_omniauth(auth)

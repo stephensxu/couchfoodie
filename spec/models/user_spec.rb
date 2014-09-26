@@ -98,4 +98,37 @@ RSpec.describe User, :type => :model do
       }.to change { user.reload.sign_in_count }.by(1)
     end
   end
+
+  describe "#self.create_with_omniauth" do
+    it "create a user based on the given auth hash returned from omniauth" do
+      auth = OmniAuth.config.mock_auth[:facebook]
+      user = User.create_with_omniauth(auth)
+      expect(user.provider).to eq("facebook")
+      expect(user.uid).to eq("1234567")
+      expect(user.name).to eq("Joe Bloggs")
+      expect(user.oauth_token).to eq("ABCDEFGHIJKL")
+      expect(user.email).to eq("joe@bloggs.com")
+    end
+  end
+
+  describe "#self.create_or_find_with_omniauth" do
+    it "create a new user if auth information provided does not match any database record" do
+      auth = OmniAuth.config.mock_auth[:facebook]
+      user = User.create_or_find_with_omniauth(auth)
+      expect(user.provider).to eq("facebook")
+      expect(user.uid).to eq("1234567")
+      expect(user.name).to eq("Joe Bloggs")
+      expect(user.oauth_token).to eq("ABCDEFGHIJKL")
+      expect(user.email).to eq("joe@bloggs.com")
+      p "user number is #{User.count}..."
+    end
+
+    it "does not create new user if auth information already exist in database" do
+      auth = OmniAuth.config.mock_auth[:facebook]
+      user = User.create_or_find_with_omniauth(auth)
+      expect {
+        User.create_or_find_with_omniauth(auth)
+      }.to_not change{ User.count }
+    end
+  end
 end
