@@ -33,5 +33,10 @@
 FactoryGirl.define do
   factory :user do |u|
     u.email { Faker::Internet.email }
+    u.provider "facebook"
+    u.oauth_token "123fjsgjsd13oi"
+    u.uid "1234567"
+    u.name "John Stall"
+    u.sign_in_count 1
   end
 end
