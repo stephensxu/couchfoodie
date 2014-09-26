@@ -7,7 +7,7 @@
       <ul id="logged_in_nav_list">
         <li class="drop_down_trigger user_image_circle_container header_menu"><%= user_photo_tag(current_user, :type => "square", :height => 100, :width => 100)%><span class="user_first_name"><%= current_user.first_name %></span><i class="fa fa-caret-down"></i>
           <ul class="drop_down_list">
-            <li><%= link_to "My reservations (#{current_user.reservations.approved.active.count} approved)", reservations_all_users_path %></li>
+            <li><%= link_to "My reservations (#{current_user.reservations.approved.active.count} approved active)", reservations_all_users_path %></li>
             <li><%= link_to "My Kitchens (#{current_user.in_future_pending_reservations_count} waiting reply)", kitchens_users_path %></li>
             <li><%= link_to('Logout', logout_path) %></li>
           </ul>
