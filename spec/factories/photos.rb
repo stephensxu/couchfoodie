@@ -24,7 +24,6 @@
 #  index_kitchens_on_user_id              (user_id)
 #
 
-require 'carrierwave/test/matchers'
 
 FactoryGirl.define do
   factory :photo do |p|

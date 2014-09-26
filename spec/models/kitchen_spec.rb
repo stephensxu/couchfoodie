@@ -26,7 +26,6 @@
 
 
 require 'rails_helper'
-require 'carrierwave/test/matchers'
 
 RSpec.describe Kitchen, :type => :model do
 
