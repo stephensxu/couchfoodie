@@ -35,10 +35,10 @@ class Reservation < ActiveRecord::Base
   scope :in_future, lambda { where("reserve_date > '#{Time.now.to_date}'")}
 
   validates :status, :presence => true, :inclusion => { :in => ["pending", "denied", "approved", "archive"] }
-  # validates :reserve_date, :presence => true,
-  #           :timeliness => { :after => lambda { Date.current }, :before =>  lambda { Date.current + 1.year },
-  #           :type => :date, :after_message => "reservation has to be in the future",
-  #           :before_message => "can't be more than 1 year ahead"}
+  validates :reserve_date, :presence => true,
+            :timeliness => { :after => lambda { Date.current }, :before =>  lambda { Date.current + 1.year },
+            :type => :date, :after_message => "reservation has to be in the future",
+            :before_message => "can't be more than 1 year ahead"}
   validates :reserve_time, :presence => true
   validates :message_from_guest, :presence => true, :length => { :minimum => 10 }
   validates :user_id, :presence => true
