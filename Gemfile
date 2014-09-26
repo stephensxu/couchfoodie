@@ -68,6 +68,7 @@ group :test do
   # Useful Rails-specific RSpec matchers
   # See: https://github.com/thoughtbot/shoulda-matchers
   gem 'shoulda-matchers'
+  gem 'timecop'
 end
 
 # Gems we need on Heroku but not locally
