@@ -11,9 +11,9 @@
   
   <div class="reservation_all">
     <ul>
-      <li><%= link_to "Waiting for kitchen reply (#{@reservations_pending.count})", reservations_pending_users_path %></li>
-      <li><%= link_to "Approved by kitchen (#{@reservations_approved.count})", reservations_approved_users_path %></li>
-      <li><%= link_to "Denied by kitchen (#{@reservations_denied.count})", reservations_denied_users_path %></li>
+      <li><%= link_to "Waiting for kitchen reply (#{@reservations_pending.count} in future)", reservations_pending_users_path %></li>
+      <li><%= link_to "Approved by kitchen (#{@reservations_approved.count} active)", reservations_approved_users_path %></li>
+      <li><%= link_to "Denied by kitchen (#{@reservations_denied.count} total)", reservations_denied_users_path %></li>
     </ul>
   </div>
 </div>

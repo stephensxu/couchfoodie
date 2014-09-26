@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   def reservations_all
     @reservations = Reservation.for_user(current_user)
-    @reservations_pending = current_user.reservations.pending.active
+    @reservations_pending = current_user.reservations.pending.select { |reservation| reservation.in_future? }
     @reservations_approved = current_user.reservations.approved.active
     @reservations_denied = current_user.reservations.denied
     render :user_reservations_all
