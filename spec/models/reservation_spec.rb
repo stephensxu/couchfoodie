@@ -163,11 +163,11 @@ RSpec.describe Reservation, :type => :model do
     end
   end
 
-  describe "scope :approved" do
+  describe "scope :denied" do
     let(:reservation_pending) { FactoryGirl.create(:reservation, :status => "pending") }
     let(:reservation_denied) { FactoryGirl.create(:reservation, :status => "denied") }
 
-    it "returns reservations with 'aproved' status" do
+    it "returns reservations with 'denied' status" do
       denied_reservations = Reservation.denied
       expect(denied_reservations).to include(reservation_denied)
     end
@@ -175,6 +175,58 @@ RSpec.describe Reservation, :type => :model do
     it "does not return reservations with 'pending' status" do
       denied_reservations = Reservation.denied
       expect(denied_reservations).to_not include(reservation_pending)
+    end
+  end
+
+  describe "scope :active" do
+    before do
+      Timecop.travel(2015, 9, 1, 12, 0, 0)
+    end
+
+    after do
+      Timecop.return
+    end
+
+    it "returns reservation with reserve_date that's at least one day away from today" do
+      reservation_one = FactoryGirl.create(:reservation, :reserve_date => Time.new(2015, 11, 1, 12, 0, 0))
+      expect(Reservation.active).to include(reservation_one)
+    end
+
+    it "return reservation with reserve_date that is today" do
+      Timecop.scale(86_400)
+      reservation_two = FactoryGirl.create(:reservation, :reserve_date => Time.new(2015, 9, 2, 12, 0, 0))
+      sleep(1)
+      expect(Reservation.active).to include(reservation_two)
+    end
+
+    it "does not return reservation with reserve_date that is in the past" do
+      Timecop.scale(172_800)
+      reservation_three = FactoryGirl.create(:reservation, :reserve_date => Time.new(2015, 9, 2, 12, 0, 0))
+      sleep(1)
+      expect(Reservation.active).not_to include(reservation_three)
+    end
+  end
+
+
+  describe "scope :in_future" do
+    before do
+      Timecop.travel(2015, 9, 1, 12, 0, 0)
+    end
+
+    after do
+      Timecop.return
+    end
+
+    it "returns reservation with reserve_date that's at least one day away from today" do
+      reservation_one = FactoryGirl.create(:reservation, :reserve_date => Time.new(2015, 11, 1, 12, 0, 0))
+      expect(Reservation.in_future).to include(reservation_one)
+    end
+
+    it "does not return reservation with reserve_date that's equal or before today's date" do
+      Timecop.scale(86_400)
+      reservation_two = FactoryGirl.create(:reservation, :reserve_date => Time.new(2015, 9, 2, 12, 0, 0))
+      sleep(1)
+      expect(Reservation.in_future).not_to include(reservation_two)
     end
   end
 end
