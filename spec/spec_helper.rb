@@ -18,6 +18,13 @@
 require 'omniauth'
 
 RSpec.configure do |config|
+
+  config.after(:each) do
+    if Rails.env.test? || Rails.env.cucumber?
+      FileUtils.rm_rf(Dir["#{Rails.root}/spec/support/uploads"])
+    end
+  end
+
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
@@ -79,6 +86,8 @@ RSpec.configure do |config|
   end
 =end
 end
+
+### Omniauth test env config
 
 OmniAuth.config.test_mode = true
 

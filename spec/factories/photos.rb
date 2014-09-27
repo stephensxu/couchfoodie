@@ -25,28 +25,17 @@
 #
 
 
-
-
 FactoryGirl.define do
-  factory :kitchen do |k|
-    k.name { Faker::Company.name }
-    k.description "some description about my kitchen"
-    k.menu "Chinese Food, Korean BBQ"
-    k.street_address { Faker::Address.street_address }
-    k.city { Faker::Address.city }
-    k.state { Kitchen::VALID_STATES.sample }
-    k.zipcode { Faker::Address.zip }
-    k.user { FactoryGirl.create(:user) }
+  factory :photo do |p|
+    p.picture Rack::Test::UploadedFile.new(File.open(File.join(Rails.root, '/spec/fixtures/photos/photo_for_rspec.png')))
+    p.kitchen { FactoryGirl.create(:kitchen) }
+    p.picture_processing :false
+  
 
-    k.trait :with_user do
-      user
+    p.trait :with_kitchen do
+      kitchen
     end
 
-    k.trait :with_photo do
-      photo
-    end
-
-    factory :kitchen_with_user, :traits => [:with_user]
-    factory :kitchen_with_photo, :traits => [:with_photo]
+    factory :photo_with_kitchen, :traits => [:with_kitchen]
   end
 end
