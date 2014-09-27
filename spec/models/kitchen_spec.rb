@@ -135,6 +135,34 @@ RSpec.describe Kitchen, :type => :model do
         expect(kitchens_with_photo).not_to include(kitchen_two)
       end
     end
+
+    describe "scope :published" do
+      let(:photo_one) { FactoryGirl.create(:photo) }
+      let(:kitchen_one) { FactoryGirl.create(:kitchen, :front_page_photo => photo_one, :data_status => "active") }
+      let(:kitchen_two) { FactoryGirl.create(:kitchen, :front_page_photo => photo_one, :data_status => "archive") }
+      let(:kitchen_three) { FactoryGirl.create(:kitchen, :front_page_photo => nil, :data_status => "active") }
+      let(:kitchen_four) { FactoryGirl.create(:kitchen, :front_page_photo => nil, :data_status => "archive") }
+
+      it "include kitchen that is both active and with photo" do
+        kitchens_published = Kitchen.published
+        expect(kitchens_published).to include(kitchen_one)
+      end
+
+      it "does not include kitchen that has photo but with archive data_status" do
+        kitchens_published = Kitchen.published
+        expect(kitchens_published).not_to include(kitchen_two)
+      end
+
+      it "does not include kitchen that is active but has no photo" do
+        kitchens_published = Kitchen.published
+        expect(kitchens_published).not_to include(kitchen_three)
+      end
+
+      it "does not include kitchen that is archived and has no photo" do
+        kitchens_published = Kitchen.published
+        expect(kitchens_published).not_to include(kitchen_four)
+      end
+    end
   end
 
   ### method test
