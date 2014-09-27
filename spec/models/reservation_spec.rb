@@ -67,6 +67,8 @@ RSpec.describe Reservation, :type => :model do
     it { should validate_presence_of(:kitchen) }
   end
 
+  ### Method test
+
   describe '#editable_by?' do
     let(:other_user) { FactoryGirl.create(:user) }
     let(:reservation) { FactoryGirl.create(:reservation) }
@@ -92,6 +94,20 @@ RSpec.describe Reservation, :type => :model do
       }.to change{ reservation.reload.status }.to eq("archive")
     end
   end
+
+  describe "#in_future?" do
+    before do
+      Timecop.freeze(2014, 9, 1, 12, 0, 0)
+    end
+    let(:reservation_one) { FactoryGirl.create(:reservation, :reserve_date => Time.new(2015, 6, 1, 12, 0, 0)) }
+    # let(:reservation_two) { FactoryGirl.create(:reservation, :reserve_date => Time.new(2014, 9, 2, 12, 0, 0)) }
+
+    it "returns true if the reserve_date is at least one day ahead of current date" do
+      expect(reservation_one.in_future?).to eq(true)
+    end
+  end
+
+  ### scope test
 
   describe "scope :for_user" do
     let(:reservation) { FactoryGirl.create(:reservation) }
