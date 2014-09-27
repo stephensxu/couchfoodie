@@ -83,6 +83,11 @@ class Kitchen < ActiveRecord::Base
     self.data_status == 'archive'
   end
 
+  def set_front_page_photo(photo)
+    self.front_page_photo = photo
+    self.save
+  end
+
   def show_front_page_photo_thumbnail
     if self.front_page_photo
       self.front_page_photo.picture.gallery_fill_thumbnail.url
@@ -93,11 +98,6 @@ class Kitchen < ActiveRecord::Base
     if self.front_page_photo
       self.front_page_photo.picture.gallery_fill_cover.url
     end
-  end
-
-  def set_front_page_photo(photo)
-    self.front_page_photo = photo
-    self.save
   end
 
 end

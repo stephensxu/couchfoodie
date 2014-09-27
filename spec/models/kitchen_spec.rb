@@ -204,6 +204,15 @@ RSpec.describe Kitchen, :type => :model do
       end
     end
 
+    describe "#archive!" do
+      let(:kitchen) { FactoryGirl.create(:kitchen) }
+      it "change the data_status of kitchen to archive" do
+        expect {
+          kitchen.archive!
+        }.to change{ kitchen.reload.data_status }.to eq("archive")
+      end
+    end
+
     describe "#archived?" do
       let(:kitchen) { FactoryGirl.create(:kitchen) }
 
@@ -218,12 +227,14 @@ RSpec.describe Kitchen, :type => :model do
       end
     end
 
-    describe "#archive!" do
-      let(:kitchen) { FactoryGirl.create(:kitchen) }
-      it "change the data_status of kitchen to archive" do
+    describe "#set_front_page_photo" do
+      let(:photo_one) { FactoryGirl.create(:photo) }
+      let(:photo_two) { FactoryGirl.create(:photo) }
+      let(:kitchen) { FactoryGirl.create(:kitchen, :front_page_photo => photo_one) }
+      it "sets the photo given in argument as front page photo of the kitchen" do
         expect {
-          kitchen.archive!
-        }.to change{ kitchen.reload.data_status }.to eq("archive")
+          kitchen.set_front_page_photo(photo_two)
+        }.to change { kitchen.reload.front_page_photo }.from(photo_one).to(photo_two)
       end
     end
   end
