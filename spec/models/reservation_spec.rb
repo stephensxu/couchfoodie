@@ -21,131 +21,127 @@
 #
 
 
+require 'rails_helper'
+require 'date'
 
+RSpec.describe Reservation, :type => :model do
+  it { should belong_to(:kitchen) }
+  it { should belong_to(:user) }
 
+  describe "#valid?" do
+    it { should validate_presence_of(:status) }
+    it { should ensure_inclusion_of(:status).in_array( %w(pending denied approved archive)) }
 
+    %w(soemthing deleted 1234 deny approve).each do |invalid_status|
+      it { should_not allow_value(invalid_status).for(:status) }
+    end
 
-# require 'rails_helper'
-# require 'date'
+    it { should validate_presence_of(:reserve_date) }
+    it { should_not allow_value(DateTime.new(2000)).for(:reserve_date) }
+    it { should_not allow_value(1.year.from_now).for(:reserve_date) }
+    it { should_not allow_value(10.years.from_now).for(:reserve_date) }
+    it { should_not allow_value(Time.now).for(:reserve_date) }
+    it { should allow_value(11.months.from_now).for(:reserve_date) }
 
-# RSpec.describe Reservation, :type => :model do
-#   it { should belong_to(:kitchen) }
-#   it { should belong_to(:user) }
+    it { should validate_presence_of(:reserve_time) }
 
-#   describe "#valid?" do
-#     it { should validate_presence_of(:status) }
-#     it { should ensure_inclusion_of(:status).in_array( %w(pending denied approved archive)) }
+    it { should validate_presence_of(:message_from_guest) }
+    it { should ensure_length_of(:message_from_guest).is_at_least(10) }
 
-#     %w(soemthing deleted 1234 deny approve).each do |invalid_status|
-#       it { should_not allow_value(invalid_status).for(:status) }
-#     end
+    it { should validate_presence_of(:guest_number) }
+    it { should allow_value(1,2,5,9).for(:guest_number) }
 
-#     it { should validate_presence_of(:reserve_date) }
-#     it { should_not allow_value(DateTime.new(2000)).for(:reserve_date) }
-#     it { should_not allow_value(1.year.from_now).for(:reserve_date) }
-#     it { should_not allow_value(10.years.from_now).for(:reserve_date) }
-#     it { should_not allow_value(Time.now).for(:reserve_date) }
-#     it { should allow_value(11.months.from_now).for(:reserve_date) }
+    [0,-100,13,10000].each do |invalid_guest_number|
+      it { should_not allow_value(invalid_guest_number).for(:guest_number) }
+    end
 
-#     it { should validate_presence_of(:reserve_time) }
+    it { should validate_presence_of(:user_id) }
 
-#     it { should validate_presence_of(:message_from_guest) }
-#     it { should ensure_length_of(:message_from_guest).is_at_least(10) }
+    it { should validate_presence_of(:kitchen_id) }
+  end
 
-#     it { should validate_presence_of(:guest_number) }
-#     it { should allow_value(1,2,5,9).for(:guest_number) }
+  describe '#editable_by?' do
+    let(:other_user) { FactoryGirl.create(:user) }
+    let(:reservation) { FactoryGirl.create(:reservation) }
 
-#     [0,-100,13,10000].each do |invalid_guest_number|
-#       it { should_not allow_value(invalid_guest_number).for(:guest_number) }
-#     end
+    it "returns true for the user who created the reservation" do
+      expect(reservation).to be_editable_by(reservation.user)
+    end
 
-#     it { should validate_presence_of(:user_id) }
+    it "returns false for a user who did not create the reservation" do
+      expect(reservation).to_not be_editable_by(other_user)
+    end
 
-#     it { should validate_presence_of(:kitchen_id) }
-#   end
+    it "returns false for an anonymous user" do
+      expect(reservation).to_not be_editable_by(nil)
+    end
+  end
 
-#   describe '#editable_by?' do
-#     let(:other_user) { FactoryGirl.create(:user) }
-#     let(:reservation) { FactoryGirl.create(:reservation) }
+  describe "#archive!" do
+    let(:reservation) { FactoryGirl.create(:reservation) }
+    it "change the status of reservation to archive" do
+      expect {
+        reservation.archive!
+      }.to change{ reservation.reload.status }.to eq("archive")
+    end
+  end
 
-#     it "returns true for the user who created the reservation" do
-#       expect(reservation).to be_editable_by(reservation.user)
-#     end
+  describe "scope :for_user" do
+    let(:reservation) { FactoryGirl.create(:reservation) }
+    let(:other_user) { FactoryGirl.create(:user) }
+    it "returns all the reservations created by a certain user" do
+      user_reservations = Reservation.for_user(reservation.user)
+      expect(user_reservations).to include(reservation)
+    end
 
-#     it "returns false for a user who did not create the reservation" do
-#       expect(reservation).to_not be_editable_by(other_user)
-#     end
+    it "does not return reservation that's created by a different user" do
+      other_reservations = Reservation.for_user(other_user)
+      expect(other_reservations).not_to include(reservation)
+    end
+  end
 
-#     it "returns false for an anonymous user" do
-#       expect(reservation).to_not be_editable_by(nil)
-#     end
-#   end
+  describe "scope :pending" do
+    let(:reservation_pending) { FactoryGirl.create(:reservation, :status => "pending") }
+    let(:reservation_approved) { FactoryGirl.create(:reservation, :status => "approved") }
 
-#   describe "#archive!" do
-#     let(:reservation) { FactoryGirl.create(:reservation) }
-#     it "change the status of reservation to archive" do
-#       expect {
-#         reservation.archive!
-#       }.to change{ reservation.reload.status }.to eq("archive")
-#     end
-#   end
+    it "returns reservations with 'pending' status" do
+      pending_reservations = Reservation.pending
+      expect(pending_reservations).to include(reservation_pending)
+    end
 
-#   describe "scope :for_user" do
-#     let(:reservation) { FactoryGirl.create(:reservation) }
-#     let(:other_user) { FactoryGirl.create(:user) }
-#     it "returns all the reservations created by a certain user" do
-#       user_reservations = Reservation.for_user(reservation.user)
-#       expect(user_reservations).to include(reservation)
-#     end
+    it "does not return reservations with 'approved' status" do
+      pending_reservations = Reservation.pending
+      expect(pending_reservations).to_not include(reservation_approved)
+    end
+  end
 
-#     it "does not return reservation that's created by a different user" do
-#       other_reservations = Reservation.for_user(other_user)
-#       expect(other_reservations).not_to include(reservation)
-#     end
-#   end
+  describe "scope :approved" do
+    let(:reservation_pending) { FactoryGirl.create(:reservation, :status => "pending") }
+    let(:reservation_approved) { FactoryGirl.create(:reservation, :status => "approved") }
 
-#   describe "scope :pending" do
-#     let(:reservation_pending) { FactoryGirl.create(:reservation, :status => "pending") }
-#     let(:reservation_approved) { FactoryGirl.create(:reservation, :status => "approved") }
+    it "returns reservations with 'approved' status" do
+      approved_reservations = Reservation.approved
+      expect(approved_reservations).to include(reservation_approved)
+    end
 
-#     it "returns reservations with 'pending' status" do
-#       pending_reservations = Reservation.pending
-#       expect(pending_reservations).to include(reservation_pending)
-#     end
+    it "does not return reservations with 'pending' status" do
+      approved_reservations = Reservation.approved
+      expect(approved_reservations).to_not include(reservation_pending)
+    end
+  end
 
-#     it "does not return reservations with 'approved' status" do
-#       pending_reservations = Reservation.pending
-#       expect(pending_reservations).to_not include(reservation_approved)
-#     end
-#   end
+  describe "scope :approved" do
+    let(:reservation_pending) { FactoryGirl.create(:reservation, :status => "pending") }
+    let(:reservation_denied) { FactoryGirl.create(:reservation, :status => "denied") }
 
-#   describe "scope :approved" do
-#     let(:reservation_pending) { FactoryGirl.create(:reservation, :status => "pending") }
-#     let(:reservation_approved) { FactoryGirl.create(:reservation, :status => "approved") }
+    it "returns reservations with 'aproved' status" do
+      denied_reservations = Reservation.denied
+      expect(denied_reservations).to include(reservation_denied)
+    end
 
-#     it "returns reservations with 'approved' status" do
-#       approved_reservations = Reservation.approved
-#       expect(approved_reservations).to include(reservation_approved)
-#     end
-
-#     it "does not return reservations with 'pending' status" do
-#       approved_reservations = Reservation.approved
-#       expect(approved_reservations).to_not include(reservation_pending)
-#     end
-#   end
-
-#   describe "scope :approved" do
-#     let(:reservation_pending) { FactoryGirl.create(:reservation, :status => "pending") }
-#     let(:reservation_denied) { FactoryGirl.create(:reservation, :status => "denied") }
-
-#     it "returns reservations with 'aproved' status" do
-#       denied_reservations = Reservation.denied
-#       expect(denied_reservations).to include(reservation_denied)
-#     end
-
-#     it "does not return reservations with 'pending' status" do
-#       denied_reservations = Reservation.denied
-#       expect(denied_reservations).to_not include(reservation_pending)
-#     end
-#   end
-# end
+    it "does not return reservations with 'pending' status" do
+      denied_reservations = Reservation.denied
+      expect(denied_reservations).to_not include(reservation_pending)
+    end
+  end
+end
