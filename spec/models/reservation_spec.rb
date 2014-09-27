@@ -97,13 +97,23 @@ RSpec.describe Reservation, :type => :model do
 
   describe "#in_future?" do
     before do
-      Timecop.freeze(2014, 9, 1, 12, 0, 0)
+      Timecop.travel(2015, 9, 1, 12, 0, 0)
     end
-    let(:reservation_one) { FactoryGirl.create(:reservation, :reserve_date => Time.new(2015, 6, 1, 12, 0, 0)) }
-    # let(:reservation_two) { FactoryGirl.create(:reservation, :reserve_date => Time.new(2014, 9, 2, 12, 0, 0)) }
+
+    after do
+      Timecop.return
+    end
 
     it "returns true if the reserve_date is at least one day ahead of current date" do
+      reservation_one = FactoryGirl.create(:reservation, :reserve_date => Time.new(2015, 11, 1, 12, 0, 0))
       expect(reservation_one.in_future?).to eq(true)
+    end
+
+    it "returns false if the reserve_date is today's date" do
+      Timecop.scale(86_400)
+      reservation_two = FactoryGirl.create(:reservation, :reserve_date => Time.new(2015, 9, 2, 12, 0, 0))
+      sleep(1)
+      expect(reservation_two.in_future?).to eq(false)
     end
   end
 
