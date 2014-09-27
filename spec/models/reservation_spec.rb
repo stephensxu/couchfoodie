@@ -25,8 +25,13 @@ require 'rails_helper'
 require 'date'
 
 RSpec.describe Reservation, :type => :model do
+
+  ### Association test
+  
   it { should belong_to(:kitchen) }
   it { should belong_to(:user) }
+
+  ### Validation test
 
   describe "#valid?" do
     it { should validate_presence_of(:status) }
@@ -42,6 +47,8 @@ RSpec.describe Reservation, :type => :model do
     it { should_not allow_value(10.years.from_now).for(:reserve_date) }
     it { should_not allow_value(Time.now).for(:reserve_date) }
     it { should allow_value(11.months.from_now).for(:reserve_date) }
+    it { should allow_value(3.days.from_now).for(:reserve_date) }
+    it { should allow_value(1.days.from_now).for(:reserve_date) }
 
     it { should validate_presence_of(:reserve_time) }
 
@@ -55,9 +62,9 @@ RSpec.describe Reservation, :type => :model do
       it { should_not allow_value(invalid_guest_number).for(:guest_number) }
     end
 
-    it { should validate_presence_of(:user_id) }
+    it { should validate_presence_of(:user) }
 
-    it { should validate_presence_of(:kitchen_id) }
+    it { should validate_presence_of(:kitchen) }
   end
 
   describe '#editable_by?' do

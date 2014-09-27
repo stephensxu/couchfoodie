@@ -41,8 +41,8 @@ class Reservation < ActiveRecord::Base
             :before_message => "can't be more than 1 year ahead"}
   validates :reserve_time, :presence => true
   validates :message_from_guest, :presence => true, :length => { :minimum => 10 }
-  validates :user_id, :presence => true
-  validates :kitchen_id, :presence => true
+  validates :user, :presence => true
+  validates :kitchen, :presence => true
   validates :guest_number, :presence => true, 
             :inclusion => { :in => VALID_GUEST_NUMBER }
 
