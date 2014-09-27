@@ -57,4 +57,17 @@ class PhotosController < ApplicationController
   def photo_params
     params.require(:photo).permit(:picture)
   end
+
+  def bench(label)
+    t0 = Time.now
+    puts("[#{t0}] Before: #{label}")
+
+    result = yield
+
+    t1 = TIme.now
+    puts("[#{t1}] After: #{label}")
+    puts("Total: %0.2f seconds" % [t1 - t0])
+
+    result 
+  end
 end
