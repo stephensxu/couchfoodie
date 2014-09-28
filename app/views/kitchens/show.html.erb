@@ -65,7 +65,7 @@
     <% else %>
       <ul class="photo_list clearfix">
         <% @processed_photos.each do |photo| %>
-            <% render :partial => "photos/processed_photo" %>
+            <% render :partial => "photos/processed_photo", :locals => { :photo => photo, :kitchen => @kitchen %>
         <% end %>
       </ul>
     <% end %>
