@@ -8,6 +8,7 @@ class PhotosController < ApplicationController
   end
 
   def create
+    p "photos#create now gets called"
     bench("photoscontroller#create build") { @photo = @kitchen.photos.build(photo_params) }
 
     if bench("photoscontroller#create save") { @photo.save }
