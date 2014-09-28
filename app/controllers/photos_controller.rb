@@ -8,9 +8,9 @@ class PhotosController < ApplicationController
   end
 
   def create
-    bench("photoscontroller#create") { @photo = @kitchen.photos.build(photo_params) }
+    bench("photoscontroller#create build") { @photo = @kitchen.photos.build(photo_params) }
 
-    if @photo.save
+    if bench("photoscontroller#create save") { @photo.save }
       redirect_to kitchen_path(@kitchen), :notice => 'Photo was successfully created.'
     else
       render :new
