@@ -64,7 +64,7 @@ class PhotosController < ApplicationController
 
     result = yield
 
-    t1 = TIme.now
+    t1 = Time.now
     puts("[#{t1}] After: #{label}")
     puts("Total: %0.2f seconds" % [t1 - t0])
 
