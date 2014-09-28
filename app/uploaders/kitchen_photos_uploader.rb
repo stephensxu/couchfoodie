@@ -41,9 +41,9 @@ class KitchenPhotosUploader < CarrierWave::Uploader::Base
     end
   end
 
-  def extension_white_list
-    %w(jpg jpeg gif png)
-  end
+  # def extension_white_list
+  #   %w(jpg jpeg gif png)
+  # end
   
   # version :gallery_fit do
   #   process :resize_to_fit => [600, 450]
