@@ -35,6 +35,9 @@ gem 'sinatra', '>=1.3.0', :require => nil
 
 gem 'redis'
 
+gem 'thin'
+
+
 group :development do
   # Spring speeds up development by keeping your application running in the
   # background. Read more: https://github.com/rails/spring
@@ -73,6 +76,5 @@ end
 
 # Gems we need on Heroku but not locally
 group :production do
-  gem 'thin'
   gem 'rails_12factor'
 end
