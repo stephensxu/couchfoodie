@@ -8,9 +8,10 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photo = @kitchen.photos.build(photo_params)
+    p "photos#create now gets called"
+    bench("photoscontroller#create build") { @photo = @kitchen.photos.build(photo_params) }
 
-    if @photo.save
+    if bench("photoscontroller#create save") { @photo.save }
       redirect_to kitchen_path(@kitchen), :notice => 'Photo was successfully created.'
     else
       render :new
@@ -56,5 +57,18 @@ class PhotosController < ApplicationController
 
   def photo_params
     params.require(:photo).permit(:picture)
+  end
+
+  def bench(label)
+    t0 = Time.now
+    puts("[#{t0}] Before: #{label}")
+
+    result = yield
+
+    t1 = Time.now
+    puts("[#{t1}] After: #{label}")
+    puts("Total: %0.2f seconds" % [t1 - t0])
+
+    result 
   end
 end
