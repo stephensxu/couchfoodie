@@ -30,9 +30,13 @@
     float: left;
     margin: 25px 0 0 0;
     padding: 0 0 0 100px;
-    width: 150px;
+    width: 180px;
     height: 50px;
     line-height: 50px;
+
+    .beta {
+      font-size: 12px;
+    }
   }
 
   nav > li {
@@ -115,6 +119,6 @@
 
 @media (max-width: 950px) {
   header {
-    width: 750px;
+    width: 780px;
   }
 }
