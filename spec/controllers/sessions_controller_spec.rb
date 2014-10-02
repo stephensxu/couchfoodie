@@ -1,65 +1,82 @@
 require 'rails_helper'
 
 RSpec.describe SessionsController, :type => :controller do
-  let(:email)     { "test@gmail.com" }
-  let(:password)  { "abcd12345" }
-  let(:nickname)  { "mynickname" }
-  let(:valid_credentials) { { :email => email, :password => password, :nickname => nickname } }
-
-  let!(:user) { FactoryGirl.create(:user, valid_credentials) }
+  before do
+    request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
+  end
 
   describe "POST create" do
-    context "with valid credentials" do
-      let(:credentials) { valid_credentials }
+    
+    context "when user is logging for the first time" do
 
-      it "calls login! with given user" do
-        expect(controller).to receive(:login!).with(user)
-        post :create, { :session => credentials }, {}
+      it "should successfully create a user" do
+        expect {
+          post :create, :provider => :facebook
+        }.to change { User.count }.by(1)
       end
 
-      it "redirect to users_path" do
-        post :create, { :session => credentials }
-        expect(response).to redirect_to(users_path)
+      it "calls login! with given @user" do
+        user_one = FactoryGirl.create(:user)
+        expect(controller).to receive(:login!).with(user_one)
+        post :create, {}, {}
+      end
+
+      it "should succesfully create a session" do
+        expect(session[:user_id]).to eq(nil)
+        post :create, :provider => :facebook
+        expect(session[:user_id]).not_to eq(nil)
+      end
+
+      it "redirect to kitchens_path" do
+        post :create, {}
+        expect(response).to redirect_to(kitchens_path)
       end
     end
 
-    context "with invalid email" do
-      let(:credentials) { { :email => "wrongemail@gmail.com", :password => "1234", :nickname => "dj" } }
+    context "when user information already exist in database" do
 
-      it "does not call login!" do
-        expect(controller).to_not receive(:login!)
-        post :create, { :session => credentials }, {}
+      it "does not create a new user" do
+        user_one = User.create_with_omniauth(request.env["omniauth.auth"])
+        user_one.save
+        expect {
+          post :create, :provider => :facebook
+        }.to change { User.count }.by(0)
       end
 
-      it "redirect back to root_url" do
-        post :create, { :session => credentials }, {}
-        expect(response).to redirect_to(root_url)
+      it "should succesfully create a session" do
+        expect(session[:user_id]).to eq(nil)
+        post :create, :provider => :facebook
+        expect(session[:user_id]).not_to eq(nil)
+      end
+
+      it "redirect to kitchens_path" do
+        post :create, {}
+        expect(response).to redirect_to(kitchens_path)
       end
     end
   end
 
   describe "GET destroy" do
+
     context "when user is logged in " do
+      before do
+        post :create, :provider => :facebook
+      end
+
       it "logs the user out" do
         expect(controller).to receive(:logout!)
-        get :destroy, {}, :user_id => user.id
+        get :destroy, {}, {}
       end
 
       it "redirect back to root_url" do
-        get :destroy, {}, :user_id => user.id
-        expect(response).to redirect_to(root_url)
-      end
-    end
-
-    context "when user is logged out" do
-      it "does not try to log the user out" do
-        expect(controller).to_not receive(:logout!)
-        get :destroy, {}, {}
-      end
-
-      it "redirects back to root_url" do
         get :destroy, {}, {}
         expect(response).to redirect_to(root_url)
+      end
+
+      it "clear the session" do
+        expect(session[:user_id]).not_to eq(nil)
+        get :destroy, {}, {}
+        expect(session[:user_id]).to eq(nil)
       end
     end
   end
