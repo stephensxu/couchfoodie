@@ -27,7 +27,7 @@
     </tr>
     <tr>
       <td class="kitchen-form-label">City</td> 
-      <td><%= f.text_field :city, :class => "input_box_normal" %></td>
+      <td><%= f.select :city, options_for_select(Kitchen::VALID_CITIES), :class => "selection_dropdown" %></td>
     </tr>
     <tr>
       <td class="kitchen-form-label">State</td> 

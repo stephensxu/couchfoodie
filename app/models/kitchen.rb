@@ -27,11 +27,28 @@
 
 class Kitchen < ActiveRecord::Base
 
-  VALID_STATES = %w(AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO
-                    MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV MI WY
-                    AS DC FM GU MH MP PW PR VI AE AA AP).sort
+  # VALID_STATES = %w(AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO
+  #                   MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV MI WY
+  #                   AS DC FM GU MH MP PW PR VI AE AA AP).sort
   # This list contains abbreviation for 50 States in US + 9 commonwealth/territory + 3 Military State
-   
+  
+  VALID_STATES = %w(CA)
+
+  VALID_CITIES = ["Alameda", "Albany", "American Canyon", "Antioch", "Belmont", "Belvedere", "Benicia", "Berkeley",
+  "Brentwood", "Brisbane", "Burlingame", "Calistoga", "Campbell", "Clayton", "Cloverdale", "Concord",
+  "Cotati", "Cupertino", "Daly City", "Dixon", "Dublin", "East Palo Alto", "El Cerrito", "Emeryville",
+  "Fairfield", "Foster City", "Fremont", "Gilroy", "Half Moon Bay", "Hayward", "Healdsburg", "Hercules",
+  "Lafayette", "Larkspur", "Livermore", "Los Altos", "Martinez", "Menlo Park", "Mill Valley", "Millbrae",
+  "Milpitas", "Monte Sereno", "Morgan Hill", "Mountain View", "Napa", "Newark", "Novato", "Oakland",
+  "Oakley", "Orinda", "Pacifica", "Palo Alto", "Petaluma", "Piedmont", "Pinole", "Pittsburg", "Pleasant Hill",
+  "Pleasanton", "Redwood City", "Richmond", "Rio Vista", "Rohnert Park", "San Bruno", "San Carlos",
+  "San Francisco", "San Jose", "San Leandro", "San Mateo", "San Pablo", "San Rafael", "San Ramon",
+  "Santa Clara", "Santa Rosa", "Saratoga", "Sausalito", "Sebastopol", "Sonoma", "South San Francisco",
+  "St. Helena", "Suisun City", "Sunnyvale", "Union City", "Vacaville", "Vallejo", "Walnut Creek",
+  "Atherton", "Colma", "Corte Madera", "Danville", "Fairfax", "Hillsborough", "Los Altos Hills",
+  "Los Gatos", "Moraga", "Portola Valley", "Ross", "San Anselmo", "Tiburon", "Windsor", "Woodside",
+  "Yountvill"].sort
+
   scope :for_user, lambda { |user| where(:user => user) }
   scope :active, lambda { where(:data_status => "active") }
   scope :with_photo, lambda { where.not(:front_page_photo => nil) }
@@ -41,7 +58,7 @@ class Kitchen < ActiveRecord::Base
   validates :menu, :presence => true, :length => { :in => (5..250)  }
   validates :description, :length => { :maximum => 250  }
   validates :street_address, :presence => true, :length => { :minimum => 6, :maximum => 50 }
-  validates :city, :presence => true, :length => { :in => (3..50) }
+  validates :city, :presence => true, :inclusion => { :in => VALID_CITIES }
   validates :state, :presence => true, :length => { :is => 2 },
             :inclusion => { :in => VALID_STATES }
   validates :zipcode, :presence => true, :length => { :minimum => 5 },

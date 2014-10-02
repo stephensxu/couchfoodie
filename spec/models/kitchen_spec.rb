@@ -63,7 +63,7 @@ RSpec.describe Kitchen, :type => :model do
     it { should ensure_length_of(:street_address).is_at_least(6).is_at_most(50) }
 
     it { should validate_presence_of(:city) }
-    it { should ensure_length_of(:city).is_at_least(3).is_at_most(50) }
+    it { should ensure_inclusion_of(:city).in_array(Kitchen::VALID_CITIES) }
 
     it { should validate_presence_of(:state) }
     it { should ensure_length_of(:state).is_equal_to(2) }
