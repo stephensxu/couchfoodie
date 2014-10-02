@@ -30,6 +30,8 @@ class Photo < ActiveRecord::Base
   validates :picture, :presence => true, 
             :file_size => { :maximum => 10.megabytes.to_i }
 
+  validates :kitchen, :presence => true
+
   scope :processed, lambda { where.not(:processed_at => nil) }
   scope :unprocessed, lambda { where(:processed_at => nil) }
 
