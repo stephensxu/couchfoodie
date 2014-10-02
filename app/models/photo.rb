@@ -39,11 +39,6 @@ class Photo < ActiveRecord::Base
     end
   end
 
-  def set_as_front_page_photo(kitchen)
-    self.kitchen_displaying_as_front_page = kitchen
-    self.kitchen.save
-  end
-
   def standard_picture
     self.picture.gallery_fill.url
   end
