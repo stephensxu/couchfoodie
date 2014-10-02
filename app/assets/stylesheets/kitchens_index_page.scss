@@ -140,3 +140,11 @@
   }
 }
 
+@media (max-width: 1136px) {
+  .kitchen_index_list {
+    list-style-type: none;
+    width: 740px;
+    margin: 0 auto;
+    padding: 0;
+  }
+}
