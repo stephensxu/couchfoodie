@@ -3,7 +3,7 @@
 # Table name: photos
 #
 #  id                 :integer          not null, primary key
-#  picture            :string(255)
+#  picture            :string(255)      not null
 #  created_at         :datetime
 #  updated_at         :datetime
 #  kitchen_id         :integer          not null
@@ -15,6 +15,7 @@
 #
 #  index_photos_on_kitchen_id  (kitchen_id)
 #
+
 
 
 require 'rails_helper'
