@@ -13,6 +13,11 @@
 }
 
 .photos_display_page {
+
+  .add_photo_button {
+    margin-top: 50px;
+    text-align: center;
+  }
   .photo_list {
     list-style-type: none;
     margin: 0 auto;
@@ -41,6 +46,25 @@
         .delete_button {
           float: right;
         }
+      }
+    }
+  }
+}
+
+@media (max-width: 1280px) {
+  .photos_display_page {
+    .photo_list {
+      list-style-type: none;
+      margin: 0 auto;
+      padding: 100px 0 400px 0;
+      width: 700px;
+
+      .single_photo {
+        margin: 0 15px;
+        float: none;
+        margin: 0 auto 60px auto;
+        width: 600px;
+        height: 500px;
       }
     }
   }
