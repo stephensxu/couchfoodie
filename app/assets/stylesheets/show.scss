@@ -159,6 +159,7 @@
   }
 }
 
+
 @media (max-width: 1900px) {
 
   .kitchen_show_page_body {
@@ -179,6 +180,29 @@
     .kitchen_info {
       width: 60%;
 
+    }
+  }
+}
+
+@media (max-width: 1280px) {
+  .kitchen_show_page_body {
+    .kitchen_photos {
+    padding: 0 0 400px 0;
+
+      .photo_list {
+        padding: 0;
+        margin: 0 auto;
+        width: 700px;
+        list-style: none;
+
+        li {
+          float: none;
+          padding: 15px 15px 0 15px;
+          margin: 0 auto;
+          width: 600px;
+          height: 450px;
+        }
+      }
     }
   }
 }
