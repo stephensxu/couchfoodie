@@ -142,7 +142,22 @@
   }
 }
 
+@media (max-width: 1136px) {
+  #home_page {
+    .welcome_message button {
+      font-size: 23px;
+    }
+    .message_for_host button {
+      font-size: 23px;
+    }
+    .message_for_guest button {
+      font-size: 23px;
+    }
+  }
+}
+
 @media (max-width: 1000px) {
+
   #home_page {
     width: 1000px;
   }

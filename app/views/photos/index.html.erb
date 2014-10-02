@@ -1,4 +1,7 @@
 <div class="photos_display_page">
+  <div class="add_photo_button clearfix">
+    <%= button_to("Add photo", new_kitchen_photo_path(@kitchen), :method => :get, :class => "button_normal")%>
+  </div>
   <ul class="photo_list clearfix">
     <% if @photos.empty? %>
       <h3>No photos. :(</h3>
