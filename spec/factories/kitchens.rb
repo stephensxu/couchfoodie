@@ -33,7 +33,7 @@ FactoryGirl.define do
     k.description "some description about my kitchen"
     k.menu "Chinese Food, Korean BBQ"
     k.street_address { Faker::Address.street_address }
-    k.city { Faker::Address.city }
+    k.city { Kitchen::VALID_CITIES.sample }
     k.state { Kitchen::VALID_STATES.sample }
     k.zipcode { Faker::Address.zip }
     k.user { FactoryGirl.create(:user) }
