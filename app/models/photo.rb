@@ -30,6 +30,8 @@ class Photo < ActiveRecord::Base
   validates :picture, :presence => true, 
             :file_size => { :maximum => 10.megabytes.to_i }
 
+  validates :kitchen, :presence => true
+
   scope :processed, lambda { where.not(:processed_at => nil) }
   scope :unprocessed, lambda { where(:processed_at => nil) }
 
@@ -37,11 +39,6 @@ class Photo < ActiveRecord::Base
     if kitchen.front_page_photo.blank? && self.processed_at?
       kitchen.update!(:front_page_photo => self)
     end
-  end
-
-  def set_as_front_page_photo(kitchen)
-    self.kitchen_displaying_as_front_page = kitchen
-    self.kitchen.save
   end
 
   def standard_picture
