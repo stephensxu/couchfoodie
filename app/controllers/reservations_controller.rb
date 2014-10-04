@@ -31,7 +31,6 @@ class ReservationsController < ApplicationController
     @reservation.user = current_user
 
     if @reservation.save
-      p ReservationMailer.notify_kitchen_owner_of_new_reservation(@kitchen.user)
       ReservationMailer.notify_kitchen_owner_of_new_reservation(@kitchen.user).deliver
       redirect_to reservations_all_users_path, notice: 'Reservation was successfully sent.'
     else
@@ -43,6 +42,7 @@ class ReservationsController < ApplicationController
   # PATCH/PUT /reservations/1.json
   def update
     if @reservation.update(reservation_params)
+      @reservation.send_update_email
       redirect_to reservations_pending_kitchen_path(@reservation.kitchen), notice: 'Reservation was succesfully updated'
     else
       render :edit
