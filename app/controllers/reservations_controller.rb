@@ -31,7 +31,8 @@ class ReservationsController < ApplicationController
     @reservation.user = current_user
 
     if @reservation.save
-      ReservationMailer.notify_kitchen_owner_of_new_reservation(@kitchen.user).deliver
+      @reservation.send_new_reservation_email(@kitchen)
+      # ReservationMailer.notify_kitchen_owner_of_new_reservation(@kitchen.user).deliver
       redirect_to reservations_all_users_path, notice: 'Reservation was successfully sent.'
     else
       render :new

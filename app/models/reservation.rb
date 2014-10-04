@@ -25,6 +25,8 @@ require 'date'
 
 class Reservation < ActiveRecord::Base
 
+  before_update :send_update_email
+
   VALID_GUEST_NUMBER = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
   scope :for_user, lambda { |user| where(:user => user) }
@@ -59,5 +61,15 @@ class Reservation < ActiveRecord::Base
 
   def in_future?
     self.reserve_date > Time.now.to_date
+  end
+
+  def send_new_reservation_email(kitchen)
+    ReservationMailer.notify_kitchen_owner_of_new_reservation(kitchen.user).deliver
+  end
+
+  def send_update_email!
+    if picture_processing_was == true && picture_processing == false
+      write_attribute(:processed_at, Time.zone.now)
+    end
   end
 end
