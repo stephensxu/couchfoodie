@@ -6,6 +6,8 @@ class SessionsController < ApplicationController
 
     if @user
       @user.sign_in
+      p UserMailer.welcome_email(current_user)
+      UserMailer.welcome_email(current_user).deliver
       login!(@user)
       redirect_to kitchens_path
     else
