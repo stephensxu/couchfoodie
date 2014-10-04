@@ -7,6 +7,6 @@ class ReservationMailer < ActionMailer::Base
     @my_kitchens_page = 'http://couchfoodie.io/users/kitchens'
     mail :subject => "Someone made a reservation to your kitchen on Couchfoodie",
          :to      => user.email,
-         :from    => "reservation@codeunion.io"
+         :from    => "reservation@couchfoodie.io"
   end
 end
