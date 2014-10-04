@@ -39,6 +39,8 @@ gem 'thin'
 
 gem 'newrelic_rpm'
 
+gem 'mandrill-api'
+
 
 group :development do
   # Spring speeds up development by keeping your application running in the
