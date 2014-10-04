@@ -7,6 +7,22 @@ class ReservationMailer < ActionMailer::Base
     @my_kitchens_page = 'http://couchfoodie.io/users/kitchens'
     mail :subject => "Someone made a reservation to your kitchen on Couchfoodie",
          :to      => user.email,
-         :from    => "reservation@couchfoodie.io"
+         :from    => "reservations@couchfoodie.io"
+  end
+
+  def notify_guest_reservation_approval(user)
+    @user = user
+    @home_page = 'http://couchfoodie.io'
+    mail :subject => "Your reservation is approved on Couchfoodie",
+         :to      => user.email,
+         :from    => "reservations@couchfoodie.io"
+  end
+
+  def notify_guest_reservation_denial(user)
+    @user = user
+    @home_page = 'http://couchfoodie.io'
+    mail :subject => "Your reservation is declined on Couchfoodie",
+         :to      => user.email,
+         :from    => "reservations@couchfoodie.io"
   end
 end
