@@ -25,7 +25,7 @@ require 'date'
 
 class Reservation < ActiveRecord::Base
 
-  before_update :send_update_email
+  before_update :send_status_update_email
 
   VALID_GUEST_NUMBER = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
@@ -67,9 +67,11 @@ class Reservation < ActiveRecord::Base
     ReservationMailer.notify_kitchen_owner_of_new_reservation(kitchen.user).deliver
   end
 
-  def send_update_email!
-    if picture_processing_was == true && picture_processing == false
-      write_attribute(:processed_at, Time.zone.now)
+  def send_status_update_email
+    if status_was == "pending" && status == "approved"
+      ReservationMailer.notify_guest_reservation_approval(self.user).deliver
+    elsif status_was == "pending" && status == "denied"
+      ReservationMailer.notify_guest_reservation_denial(self.user).deliver
     end
   end
 end
