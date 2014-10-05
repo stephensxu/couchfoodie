@@ -51,8 +51,12 @@ class Reservation < ActiveRecord::Base
   belongs_to :user
   belongs_to :kitchen
 
+  def editable?
+    self.status != "archive"
+  end
+
   def editable_by?(user)
-    user.present? && self.user == user
+    user.editable? && (self.user == user || self.kitchen.user == user)
   end
 
   def archive!
