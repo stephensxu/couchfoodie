@@ -21,6 +21,7 @@
 #  timezone        :integer
 #  sign_in_count   :integer          default(1), not null
 #  last_sign_in_at :datetime
+#  admin           :boolean          default(FALSE)
 #
 # Indexes
 #
