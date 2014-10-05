@@ -56,7 +56,7 @@ class Reservation < ActiveRecord::Base
   end
 
   def editable_by?(user)
-    user.editable? && (self.user == user || self.kitchen.user == user)
+    self.editable? && (self.user == user || self.kitchen.user == user)
   end
 
   def archive!
