@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
+  before_action :require_authorization!, only: [:edit, :update]
   before_action :require_login
 
 
@@ -48,11 +49,6 @@ class ReservationsController < ApplicationController
     end
   end
 
-  # DELETE /reservations/1
-  # DELETE /reservations/1.json
-  def destroy
-  end
-
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_reservation
@@ -61,6 +57,10 @@ class ReservationsController < ApplicationController
 
   def require_login
     redirect_to root_path unless logged_in?
+  end
+
+  def require_authorization!
+    redirect_to root_path unless @reservation.editable_by?(current_user)
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
