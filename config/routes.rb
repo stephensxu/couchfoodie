@@ -86,4 +86,8 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback',   :to => 'sessions#create'
   get '/auth/facebook',                                        :as => "facebook_login" 
 
+  controller :static_pages do
+    get '/:page_name', :action => 'show', :as => 'page'
+  end
+
 end
