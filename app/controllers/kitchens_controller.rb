@@ -10,7 +10,7 @@ class KitchensController < ApplicationController
   def index
     @kitchen = Kitchen.new
     @reservation = Reservation.new
-    @kitchens = Kitchen.published.order("created_at DESC")
+    @kitchens = Kitchen.published.order("created_at ASC")
     render :index
   end
 
