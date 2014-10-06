@@ -1,0 +1,28 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+#about_container {
+  margin: 50px 0 0 0;
+  height: 600px;
+  .avatar_image{
+    margin: 0;
+    text-align: center;
+    img {
+      width: 150px;
+      height: 150px;
+    }
+  }
+
+  .about_text {
+    width: 700px;
+    margin: 30px auto 0 auto;
+    padding: 0 20px;
+    p {
+      margin: 0 0 20px 0;
+      font-size: 20px;
+      line-height: 1.5em;
+    }
+  }
+}
