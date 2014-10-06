@@ -102,7 +102,7 @@ class Kitchen < ActiveRecord::Base
 
   def set_front_page_photo(photo)
     self.front_page_photo = photo
-    self.save
+    self.save!
   end
 
   def show_front_page_photo_thumbnail
