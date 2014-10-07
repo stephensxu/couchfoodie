@@ -56,7 +56,7 @@ class Kitchen < ActiveRecord::Base
 
   validates :name, :presence => true, :uniqueness => true, :length => { :minimum => 6 , :maximum => 50 }
   validates :menu, :presence => true, :length => { :in => (5..250)  }
-  validates :description, :length => { :maximum => 250  }
+  validates :description, :length => { :maximum => 350  }
   validates :street_address, :presence => true, :length => { :minimum => 6, :maximum => 50 }
   validates :city, :presence => true, :inclusion => { :in => VALID_CITIES }
   validates :state, :presence => true, :length => { :is => 2 },

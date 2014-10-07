@@ -57,7 +57,7 @@ RSpec.describe Kitchen, :type => :model do
     it { should validate_presence_of(:menu) }
     it { should ensure_length_of(:menu).is_at_least(5).is_at_most(250) }
 
-    it { should ensure_length_of(:description).is_at_most(250) }
+    it { should ensure_length_of(:description).is_at_most(350) }
 
     it { should validate_presence_of(:street_address) }
     it { should ensure_length_of(:street_address).is_at_least(6).is_at_most(50) }
