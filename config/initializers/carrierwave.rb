@@ -2,7 +2,6 @@ CarrierWave.configure do |config|
   config.storage    = :aws
   config.aws_bucket = ENV['AMAZON_S3_BUCKET_NAME']
   config.aws_acl    = :public_read
-  # config.asset_host = 'https://couchfoodie.s3.amazonaws.com'
   config.asset_host = ENV['AWS_ASSET_HOST_URL']
   config.aws_authenticated_url_expiration = 60 * 60 * 24 * 365
 
